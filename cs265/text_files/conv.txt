@@ -1,0 +1,539 @@
+True 30 30 1 1 1 1 0 1 1
+-------------Optimized model-------------------
+ OptimizedModule(
+  (_orig_mod): CNN(
+    (conv2d): Conv2d(1, 1, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+compile_fx compile_fx
+_dynamo.backends.common.py auto_autograd compiler_fn-------------
+
+New compile_fx_inner compile_fx------
+Compile_inner graph: <torch._inductor.graph.GraphLowering object at 0x2b9e2ea438e0>
+GraphLowering.run
+
+Graph.run_node:------------------------------
+n: primals_1
+Flop count: 0
+Case 4: super().run_node(n)
+
+Start placeholder in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+))
+primals_1
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: primals_2
+Flop count: 0
+Case 4: super().run_node(n)
+
+Start placeholder in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  InputBuffer(name='primals_2', layout=FixedLayout('cuda', torch.float32, size=[1], stride=[1]))
+))
+primals_2
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: primals_3
+Flop count: 0
+Case 4: super().run_node(n)
+
+Start placeholder in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[1, 30, 30], stride=[900, 30, 1]))
+))
+primals_3
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: unsqueeze
+Overloadpacket: aten.unsqueeze
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.unsqueeze.default,
+Args: (TensorBox(StorageBox(
+  InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[1, 30, 30], stride=[900, 30, 1]))
+)), 0),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[1, 30, 30], stride=[900, 30, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[1, 1, 30, 30], stride=[900, 900, 30, 1]),
+    origins=
+  )
+)
+Except block: unsqueeze
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: convolution
+Overloadpacket: aten.convolution
+No overload packets
+Flop count: 0
+Case 2: call function, n.target in layout_constraints
+
+Call_function in graph------------------
+Target: aten.convolution.default,
+Args: [TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[1, 30, 30], stride=[900, 30, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[1, 1, 30, 30], stride=[900, 900, 30, 1]),
+    origins=
+  )
+), TensorBox(StorageBox(
+  InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+)), TensorBox(StorageBox(
+  InputBuffer(name='primals_2', layout=FixedLayout('cuda', torch.float32, size=[1], stride=[1]))
+)), [1, 1], [0, 0], [1, 1], False, [0, 0], 1],
+Kwargs: {}...
+Before calling out
+
+
+Not realizing StorageBox with name: primals_3
+
+Not realizing StorageBox with name: primals_1
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, _, i2, i3 = index
+        tmp0 = ops.load(buf0, i3 + 30 * i2)
+        tmp1 = ops.load(primals_2, 0)
+        tmp2 = tmp0 + tmp1
+        return tmp2
+    ,
+    ranges=[1, 1, 30, 30],
+    origins={convolution}
+  )
+))
+Except block: convolution
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: squeeze
+Overloadpacket: aten.squeeze
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.squeeze.dim,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, _, i2, i3 = index
+        tmp0 = ops.load(buf0, i3 + 30 * i2)
+        tmp1 = ops.load(primals_2, 0)
+        tmp2 = tmp0 + tmp1
+        return tmp2
+    ,
+    ranges=[1, 1, 30, 30],
+    origins={convolution}
+  )
+)), 0),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(
+  View(
+    StorageBox(
+      Pointwise(
+        'cuda',
+        torch.float32,
+        def inner_fn(index):
+            _, _, i2, i3 = index
+            tmp0 = ops.load(buf0, i3 + 30 * i2)
+            tmp1 = ops.load(primals_2, 0)
+            tmp2 = tmp0 + tmp1
+            return tmp2
+        ,
+        ranges=[1, 1, 30, 30],
+        origins={convolution}
+      )
+    ),
+    size=(1, 30, 30),
+    reindex=lambda i0, i1, i2: [0, 0, i1, i2],
+    origins={squeeze, convolution}
+  )
+)
+Except block: squeeze
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: _unsafe_view
+Overloadpacket: aten._unsafe_view
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten._unsafe_view.default,
+Args: (TensorBox(
+  View(
+    StorageBox(
+      Pointwise(
+        'cuda',
+        torch.float32,
+        def inner_fn(index):
+            _, _, i2, i3 = index
+            tmp0 = ops.load(buf0, i3 + 30 * i2)
+            tmp1 = ops.load(primals_2, 0)
+            tmp2 = tmp0 + tmp1
+            return tmp2
+        ,
+        ranges=[1, 1, 30, 30],
+        origins={convolution}
+      )
+    ),
+    size=(1, 30, 30),
+    reindex=lambda i0, i1, i2: [0, 0, i1, i2],
+    origins={squeeze, convolution}
+  )
+), [1, 30, 30]),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Ir.ExternKernel.copy_input pre-realize----------------------
+
+Realized StorageBox:
+{'data': ComputedBuffer(name='buf1', layout=FlexibleLayout('cuda', torch.float32, size=(1, 30, 30), stride=[900, 30, 1]), data=Pointwise(
+  'cuda',
+  torch.float32,
+  def inner_fn(index):
+      _, i1, i2 = index
+      tmp0 = ops.load(buf0, i2 + 30 * i1)
+      tmp1 = ops.load(primals_2, 0)
+      tmp2 = tmp0 + tmp1
+      return tmp2
+  ,
+  ranges=(1, 30, 30),
+  origins={_unsafe_view}
+)), 'origins': {_unsafe_view}}
+
+Result after run_node: TensorBox(StorageBox(
+  ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=(1, 30, 30), stride=[900, 30, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1, i2 = index
+        tmp0 = ops.load(buf0, i2 + 30 * i1)
+        tmp1 = ops.load(primals_2, 0)
+        tmp2 = tmp0 + tmp1
+        return tmp2
+    ,
+    ranges=(1, 30, 30),
+    origins={_unsafe_view}
+  ))
+))
+buf1
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: output
+Flop count: 0
+Case 4: super().run_node(n)
+
+Graph.lowering Output Pre-Realize-------------------------
+
+Node 0: TensorBox(StorageBox(
+  ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=(1, 30, 30), stride=[900, 30, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1, i2 = index
+        tmp0 = ops.load(buf0, i2 + 30 * i1)
+        tmp1 = ops.load(primals_2, 0)
+        tmp2 = tmp0 + tmp1
+        return tmp2
+    ,
+    ranges=(1, 30, 30),
+    origins={_unsafe_view}
+  ))
+))
+Node 1: TensorBox(StorageBox(
+  InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+))
+Node 2: TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[1, 30, 30], stride=[900, 30, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[1, 1, 30, 30], stride=[900, 900, 30, 1]),
+    origins=
+  )
+)
+
+IR realize_input StorageBox x: StorageBox(
+  ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=(1, 30, 30), stride=[900, 30, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1, i2 = index
+        tmp0 = ops.load(buf0, i2 + 30 * i1)
+        tmp1 = ops.load(primals_2, 0)
+        tmp2 = tmp0 + tmp1
+        return tmp2
+    ,
+    ranges=(1, 30, 30),
+    origins={_unsafe_view}
+  ))
+)
+
+Not realizing StorageBox with name: buf1
+
+IR realize_input StorageBox x: StorageBox(
+  InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+)
+
+Not realizing StorageBox with name: primals_1
+
+Graph.lowering Input Pre-Realize-------------------------
+
+
+Not realizing StorageBox with name: primals_1
+
+Graph.lowering Input Post-Realize-------------------------
+
+
+Graph.lowering Input Pre-Realize-------------------------
+
+
+Not realizing StorageBox with name: primals_2
+
+Graph.lowering Input Post-Realize-------------------------
+
+
+Graph.lowering Input Pre-Realize-------------------------
+
+
+Not realizing StorageBox with name: primals_3
+
+Graph.lowering Input Post-Realize-------------------------
+
+
+
+Realized Graph.lowering Output-------------------------
+
+Node 0: StorageBox(
+  ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=(1, 30, 30), stride=[900, 30, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1, i2 = index
+        tmp0 = ops.load(buf0, i2 + 30 * i1)
+        tmp1 = ops.load(primals_2, 0)
+        tmp2 = tmp0 + tmp1
+        return tmp2
+    ,
+    ranges=(1, 30, 30),
+    origins={_unsafe_view}
+  ))
+)
+Node 1: StorageBox(
+  InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))
+)
+Node 2: ReinterpretView(
+  StorageBox(
+    InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[1, 30, 30], stride=[900, 30, 1]))
+  ),
+  FixedLayout('cuda', torch.float32, size=[1, 1, 30, 30], stride=[900, 900, 30, 1]),
+  origins=
+)
+
+Finished Graph.lowering Output-------------------------
+
+
+Result after run_node: None
+Finished graph.run_node:------------------------------
+
+Init Scheduler-----------------------
+ir.LoopBodyBlock.__init__---------------------------
+self.graph: graph():
+    %ops : [#users=4] = placeholder[target=ops]
+    %get_index : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %load : [#users=1] = call_method[target=load](args = (%ops, buf0, %get_index), kwargs = {})
+    %get_index_1 : [#users=1] = call_module[target=get_index](args = (index1,), kwargs = {})
+    %load_1 : [#users=1] = call_method[target=load](args = (%ops, primals_2, %get_index_1), kwargs = {})
+    %add : [#users=1] = call_method[target=add](args = (%ops, %load, %load_1), kwargs = {})
+    %get_index_2 : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %store : [#users=1] = call_method[target=store](args = (%ops, buf1, %get_index_2, %add, None), kwargs = {})
+    return store
+ir.LoopBodyBlock.__init__---------------------------
+ir.LoopBodyBlock.__call__---------------------------
+self.graph: graph():
+    %ops : [#users=4] = placeholder[target=ops]
+    %get_index : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %load : [#users=1] = call_method[target=load](args = (%ops, buf0, %get_index), kwargs = {})
+    %get_index_1 : [#users=1] = call_module[target=get_index](args = (index1,), kwargs = {})
+    %load_1 : [#users=1] = call_method[target=load](args = (%ops, primals_2, %get_index_1), kwargs = {})
+    %add : [#users=1] = call_method[target=add](args = (%ops, %load, %load_1), kwargs = {})
+    %get_index_2 : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %store : [#users=1] = call_method[target=store](args = (%ops, buf1, %get_index_2, %add, None), kwargs = {})
+    return store
+ir.LoopBodyBlock.__call__---------------------------
+
+New nodes after processing-----------------------
+
+Node------
+<class 'torch._inductor.scheduler.ExternKernelSchedulerNode'>
+{'scheduler': <torch._inductor.scheduler.Scheduler object at 0x2b9e2eb8f340>, 'node': ExternKernelAlloc(name='buf0', layout=FixedLayout('cuda', torch.float32, size=[1, 1, 30, 30], stride=[900, 900, 30, 1]), inputs=[ReinterpretView(
+  StorageBox(
+    InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[1, 30, 30], stride=[900, 30, 1]))
+  ),
+  FixedLayout('cuda', torch.float32, size=[1, 1, 30, 30], stride=[900, 900, 30, 1]),
+  origins=
+), InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[1, 1, 1, 1], stride=[1, 1, 1, 1]))], constant_args=(), kwargs={'stride': (1, 1), 'padding': (0, 0), 'dilation': (1, 1), 'transposed': False, 'output_padding': (0, 0), 'groups': 1, 'bias': None}, output_view=None), 'users': [NodeUser(node=SchedulerNode(name='buf1'), can_inplace=True)], 'inverse_users': [], 'read_writes': ReadWrites(reads={StarDep(name='primals_1'), StarDep(name='primals_3')}, writes={StarDep(name='buf0')}, index_exprs=set(), range_vars=[], var_ranges=None), 'unmet_dependencies': set(), 'recursive_predecessors': set(), 'min_order': 0, 'max_order': 0, 'last_usage': set(), 'written': False, 'origins': {convolution}, 'flops': 0}
+Origins: {convolution}
+
+Node------
+<class 'torch._inductor.scheduler.SchedulerNode'>
+{'scheduler': <torch._inductor.scheduler.Scheduler object at 0x2b9e2eb8f340>, 'node': ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=(1, 30, 30), stride=[900, 30, 1]), data=Pointwise(
+  'cuda',
+  torch.float32,
+  def inner_fn(index):
+      _, i1, i2 = index
+      tmp0 = ops.load(buf0, i2 + 30 * i1)
+      tmp1 = ops.load(primals_2, 0)
+      tmp2 = tmp0 + tmp1
+      return tmp2
+  ,
+  ranges=(1, 30, 30),
+  origins={_unsafe_view}
+)), 'users': [NodeUser(node=OUTPUT, can_inplace=False)], 'inverse_users': [ExternKernelSchedulerNode(name='buf0')], 'read_writes': ReadWrites(reads={MemoryDep(name='buf0', index=c0, size=(900,)), MemoryDep(name='primals_2', index=0, size=(900,))}, writes={MemoryDep(name='buf1', index=c0, size=(900,))}, index_exprs=set(), range_vars=[], var_ranges=OrderedDict([(d0, 900)])), 'unmet_dependencies': {MemoryDep(name='buf0', index=c0, size=(900,))}, 'recursive_predecessors': {'buf0'}, 'min_order': 1, 'max_order': 1, 'last_usage': {'primals_2', 'buf0'}, 'written': False, 'origins': {_unsafe_view}, 'flops': 0, '_sizes': ([900], []), '_body': <torch._inductor.ir.LoopBody object at 0x2b9e2eb8fdc0>, 'group': (device(type='cuda', index=0), (900, 1))}
+Origins: {_unsafe_view}
+
+Finished scheduler init-----------------------
+
+Scheduler.codegen--------------------------------------------
+
+scheduler.codegen_extern_call, node type: <class 'torch._inductor.ir.ExternKernelAlloc'>-------------------------
+ir.codegen_reference: primals_1
+
+Finished scheduler.codegen_extern_call-------------------------------
+ir.LoopBodyBlock.__call__---------------------------
+codegen.triton.call_kernel---------------
+
+Finished Scheduler.codegen--------------------------------------------
+
+ir.codegen_reference: buf1
+ir.codegen_reference: primals_1
+
+graph.compile_to_module----------------------------
+Code:
+
+from ctypes import c_void_p, c_long
+import torch
+import math
+import random
+import os
+import tempfile
+from torch._inductor.utils import maybe_profile
+
+from torch import empty_strided, as_strided, device
+from torch._inductor.codecache import AsyncCompile
+from torch._inductor.select_algorithm import extern_kernels
+
+aten = torch.ops.aten
+assert_size_stride = torch._C._dynamo.guards.assert_size_stride
+async_compile = AsyncCompile()
+
+import triton
+import triton.language as tl
+from torch._inductor.triton_heuristics import grid, start_graph, end_graph
+from torch._C import _cuda_getCurrentRawStream as get_cuda_stream
+
+
+# kernel path: /tmp/torchinductor_azhao/sj/csj5feagyga25dhvnclqadvmsmcsqr4u3rnxz2ql7uu4ca3tsfe3.py
+# Original ATen: 
+
+triton_poi_fused_0 = async_compile.triton('''
+import triton
+import triton.language as tl
+from torch._inductor.ir import ReductionHint
+from torch._inductor.ir import TileHint
+from torch._inductor.triton_heuristics import pointwise
+from torch._inductor.utils import instance_descriptor
+
+@pointwise(size_hints=[1024], filename=__file__, meta={'signature': {0: '*fp32', 1: '*fp32', 2: 'i32'}, 'device': 0, 'constants': {}, 'mutated_arg_names': ['in_out_ptr0'], 'configs': [instance_descriptor(divisible_by_16=(0, 1), equal_to_1=())]})
+@triton.jit
+def triton_(in_out_ptr0, in_ptr0, xnumel, XBLOCK : tl.constexpr):
+    xnumel = 900
+    xoffset = tl.program_id(0) * XBLOCK
+    xindex = xoffset + tl.arange(0, XBLOCK)[:]
+    xmask = xindex < xnumel
+    x0 = xindex
+    tmp0 = tl.load(in_out_ptr0 + (x0), xmask)
+    tmp1 = tl.load(in_ptr0 + (0))
+    tmp2 = tl.broadcast_to(tmp1, [XBLOCK])
+    tmp3 = tmp0 + tmp2
+    tl.store(in_out_ptr0 + (x0 + tl.zeros([XBLOCK], tl.int32)), tmp3, xmask)
+''')
+
+
+async_compile.wait(globals())
+del async_compile
+
+def call(args):
+    primals_1, primals_2, primals_3 = args
+    args.clear()
+    start_graph()
+    with torch.cuda._DeviceGuard(0):
+        torch.cuda.set_device(0) # no-op to ensure context
+        buf0 = extern_kernels.convolution(as_strided(primals_3, (1, 1, 30, 30), (900, 900, 30, 1)), primals_1, stride=(1, 1), padding=(0, 0), dilation=(1, 1), transposed=False, output_padding=(0, 0), groups=1, bias=None)
+        assert_size_stride(buf0, (1, 1, 30, 30), (900, 900, 30, 1))
+        buf1 = as_strided(buf0, (1, 30, 30), (900, 30, 1)); del buf0  # reuse
+        stream0 = get_cuda_stream(0)
+        triton_poi_fused_0.run(buf1, primals_2, 900, grid=grid(900), stream=stream0)
+        del primals_2
+        end_graph()
+        return (buf1, primals_1, as_strided(primals_3, (1, 1, 30, 30), (900, 900, 30, 1)), )
+
+
+def benchmark_compiled_module(times=10, repeat=10):
+    from torch._dynamo.testing import rand_strided
+    from torch._inductor.utils import print_performance
+    primals_1 = rand_strided((1, 1, 1, 1), (1, 1, 1, 1), device='cuda:0', dtype=torch.float32)
+    primals_2 = rand_strided((1, ), (1, ), device='cuda:0', dtype=torch.float32)
+    primals_3 = rand_strided((1, 30, 30), (900, 30, 1), device='cuda:0', dtype=torch.float32)
+    return print_performance(lambda: call([primals_1, primals_2, primals_3]), times=times, repeat=repeat)
+
+
+if __name__ == "__main__":
+    from torch._inductor.utils import compiled_module_main
+    compiled_module_main('None', benchmark_compiled_module)
+
+graph.compile_to_module
+
+compile_fx_inner.result:
+<function align_inputs.<locals>.run at 0x2b9e2eb93ee0>
+
+compile_fx.fw_compiler_base--------------------------
+0.005119999870657921 1800
+0.004ms    	0.000 GB 	    1.76GB/s 	 triton_poi_fused_0
+SUMMARY (/tmp/torchinductor_azhao/xh/cxhvhthuvrvxn22yj3dfi3g6xtmxh2e5rhushxancq3hludmin2u.py)
+0.00ms   	 0.00 GB	 1.76GB/s
+
+Runtime: 0.0041
