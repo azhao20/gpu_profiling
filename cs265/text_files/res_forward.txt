@@ -1,0 +1,1150 @@
+Generating FX graph
+
+Optimized model OptimizedModule(
+  (_orig_mod): NeuralNetwork(
+    (flatten): Flatten(start_dim=1, end_dim=-1)
+    (linear_relu_stack): Sequential(
+      (0): Linear(in_features=784, out_features=512, bias=True)
+      (1): ReLU()
+      (2): ReLU()
+      (3): Linear(in_features=512, out_features=10, bias=True)
+    )
+  )
+)
+Compiling optimized model
+
+Graph graph():
+    %arg0 : [#users=1] = placeholder[target=arg0]
+    %l__self___flatten : [#users=1] = call_module[target=L__self___flatten](args = (%arg0,), kwargs = {})
+    %l__self___linear_relu_stack_0 : [#users=1] = call_module[target=L__self___linear_relu_stack_0](args = (%l__self___flatten,), kwargs = {})
+    %l__self___linear_relu_stack_1 : [#users=1] = call_module[target=L__self___linear_relu_stack_1](args = (%l__self___linear_relu_stack_0,), kwargs = {})
+    %l__self___linear_relu_stack_2 : [#users=1] = call_module[target=L__self___linear_relu_stack_2](args = (%l__self___linear_relu_stack_1,), kwargs = {})
+    %l__self___linear_relu_stack_3 : [#users=1] = call_module[target=L__self___linear_relu_stack_3](args = (%l__self___linear_relu_stack_2,), kwargs = {})
+    return [l__self___linear_relu_stack_3]
+
+
+
+Testing------------------
+
+
+
+compile_fx compile_fx
+_dynamo.backends.common.py auto_autograd compiler_fn-------------
+
+New compile_fx_inner compile_fx------
+Compile_inner graph: <torch._inductor.graph.GraphLowering object at 0x2b2ea8c5e250>
+GraphLowering.run
+
+Graph.run_node:------------------------------
+n: primals_1
+Flop count: 0
+Case 4: super().run_node(n)
+
+Start placeholder in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[512, 784], stride=[784, 1]))
+))
+primals_1
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: primals_2
+Flop count: 0
+Case 4: super().run_node(n)
+
+Start placeholder in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  InputBuffer(name='primals_2', layout=FixedLayout('cuda', torch.float32, size=[512], stride=[1]))
+))
+primals_2
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: primals_3
+Flop count: 0
+Case 4: super().run_node(n)
+
+Start placeholder in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+))
+primals_3
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: primals_4
+Flop count: 0
+Case 4: super().run_node(n)
+
+Start placeholder in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  InputBuffer(name='primals_4', layout=FixedLayout('cuda', torch.float32, size=[10], stride=[1]))
+))
+primals_4
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: primals_5
+Flop count: 0
+Case 4: super().run_node(n)
+
+Start placeholder in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  InputBuffer(name='primals_5', layout=FixedLayout('cuda', torch.float32, size=[1, 28, 28], stride=[784, 28, 1]))
+))
+primals_5
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: view
+Overloadpacket: aten.view
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.view.default,
+Args: (TensorBox(StorageBox(
+  InputBuffer(name='primals_5', layout=FixedLayout('cuda', torch.float32, size=[1, 28, 28], stride=[784, 28, 1]))
+)), [1, 784]),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_5', layout=FixedLayout('cuda', torch.float32, size=[1, 28, 28], stride=[784, 28, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[1, 784], stride=[784, 1]),
+    origins=
+  )
+)
+Except block: view
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: permute
+Overloadpacket: aten.permute
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.permute.default,
+Args: (TensorBox(StorageBox(
+  InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[512, 784], stride=[784, 1]))
+)), [1, 0]),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[512, 784], stride=[784, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[784, 512], stride=[1, 784]),
+    origins=
+  )
+)
+Except block: permute
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: addmm
+Overloadpacket: aten.addmm
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.addmm.default,
+Args: (TensorBox(StorageBox(
+  InputBuffer(name='primals_2', layout=FixedLayout('cuda', torch.float32, size=[512], stride=[1]))
+)), TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_5', layout=FixedLayout('cuda', torch.float32, size=[1, 28, 28], stride=[784, 28, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[1, 784], stride=[784, 1]),
+    origins=
+  )
+), TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[512, 784], stride=[784, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[784, 512], stride=[1, 784]),
+    origins=
+  )
+)),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  ExternKernelOut(
+    name=buf0,
+    layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]),
+    inputs=[InputBuffer(name='primals_2', layout=FixedLayout('cuda', torch.float32, size=[512], stride=[1])), ReinterpretView(
+      StorageBox(
+        InputBuffer(name='primals_5', layout=FixedLayout('cuda', torch.float32, size=[1, 28, 28], stride=[784, 28, 1]))
+      ),
+      FixedLayout('cuda', torch.float32, size=[1, 784], stride=[784, 1]),
+      origins=
+    ), ReinterpretView(
+      StorageBox(
+        InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[512, 784], stride=[784, 1]))
+      ),
+      FixedLayout('cuda', torch.float32, size=[784, 512], stride=[1, 784]),
+      origins=
+    )],
+    constant_args=(),
+    kwargs={'alpha': 1, 'beta': 1},
+    output_view=None,
+    origins={addmm}
+  )
+))
+buf0
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: relu
+Overloadpacket: aten.relu
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.relu.default,
+Args: (TensorBox(StorageBox(
+  ExternKernelOut(
+    name=buf0,
+    layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]),
+    inputs=[InputBuffer(name='primals_2', layout=FixedLayout('cuda', torch.float32, size=[512], stride=[1])), ReinterpretView(
+      StorageBox(
+        InputBuffer(name='primals_5', layout=FixedLayout('cuda', torch.float32, size=[1, 28, 28], stride=[784, 28, 1]))
+      ),
+      FixedLayout('cuda', torch.float32, size=[1, 784], stride=[784, 1]),
+      origins=
+    ), ReinterpretView(
+      StorageBox(
+        InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[512, 784], stride=[784, 1]))
+      ),
+      FixedLayout('cuda', torch.float32, size=[784, 512], stride=[1, 784]),
+      origins=
+    )],
+    constant_args=(),
+    kwargs={'alpha': 1, 'beta': 1},
+    output_view=None,
+    origins={addmm}
+  )
+)),),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        return tmp1
+    ,
+    ranges=[1, 512],
+    origins={relu}
+  )
+))
+Except block: relu
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: relu_1
+Overloadpacket: aten.relu
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.relu.default,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        return tmp1
+    ,
+    ranges=[1, 512],
+    origins={relu}
+  )
+)),),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Ir.ExternKernel.copy_input pre-realize----------------------
+
+Realized StorageBox:
+{'data': ComputedBuffer(name='buf1', layout=FlexibleLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+  'cuda',
+  torch.float32,
+  def inner_fn(index):
+      _, i1 = index
+      tmp0 = ops.load(buf0, i1)
+      tmp1 = ops.relu(tmp0)
+      tmp2 = ops.relu(tmp1)
+      return tmp2
+  ,
+  ranges=[1, 512],
+  origins={relu_1, relu}
+)), 'origins': {relu_1, relu}}
+
+Result after run_node: TensorBox(StorageBox(
+  ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        tmp2 = ops.relu(tmp1)
+        return tmp2
+    ,
+    ranges=[1, 512],
+    origins={relu_1, relu}
+  ))
+))
+buf1
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: permute_1
+Overloadpacket: aten.permute
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.permute.default,
+Args: (TensorBox(StorageBox(
+  InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+)), [1, 0]),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[512, 10], stride=[1, 512]),
+    origins=
+  )
+)
+Except block: permute_1
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: addmm_1
+Overloadpacket: aten.addmm
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.addmm.default,
+Args: (TensorBox(StorageBox(
+  InputBuffer(name='primals_4', layout=FixedLayout('cuda', torch.float32, size=[10], stride=[1]))
+)), TensorBox(StorageBox(
+  ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        tmp2 = ops.relu(tmp1)
+        return tmp2
+    ,
+    ranges=[1, 512],
+    origins={relu_1, relu}
+  ))
+)), TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[512, 10], stride=[1, 512]),
+    origins=
+  )
+)),
+Kwargs: {}...
+Before calling out
+
+
+IR realize_input StorageBox x: StorageBox(
+  ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        tmp2 = ops.relu(tmp1)
+        return tmp2
+    ,
+    ranges=[1, 512],
+    origins={relu_1, relu}
+  ))
+)
+
+Not realizing StorageBox with name: buf1
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  ExternKernelOut(
+    name=buf2,
+    layout=FixedLayout('cuda', torch.float32, size=[1, 10], stride=[10, 1]),
+    inputs=[InputBuffer(name='primals_4', layout=FixedLayout('cuda', torch.float32, size=[10], stride=[1])), ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+      'cuda',
+      torch.float32,
+      def inner_fn(index):
+          _, i1 = index
+          tmp0 = ops.load(buf0, i1)
+          tmp1 = ops.relu(tmp0)
+          tmp2 = ops.relu(tmp1)
+          return tmp2
+      ,
+      ranges=[1, 512],
+      origins={relu_1, relu}
+    )), ReinterpretView(
+      StorageBox(
+        InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+      ),
+      FixedLayout('cuda', torch.float32, size=[512, 10], stride=[1, 512]),
+      origins=
+    )],
+    constant_args=(),
+    kwargs={'alpha': 1, 'beta': 1},
+    output_view=None,
+    origins={addmm_1}
+  )
+))
+buf2
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: permute_2
+Overloadpacket: aten.permute
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.permute.default,
+Args: (TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[512, 10], stride=[1, 512]),
+    origins=
+  )
+), [1, 0]),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]),
+    origins=
+  )
+)
+Except block: permute_2
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: le_1
+Overloadpacket: aten.le
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.le.Scalar,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        return tmp1
+    ,
+    ranges=[1, 512],
+    origins={relu}
+  )
+)), 0),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Ir.ExternKernel.copy_input pre-realize----------------------
+
+Realized StorageBox:
+{'data': ComputedBuffer(name='buf3', layout=FlexibleLayout('cuda', torch.bool, size=[1, 512], stride=[512, 1]), data=Pointwise(
+  'cuda',
+  torch.bool,
+  def inner_fn(index):
+      _, i1 = index
+      tmp0 = ops.load(buf0, i1)
+      tmp1 = ops.relu(tmp0)
+      tmp2 = ops.constant(0, torch.float32)
+      tmp3 = tmp1 <= tmp2
+      return tmp3
+  ,
+  ranges=[1, 512],
+  origins={relu, le_1}
+)), 'origins': {relu, le_1}}
+
+Result after run_node: TensorBox(StorageBox(
+  ComputedBuffer(name='buf3', layout=FixedLayout('cuda', torch.bool, size=[1, 512], stride=[512, 1]), data=Pointwise(
+    'cuda',
+    torch.bool,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        tmp2 = ops.constant(0, torch.float32)
+        tmp3 = tmp1 <= tmp2
+        return tmp3
+    ,
+    ranges=[1, 512],
+    origins={relu, le_1}
+  ))
+))
+buf3
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: output
+Flop count: 0
+Case 4: super().run_node(n)
+
+Graph.lowering Output Pre-Realize-------------------------
+
+Node 0: TensorBox(StorageBox(
+  ExternKernelOut(
+    name=buf2,
+    layout=FixedLayout('cuda', torch.float32, size=[1, 10], stride=[10, 1]),
+    inputs=[InputBuffer(name='primals_4', layout=FixedLayout('cuda', torch.float32, size=[10], stride=[1])), ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+      'cuda',
+      torch.float32,
+      def inner_fn(index):
+          _, i1 = index
+          tmp0 = ops.load(buf0, i1)
+          tmp1 = ops.relu(tmp0)
+          tmp2 = ops.relu(tmp1)
+          return tmp2
+      ,
+      ranges=[1, 512],
+      origins={relu_1, relu}
+    )), ReinterpretView(
+      StorageBox(
+        InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+      ),
+      FixedLayout('cuda', torch.float32, size=[512, 10], stride=[1, 512]),
+      origins=
+    )],
+    constant_args=(),
+    kwargs={'alpha': 1, 'beta': 1},
+    output_view=None,
+    origins={addmm_1}
+  )
+))
+Node 1: TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_5', layout=FixedLayout('cuda', torch.float32, size=[1, 28, 28], stride=[784, 28, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[1, 784], stride=[784, 1]),
+    origins=
+  )
+)
+Node 2: TensorBox(StorageBox(
+  ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        tmp2 = ops.relu(tmp1)
+        return tmp2
+    ,
+    ranges=[1, 512],
+    origins={relu_1, relu}
+  ))
+))
+Node 3: TensorBox(
+  ReinterpretView(
+    StorageBox(
+      InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+    ),
+    FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]),
+    origins=
+  )
+)
+Node 4: TensorBox(StorageBox(
+  ComputedBuffer(name='buf3', layout=FixedLayout('cuda', torch.bool, size=[1, 512], stride=[512, 1]), data=Pointwise(
+    'cuda',
+    torch.bool,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        tmp2 = ops.constant(0, torch.float32)
+        tmp3 = tmp1 <= tmp2
+        return tmp3
+    ,
+    ranges=[1, 512],
+    origins={relu, le_1}
+  ))
+))
+
+IR realize_input StorageBox x: StorageBox(
+  ExternKernelOut(
+    name=buf2,
+    layout=FixedLayout('cuda', torch.float32, size=[1, 10], stride=[10, 1]),
+    inputs=[InputBuffer(name='primals_4', layout=FixedLayout('cuda', torch.float32, size=[10], stride=[1])), ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+      'cuda',
+      torch.float32,
+      def inner_fn(index):
+          _, i1 = index
+          tmp0 = ops.load(buf0, i1)
+          tmp1 = ops.relu(tmp0)
+          tmp2 = ops.relu(tmp1)
+          return tmp2
+      ,
+      ranges=[1, 512],
+      origins={relu_1, relu}
+    )), ReinterpretView(
+      StorageBox(
+        InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+      ),
+      FixedLayout('cuda', torch.float32, size=[512, 10], stride=[1, 512]),
+      origins=
+    )],
+    constant_args=(),
+    kwargs={'alpha': 1, 'beta': 1},
+    output_view=None,
+    origins={addmm_1}
+  )
+)
+
+Not realizing StorageBox with name: buf2
+
+IR realize_input StorageBox x: StorageBox(
+  ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        tmp2 = ops.relu(tmp1)
+        return tmp2
+    ,
+    ranges=[1, 512],
+    origins={relu_1, relu}
+  ))
+)
+
+Not realizing StorageBox with name: buf1
+
+IR realize_input StorageBox x: StorageBox(
+  ComputedBuffer(name='buf3', layout=FixedLayout('cuda', torch.bool, size=[1, 512], stride=[512, 1]), data=Pointwise(
+    'cuda',
+    torch.bool,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        tmp2 = ops.constant(0, torch.float32)
+        tmp3 = tmp1 <= tmp2
+        return tmp3
+    ,
+    ranges=[1, 512],
+    origins={relu, le_1}
+  ))
+)
+
+Not realizing StorageBox with name: buf3
+
+Graph.lowering Input Pre-Realize-------------------------
+
+
+Not realizing StorageBox with name: primals_1
+
+Graph.lowering Input Post-Realize-------------------------
+
+
+Graph.lowering Input Pre-Realize-------------------------
+
+
+Not realizing StorageBox with name: primals_2
+
+Graph.lowering Input Post-Realize-------------------------
+
+
+Graph.lowering Input Pre-Realize-------------------------
+
+
+Not realizing StorageBox with name: primals_3
+
+Graph.lowering Input Post-Realize-------------------------
+
+
+Graph.lowering Input Pre-Realize-------------------------
+
+
+Not realizing StorageBox with name: primals_4
+
+Graph.lowering Input Post-Realize-------------------------
+
+
+Graph.lowering Input Pre-Realize-------------------------
+
+
+Not realizing StorageBox with name: primals_5
+
+Graph.lowering Input Post-Realize-------------------------
+
+
+
+Realized Graph.lowering Output-------------------------
+
+Node 0: StorageBox(
+  ExternKernelOut(
+    name=buf2,
+    layout=FixedLayout('cuda', torch.float32, size=[1, 10], stride=[10, 1]),
+    inputs=[InputBuffer(name='primals_4', layout=FixedLayout('cuda', torch.float32, size=[10], stride=[1])), ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+      'cuda',
+      torch.float32,
+      def inner_fn(index):
+          _, i1 = index
+          tmp0 = ops.load(buf0, i1)
+          tmp1 = ops.relu(tmp0)
+          tmp2 = ops.relu(tmp1)
+          return tmp2
+      ,
+      ranges=[1, 512],
+      origins={relu_1, relu}
+    )), ReinterpretView(
+      StorageBox(
+        InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+      ),
+      FixedLayout('cuda', torch.float32, size=[512, 10], stride=[1, 512]),
+      origins=
+    )],
+    constant_args=(),
+    kwargs={'alpha': 1, 'beta': 1},
+    output_view=None,
+    origins={addmm_1}
+  )
+)
+Node 1: ReinterpretView(
+  StorageBox(
+    InputBuffer(name='primals_5', layout=FixedLayout('cuda', torch.float32, size=[1, 28, 28], stride=[784, 28, 1]))
+  ),
+  FixedLayout('cuda', torch.float32, size=[1, 784], stride=[784, 1]),
+  origins=
+)
+Node 2: StorageBox(
+  ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        tmp2 = ops.relu(tmp1)
+        return tmp2
+    ,
+    ranges=[1, 512],
+    origins={relu_1, relu}
+  ))
+)
+Node 3: ReinterpretView(
+  StorageBox(
+    InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+  ),
+  FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]),
+  origins=
+)
+Node 4: StorageBox(
+  ComputedBuffer(name='buf3', layout=FixedLayout('cuda', torch.bool, size=[1, 512], stride=[512, 1]), data=Pointwise(
+    'cuda',
+    torch.bool,
+    def inner_fn(index):
+        _, i1 = index
+        tmp0 = ops.load(buf0, i1)
+        tmp1 = ops.relu(tmp0)
+        tmp2 = ops.constant(0, torch.float32)
+        tmp3 = tmp1 <= tmp2
+        return tmp3
+    ,
+    ranges=[1, 512],
+    origins={relu, le_1}
+  ))
+)
+
+Finished Graph.lowering Output-------------------------
+
+
+Result after run_node: None
+Finished graph.run_node:------------------------------
+
+Init Scheduler-----------------------
+ir.LoopBodyBlock.__init__---------------------------
+self.graph: graph():
+    %ops : [#users=4] = placeholder[target=ops]
+    %get_index : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %load : [#users=1] = call_method[target=load](args = (%ops, buf0, %get_index), kwargs = {})
+    %relu : [#users=1] = call_method[target=relu](args = (%ops, %load), kwargs = {})
+    %relu_1 : [#users=1] = call_method[target=relu](args = (%ops, %relu), kwargs = {})
+    %get_index_1 : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %store : [#users=1] = call_method[target=store](args = (%ops, buf1, %get_index_1, %relu_1, None), kwargs = {})
+    return store
+ir.LoopBodyBlock.__init__---------------------------
+ir.LoopBodyBlock.__call__---------------------------
+self.graph: graph():
+    %ops : [#users=4] = placeholder[target=ops]
+    %get_index : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %load : [#users=1] = call_method[target=load](args = (%ops, buf0, %get_index), kwargs = {})
+    %relu : [#users=1] = call_method[target=relu](args = (%ops, %load), kwargs = {})
+    %relu_1 : [#users=1] = call_method[target=relu](args = (%ops, %relu), kwargs = {})
+    %get_index_1 : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %store : [#users=1] = call_method[target=store](args = (%ops, buf1, %get_index_1, %relu_1, None), kwargs = {})
+    return store
+ir.LoopBodyBlock.__call__---------------------------
+ir.LoopBodyBlock.__init__---------------------------
+self.graph: graph():
+    %ops : [#users=5] = placeholder[target=ops]
+    %get_index : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %load : [#users=1] = call_method[target=load](args = (%ops, buf0, %get_index), kwargs = {})
+    %relu : [#users=1] = call_method[target=relu](args = (%ops, %load), kwargs = {})
+    %constant : [#users=1] = call_method[target=constant](args = (%ops, 0, torch.float32), kwargs = {})
+    %le : [#users=1] = call_method[target=le](args = (%ops, %relu, %constant), kwargs = {})
+    %get_index_1 : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %store : [#users=1] = call_method[target=store](args = (%ops, buf3, %get_index_1, %le, None), kwargs = {})
+    return store
+ir.LoopBodyBlock.__init__---------------------------
+ir.LoopBodyBlock.__call__---------------------------
+self.graph: graph():
+    %ops : [#users=5] = placeholder[target=ops]
+    %get_index : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %load : [#users=1] = call_method[target=load](args = (%ops, buf0, %get_index), kwargs = {})
+    %relu : [#users=1] = call_method[target=relu](args = (%ops, %load), kwargs = {})
+    %constant : [#users=1] = call_method[target=constant](args = (%ops, 0, torch.float32), kwargs = {})
+    %le : [#users=1] = call_method[target=le](args = (%ops, %relu, %constant), kwargs = {})
+    %get_index_1 : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %store : [#users=1] = call_method[target=store](args = (%ops, buf3, %get_index_1, %le, None), kwargs = {})
+    return store
+ir.LoopBodyBlock.__call__---------------------------
+
+Init fusedschedulernode-----------------------
+{'__get_names_cache': {'buf3', 'buf1'},
+ 'flops': 0,
+ 'group': (device(type='cuda', index=0), (512, 1)),
+ 'inverse_users': [],
+ 'max_order': 3,
+ 'min_order': 1,
+ 'node': None,
+ 'origins': {le_1: 1, relu_1: 1, relu: 2},
+ 'read_writes': ReadWrites(reads={MemoryDep(name='buf0', index=c0, size=(512,))}, writes={MemoryDep(name='buf1', index=c0, size=(512,)), MemoryDep(name='buf3', index=c0, size=(512,))}, index_exprs=set(), range_vars=None, var_ranges=None),
+ 'recursive_predecessors': {'buf0'},
+ 'scheduler': <torch._inductor.scheduler.Scheduler object at 0x2b2ea92e5820>,
+ 'snodes': [SchedulerNode(name='buf1'), SchedulerNode(name='buf3')],
+ 'unmet_dependencies': {MemoryDep(name='buf0', index=c0, size=(512,))},
+ 'users': None}
+
+Done fusedschedulernode-----------------------
+
+New nodes after processing-----------------------
+
+Node------
+<class 'torch._inductor.scheduler.ExternKernelSchedulerNode'>
+{'flops': 0,
+ 'inverse_users': [],
+ 'last_usage': {'primals_2', 'primals_1'},
+ 'max_order': 0,
+ 'min_order': 0,
+ 'node': ExternKernelOut(name='buf0', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), inputs=[InputBuffer(name='primals_2', layout=FixedLayout('cuda', torch.float32, size=[512], stride=[1])), ReinterpretView(
+  StorageBox(
+    InputBuffer(name='primals_5', layout=FixedLayout('cuda', torch.float32, size=[1, 28, 28], stride=[784, 28, 1]))
+  ),
+  FixedLayout('cuda', torch.float32, size=[1, 784], stride=[784, 1]),
+  origins=
+), ReinterpretView(
+  StorageBox(
+    InputBuffer(name='primals_1', layout=FixedLayout('cuda', torch.float32, size=[512, 784], stride=[784, 1]))
+  ),
+  FixedLayout('cuda', torch.float32, size=[784, 512], stride=[1, 784]),
+  origins=
+)], constant_args=(), kwargs={'alpha': 1, 'beta': 1}, output_view=None),
+ 'origins': {addmm},
+ 'read_writes': ReadWrites(reads={StarDep(name='primals_5'), StarDep(name='primals_2'), StarDep(name='primals_1')}, writes={StarDep(name='buf0')}, index_exprs=set(), range_vars=[], var_ranges=None),
+ 'recursive_predecessors': set(),
+ 'scheduler': <torch._inductor.scheduler.Scheduler object at 0x2b2ea92e5820>,
+ 'unmet_dependencies': set(),
+ 'users': [NodeUser(node=SchedulerNode(name='buf1'), can_inplace=True),
+           NodeUser(node=SchedulerNode(name='buf3'), can_inplace=True)],
+ 'written': False}
+
+Node------
+<class 'torch._inductor.scheduler.FusedSchedulerNode'>
+{'__get_name_cache': 'buf1_buf3',
+ '__get_names_cache': {'buf3', 'buf1'},
+ '__is_template_cache': False,
+ '__used_buffer_names_cache': {'buf0', 'buf1', 'buf3'},
+ 'flops': 0,
+ 'group': (device(type='cuda', index=0), (512, 1)),
+ 'inverse_users': [],
+ 'last_usage': {'buf0'},
+ 'max_order': 3,
+ 'min_order': 1,
+ 'node': None,
+ 'origins': {le_1: 1, relu_1: 1, relu: 2},
+ 'read_writes': ReadWrites(reads={MemoryDep(name='buf0', index=c0, size=(512,))}, writes={MemoryDep(name='buf1', index=c0, size=(512,)), MemoryDep(name='buf3', index=c0, size=(512,))}, index_exprs=set(), range_vars=None, var_ranges=None),
+ 'recursive_predecessors': {'buf0'},
+ 'scheduler': <torch._inductor.scheduler.Scheduler object at 0x2b2ea92e5820>,
+ 'snodes': [SchedulerNode(name='buf1'), SchedulerNode(name='buf3')],
+ 'unmet_dependencies': {MemoryDep(name='buf0', index=c0, size=(512,))},
+ 'users': None}
+
+Node------
+<class 'torch._inductor.scheduler.ExternKernelSchedulerNode'>
+{'flops': 0,
+ 'inverse_users': [SchedulerNode(name='buf1')],
+ 'last_usage': {'primals_4'},
+ 'max_order': 2,
+ 'min_order': 2,
+ 'node': ExternKernelOut(name='buf2', layout=FixedLayout('cuda', torch.float32, size=[1, 10], stride=[10, 1]), inputs=[InputBuffer(name='primals_4', layout=FixedLayout('cuda', torch.float32, size=[10], stride=[1])), ComputedBuffer(name='buf1', layout=FixedLayout('cuda', torch.float32, size=[1, 512], stride=[512, 1]), data=Pointwise(
+  'cuda',
+  torch.float32,
+  def inner_fn(index):
+      _, i1 = index
+      tmp0 = ops.load(buf0, i1)
+      tmp1 = ops.relu(tmp0)
+      tmp2 = ops.relu(tmp1)
+      return tmp2
+  ,
+  ranges=[1, 512],
+  origins={relu_1, relu}
+)), ReinterpretView(
+  StorageBox(
+    InputBuffer(name='primals_3', layout=FixedLayout('cuda', torch.float32, size=[10, 512], stride=[512, 1]))
+  ),
+  FixedLayout('cuda', torch.float32, size=[512, 10], stride=[1, 512]),
+  origins=
+)], constant_args=(), kwargs={'alpha': 1, 'beta': 1}, output_view=None),
+ 'origins': {addmm_1},
+ 'read_writes': ReadWrites(reads={StarDep(name='primals_4'), StarDep(name='buf1'), StarDep(name='primals_3')}, writes={StarDep(name='buf2')}, index_exprs=set(), range_vars=[], var_ranges=None),
+ 'recursive_predecessors': {'buf0', 'buf1'},
+ 'scheduler': <torch._inductor.scheduler.Scheduler object at 0x2b2ea92e5820>,
+ 'unmet_dependencies': {StarDep(name='buf1')},
+ 'users': [NodeUser(node=OUTPUT, can_inplace=False)],
+ 'written': False}
+
+Finished scheduler init-----------------------
+
+Scheduler.codegen--------------------------------------------
+
+scheduler.codegen_extern_call, node type: <class 'torch._inductor.ir.ExternKernelOut'>-------------------------
+
+ir.externkernelout.codegen--------------------
+ir.codegen_reference: primals_2
+ir.codegen_reference: buf0
+
+wrapper.generate_extern_kernel_out------------
+
+ir.externkernelout.codegen arguments
+self.output_view: None
+args: ['primals_2', 'as_strided(primals_5, (1, 784), (784, 1))', 'as_strided(primals_1, (784, 512), (1, 784))', 'alpha=1', 'beta=1', 'out=buf0']
+ir.codegen_reference: buf0
+self.codegen_reference(): buf0
+self.kernel: extern_kernels.addmm, type: <class 'str'>
+self.cpp_kernel: at::addmm_out
+Wrapper: <torch._inductor.codegen.wrapper.WrapperCodeGen object at 0x2b2ea92d7490>
+
+Finished scheduler.codegen_extern_call-------------------------------
+ir.LoopBodyBlock.__call__---------------------------
+ir.LoopBodyBlock.__call__---------------------------
+codegen.triton.call_kernel---------------
+
+scheduler.codegen_extern_call, node type: <class 'torch._inductor.ir.ExternKernelOut'>-------------------------
+
+ir.externkernelout.codegen--------------------
+ir.codegen_reference: primals_4
+ir.codegen_reference: buf1
+ir.codegen_reference: buf2
+
+wrapper.generate_extern_kernel_out------------
+
+ir.externkernelout.codegen arguments
+self.output_view: None
+args: ['primals_4', 'buf1', 'as_strided(primals_3, (512, 10), (1, 512))', 'alpha=1', 'beta=1', 'out=buf2']
+ir.codegen_reference: buf2
+self.codegen_reference(): buf2
+self.kernel: extern_kernels.addmm, type: <class 'str'>
+self.cpp_kernel: at::addmm_out
+Wrapper: <torch._inductor.codegen.wrapper.WrapperCodeGen object at 0x2b2ea92d7490>
+
+Finished scheduler.codegen_extern_call-------------------------------
+
+Finished Scheduler.codegen--------------------------------------------
+
+ir.codegen_reference: buf2
+ir.codegen_reference: buf1
+ir.codegen_reference: buf3
+
+graph.compile_to_module----------------------------
+Code:
+
+from ctypes import c_void_p, c_long
+import torch
+import math
+import random
+import os
+import tempfile
+from torch._inductor.utils import maybe_profile
+
+from torch import empty_strided, as_strided, device
+from torch._inductor.codecache import AsyncCompile
+from torch._inductor.select_algorithm import extern_kernels
+
+aten = torch.ops.aten
+assert_size_stride = torch._C._dynamo.guards.assert_size_stride
+async_compile = AsyncCompile()
+
+import triton
+import triton.language as tl
+from torch._inductor.triton_heuristics import grid, start_graph, end_graph
+from torch._C import _cuda_getCurrentRawStream as get_cuda_stream
+
+
+# kernel path: /tmp/torchinductor_azhao/jr/cjroz6dqeleitkqj7466sibbsvdgoch5da3cgyaseyxcw36e27n3.py
+# Original ATen: aten.relu, aten.threshold_backward
+
+# aten.relu => relu, relu_1
+# aten.threshold_backward => le_1
+triton_poi_fused_relu_threshold_backward_0 = async_compile.triton('''
+import triton
+import triton.language as tl
+from torch._inductor.ir import ReductionHint
+from torch._inductor.ir import TileHint
+from torch._inductor.triton_heuristics import pointwise
+from torch._inductor.utils import instance_descriptor
+
+@pointwise(size_hints=[512], filename=__file__, meta={'signature': {0: '*fp32', 1: '*fp32', 2: '*i1', 3: 'i32'}, 'device': 0, 'constants': {}, 'mutated_arg_names': [], 'configs': [instance_descriptor(divisible_by_16=(0, 1, 2, 3), equal_to_1=())]})
+@triton.jit
+def triton_(in_ptr0, out_ptr0, out_ptr1, xnumel, XBLOCK : tl.constexpr):
+    xnumel = 512
+    xoffset = tl.program_id(0) * XBLOCK
+    xindex = xoffset + tl.arange(0, XBLOCK)[:]
+    xmask = xindex < xnumel
+    x0 = xindex
+    tmp0 = tl.load(in_ptr0 + (x0), xmask)
+    tmp1 = tl.where(0 != 0, 0, tl.where(0 > tmp0, 0, tmp0))
+    tmp2 = tl.where(0 != 0, 0, tl.where(0 > tmp1, 0, tmp1))
+    tmp3 = 0.0
+    tmp4 = tmp1 <= tmp3
+    tl.store(out_ptr0 + (x0 + tl.zeros([XBLOCK], tl.int32)), tmp2, xmask)
+    tl.store(out_ptr1 + (x0 + tl.zeros([XBLOCK], tl.int32)), tmp4, xmask)
+''')
+
+
+async_compile.wait(globals())
+del async_compile
+
+def call(args):
+    primals_1, primals_2, primals_3, primals_4, primals_5 = args
+    args.clear()
+    with torch.cuda._DeviceGuard(0):
+        torch.cuda.set_device(0) # no-op to ensure context
+        buf0 = empty_strided((1, 512), (512, 1), device='cuda', dtype=torch.float32)
+        extern_kernels.addmm(primals_2, as_strided(primals_5, (1, 784), (784, 1)), as_strided(primals_1, (784, 512), (1, 784)), alpha=1, beta=1, out=buf0)
+        del primals_1
+        del primals_2
+        buf1 = empty_strided((1, 512), (512, 1), device='cuda', dtype=torch.float32)
+        buf3 = empty_strided((1, 512), (512, 1), device='cuda', dtype=torch.bool)
+        stream0 = get_cuda_stream(0)
+        triton_poi_fused_relu_threshold_backward_0.run(buf0, buf1, buf3, 512, grid=grid(512), stream=stream0)
+        del buf0
+        buf2 = empty_strided((1, 10), (10, 1), device='cuda', dtype=torch.float32)
+        extern_kernels.addmm(primals_4, buf1, as_strided(primals_3, (512, 10), (1, 512)), alpha=1, beta=1, out=buf2)
+        del primals_4
+        return (buf2, as_strided(primals_5, (1, 784), (784, 1)), buf1, as_strided(primals_3, (10, 512), (512, 1)), buf3, )
+
+
+def benchmark_compiled_module(times=10, repeat=10):
+    from torch._dynamo.testing import rand_strided
+    from torch._inductor.utils import print_performance
+    primals_1 = rand_strided((512, 784), (784, 1), device='cuda:0', dtype=torch.float32)
+    primals_2 = rand_strided((512, ), (1, ), device='cuda:0', dtype=torch.float32)
+    primals_3 = rand_strided((10, 512), (512, 1), device='cuda:0', dtype=torch.float32)
+    primals_4 = rand_strided((10, ), (1, ), device='cuda:0', dtype=torch.float32)
+    primals_5 = rand_strided((1, 28, 28), (784, 28, 1), device='cuda:0', dtype=torch.float32)
+    return print_performance(lambda: call([primals_1, primals_2, primals_3, primals_4, primals_5]), times=times, repeat=repeat)
+
+
+if __name__ == "__main__":
+    from torch._inductor.utils import compiled_module_main
+    compiled_module_main('None', benchmark_compiled_module)
+
+graph.compile_to_module
+
+compile_fx_inner.result:
+<function align_inputs.<locals>.run at 0x2b2ea9496550>
+
+compile_fx.fw_compiler_base--------------------------
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+                                                   Name    Self CPU %      Self CPU   CPU total %     CPU total  CPU time avg     Self CUDA   Self CUDA %    CUDA total  CUDA time avg       CPU Mem  Self CPU Mem      CUDA Mem  Self CUDA Mem    # of Calls  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+void gemv2T_kernel_val<int, int, float, float, float...         0.00%        0.0000         0.00%        0.0000        0.0000        0.0080        29.63%        0.0080        0.0080           0 b           0 b           0 b           0 b             1  
+void at::native::reduce_kernel<512, 1, at::native::R...         0.00%        0.0000         0.00%        0.0000        0.0000        0.0080        29.63%        0.0080        0.0080           0 b           0 b           0 b           0 b             1  
+void dot_kernel<float, 128, 0, cublasDotParams<cubla...         0.00%        0.0000         0.00%        0.0000        0.0000        0.0040        14.81%        0.0040        0.0040           0 b           0 b           0 b           0 b             1  
+void reduce_1Block_kernel<float, 128, 7, cublasGemvT...         0.00%        0.0000         0.00%        0.0000        0.0000        0.0040        14.81%        0.0040        0.0040           0 b           0 b           0 b           0 b             1  
+                                       triton__0d1d2d3d         0.00%        0.0000         0.00%        0.0000        0.0000        0.0030        11.11%        0.0030        0.0030           0 b           0 b           0 b           0 b             1  
+                                               [memory]         0.00%        0.0000         0.00%        0.0000        0.0000        0.0000         0.00%        0.0000        0.0000           0 b           0 b       3.00 Kb       3.00 Kb           237  
+                                  cudaStreamIsCapturing        17.98%        0.0480        17.98%        0.0480        0.0015        0.0000         0.00%        0.0000        0.0000           0 b           0 b           0 b           0 b            32  
+                                  cudaDeviceSynchronize        31.09%        0.0830        31.09%        0.0830        0.0415        0.0000         0.00%        0.0000        0.0000           0 b           0 b           0 b           0 b             2  
+cudaOccupancyMaxActiveBlocksPerMultiprocessorWithFla...         1.87%        0.0050         1.87%        0.0050        0.0025        0.0000         0.00%        0.0000        0.0000           0 b           0 b           0 b           0 b             2  
+                                       cudaLaunchKernel        49.06%        0.1310        49.06%        0.1310        0.0328        0.0000         0.00%        0.0000        0.0000           0 b           0 b           0 b           0 b             4  
+-------------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  
+Self CPU time total: 0.2670
+Self CUDA time total: 0.0270
+

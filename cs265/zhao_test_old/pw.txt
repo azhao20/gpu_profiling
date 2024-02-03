@@ -1,0 +1,2042 @@
+compile_fx compile_fx
+_dynamo.backends.common.py auto_autograd compiler_fn-------------
+
+New compile_fx_inner compile_fx------
+Compile_inner graph: <torch._inductor.graph.GraphLowering object at 0x2b7cafb01220>
+GraphLowering.run
+
+Graph.run_node:------------------------------
+n: arg0_1
+Flop count: 0
+Case 4: super().run_node(n)
+
+Start placeholder in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  InputBuffer(name='arg0_1', layout=FixedLayout('cuda', torch.float32, size=[32768, 32768], stride=[32768, 1]))
+))
+arg0_1
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: mul
+Overloadpacket: aten.mul
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.mul.Tensor,
+Args: (TensorBox(StorageBox(
+  InputBuffer(name='arg0_1', layout=FixedLayout('cuda', torch.float32, size=[32768, 32768], stride=[32768, 1]))
+)), 29.012376400946494),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        return tmp2
+    ,
+    ranges=[32768, 32768],
+    origins={mul}
+  )
+))
+Except block: mul
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: rsqrt
+Overloadpacket: aten.rsqrt
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.rsqrt.default,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        return tmp2
+    ,
+    ranges=[32768, 32768],
+    origins={mul}
+  )
+)),),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        return tmp3
+    ,
+    ranges=[32768, 32768],
+    origins={mul, rsqrt}
+  )
+))
+Except block: rsqrt
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: mul_1
+Overloadpacket: aten.mul
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.mul.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        return tmp3
+    ,
+    ranges=[32768, 32768],
+    origins={mul, rsqrt}
+  )
+)), 125.71788480852999),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        return tmp5
+    ,
+    ranges=[32768, 32768],
+    origins={mul_1, mul, rsqrt}
+  )
+))
+Except block: mul_1
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: mul_2
+Overloadpacket: aten.mul
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.mul.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        return tmp5
+    ,
+    ranges=[32768, 32768],
+    origins={mul_1, mul, rsqrt}
+  )
+)), 138.7876283670131),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        return tmp7
+    ,
+    ranges=[32768, 32768],
+    origins={mul_2, mul_1, mul, rsqrt}
+  )
+))
+Except block: mul_2
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: rsqrt_1
+Overloadpacket: aten.rsqrt
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.rsqrt.default,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        return tmp7
+    ,
+    ranges=[32768, 32768],
+    origins={mul_2, mul_1, mul, rsqrt}
+  )
+)),),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        return tmp8
+    ,
+    ranges=[32768, 32768],
+    origins={mul_1, mul, mul_2, rsqrt_1, rsqrt}
+  )
+))
+Except block: rsqrt_1
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: add
+Overloadpacket: aten.add
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.add.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        return tmp8
+    ,
+    ranges=[32768, 32768],
+    origins={mul_1, mul, mul_2, rsqrt_1, rsqrt}
+  )
+)), 6.281757805345899),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        return tmp10
+    ,
+    ranges=[32768, 32768],
+    origins={mul_1, mul, add, mul_2, rsqrt_1, rsqrt}
+  )
+))
+Except block: add
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: rsqrt_2
+Overloadpacket: aten.rsqrt
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.rsqrt.default,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        return tmp10
+    ,
+    ranges=[32768, 32768],
+    origins={mul_1, mul, add, mul_2, rsqrt_1, rsqrt}
+  )
+)),),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        return tmp11
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, mul, add, mul_2, rsqrt_1, rsqrt}
+  )
+))
+Except block: rsqrt_2
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: relu
+Overloadpacket: aten.relu
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.relu.default,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        return tmp11
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, mul, add, mul_2, rsqrt_1, rsqrt}
+  )
+)),),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        return tmp12
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, relu, rsqrt_1, mul, mul_2, rsqrt}
+  )
+))
+Except block: relu
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: mul_3
+Overloadpacket: aten.mul
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.mul.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        return tmp12
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, relu, rsqrt_1, mul, mul_2, rsqrt}
+  )
+)), 184.0915520950937),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        return tmp14
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, relu, rsqrt_1, mul, mul_2, mul_...
+  )
+))
+Except block: mul_3
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: add_1
+Overloadpacket: aten.add
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.add.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        return tmp14
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, relu, rsqrt_1, mul, mul_2, mul_...
+  )
+)), 207.79171694547819),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        return tmp16
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, add_1, relu, rsqrt_1, mul, mul_...
+  )
+))
+Except block: add_1
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: sub
+Overloadpacket: aten.sub
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.sub.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        return tmp16
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, add_1, relu, rsqrt_1, mul, mul_...
+  )
+)), 7.922759225387921),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        return tmp18
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, add_1, relu, rsqrt_1, mul_3, mu...
+  )
+))
+Except block: sub
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: add_2
+Overloadpacket: aten.add
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.add.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        return tmp18
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, add_1, relu, rsqrt_1, mul_3, mu...
+  )
+)), 149.45987261932987),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        return tmp20
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, add_1, relu, rsqrt_1, mul_3, mu...
+  )
+))
+Except block: add_2
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: relu_1
+Overloadpacket: aten.relu
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.relu.default,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        return tmp20
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, add_1, relu, rsqrt_1, mul_3, mu...
+  )
+)),),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        return tmp21
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, relu_1, add_1, relu, rsqrt_1, m...
+  )
+))
+Except block: relu_1
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: sub_1
+Overloadpacket: aten.sub
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.sub.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        return tmp21
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, relu_1, add_1, relu, rsqrt_1, m...
+  )
+)), 175.98230380986698),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        return tmp23
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, sub_1, relu_1, add_1, relu, rsq...
+  )
+))
+Except block: sub_1
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: mul_4
+Overloadpacket: aten.mul
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.mul.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        return tmp23
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, sub_1, relu_1, add_1, relu, rsq...
+  )
+)), 33.065566754689065),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        return tmp25
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, relu_1, sub_1, add_1, relu, rsq...
+  )
+))
+Except block: mul_4
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: sub_2
+Overloadpacket: aten.sub
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.sub.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        return tmp25
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, relu_1, sub_1, add_1, relu, rsq...
+  )
+)), 210.8432547866285),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        return tmp27
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, sub_2, relu, add_2, mul_2, mul_...
+  )
+))
+Except block: sub_2
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: relu_2
+Overloadpacket: aten.relu
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.relu.default,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        return tmp27
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, sub_2, relu, add_2, mul_2, mul_...
+  )
+)),),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        tmp28 = ops.relu(tmp27)
+        return tmp28
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, sub_2, relu, add_2, mul_2, relu...
+  )
+))
+Except block: relu_2
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: add_3
+Overloadpacket: aten.add
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.add.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        tmp28 = ops.relu(tmp27)
+        return tmp28
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, mul_1, add, sub_2, relu, add_2, mul_2, relu...
+  )
+)), 38.49535961203812),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        tmp28 = ops.relu(tmp27)
+        tmp29 = ops.constant(38.49535961203812, torch.float32)
+        tmp30 = tmp28 + tmp29
+        return tmp30
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, add_3, mul_1, add, sub_2, relu, add_2, mul_...
+  )
+))
+Except block: add_3
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: rsqrt_3
+Overloadpacket: aten.rsqrt
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.rsqrt.default,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        tmp28 = ops.relu(tmp27)
+        tmp29 = ops.constant(38.49535961203812, torch.float32)
+        tmp30 = tmp28 + tmp29
+        return tmp30
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, add_3, mul_1, add, sub_2, relu, add_2, mul_...
+  )
+)),),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Result after run_node: TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        tmp28 = ops.relu(tmp27)
+        tmp29 = ops.constant(38.49535961203812, torch.float32)
+        tmp30 = tmp28 + tmp29
+        tmp31 = ops.rsqrt(tmp30)
+        return tmp31
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, add_3, mul_1, add, sub_2, relu, add_2, mul_...
+  )
+))
+Except block: rsqrt_3
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: sub_3
+Overloadpacket: aten.sub
+No overload packets
+Flop count: 0
+Case 4: super().run_node(n)
+
+Call_function in graph------------------
+Target: aten.sub.Tensor,
+Args: (TensorBox(StorageBox(
+  Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        tmp28 = ops.relu(tmp27)
+        tmp29 = ops.constant(38.49535961203812, torch.float32)
+        tmp30 = tmp28 + tmp29
+        tmp31 = ops.rsqrt(tmp30)
+        return tmp31
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, add_3, mul_1, add, sub_2, relu, add_2, mul_...
+  )
+)), 238.45825973457383),
+Kwargs: {}...
+Before calling out
+
+End call_function in graph-----------
+
+Ir.ExternKernel.copy_input pre-realize----------------------
+
+Realized StorageBox:
+{'data': ComputedBuffer(name='buf0', layout=FlexibleLayout('cuda', torch.float32, size=[32768, 32768], stride=[32768, 1]), data=Pointwise(
+  'cuda',
+  torch.float32,
+  def inner_fn(index):
+      i0, i1 = index
+      tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+      tmp1 = ops.constant(29.012376400946494, torch.float32)
+      tmp2 = tmp0 * tmp1
+      tmp3 = ops.rsqrt(tmp2)
+      tmp4 = ops.constant(125.71788480852999, torch.float32)
+      tmp5 = tmp3 * tmp4
+      tmp6 = ops.constant(138.7876283670131, torch.float32)
+      tmp7 = tmp5 * tmp6
+      tmp8 = ops.rsqrt(tmp7)
+      tmp9 = ops.constant(6.281757805345899, torch.float32)
+      tmp10 = tmp8 + tmp9
+      tmp11 = ops.rsqrt(tmp10)
+      tmp12 = ops.relu(tmp11)
+      tmp13 = ops.constant(184.0915520950937, torch.float32)
+      tmp14 = tmp12 * tmp13
+      tmp15 = ops.constant(207.79171694547819, torch.float32)
+      tmp16 = tmp14 + tmp15
+      tmp17 = ops.constant(7.922759225387921, torch.float32)
+      tmp18 = tmp16 - tmp17
+      tmp19 = ops.constant(149.45987261932987, torch.float32)
+      tmp20 = tmp18 + tmp19
+      tmp21 = ops.relu(tmp20)
+      tmp22 = ops.constant(175.98230380986698, torch.float32)
+      tmp23 = tmp21 - tmp22
+      tmp24 = ops.constant(33.065566754689065, torch.float32)
+      tmp25 = tmp23 * tmp24
+      tmp26 = ops.constant(210.8432547866285, torch.float32)
+      tmp27 = tmp25 - tmp26
+      tmp28 = ops.relu(tmp27)
+      tmp29 = ops.constant(38.49535961203812, torch.float32)
+      tmp30 = tmp28 + tmp29
+      tmp31 = ops.rsqrt(tmp30)
+      tmp32 = ops.constant(238.45825973457383, torch.float32)
+      tmp33 = tmp31 - tmp32
+      return tmp33
+  ,
+  ranges=[32768, 32768],
+  origins={rsqrt_2, add_3, mul_1, add, sub_2, relu, add_2, mul_...
+)), 'origins': {rsqrt_2, add_3, mul_1, add, sub_2, relu, add_2, mul_2, relu_2, mul_3, sub_3, mul_4, rsqrt_3, sub_1, relu_1, add_1, rsqrt_1, mul, sub, rsqrt}}
+
+Result after run_node: TensorBox(StorageBox(
+  ComputedBuffer(name='buf0', layout=FixedLayout('cuda', torch.float32, size=[32768, 32768], stride=[32768, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        tmp28 = ops.relu(tmp27)
+        tmp29 = ops.constant(38.49535961203812, torch.float32)
+        tmp30 = tmp28 + tmp29
+        tmp31 = ops.rsqrt(tmp30)
+        tmp32 = ops.constant(238.45825973457383, torch.float32)
+        tmp33 = tmp31 - tmp32
+        return tmp33
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, add_3, mul_1, add, sub_2, relu, add_2, mul_...
+  ))
+))
+buf0
+Finished graph.run_node:------------------------------
+
+Graph.run_node:------------------------------
+n: output
+Flop count: 0
+Case 4: super().run_node(n)
+
+Graph.lowering Output Pre-Realize-------------------------
+
+Node 0: TensorBox(StorageBox(
+  ComputedBuffer(name='buf0', layout=FixedLayout('cuda', torch.float32, size=[32768, 32768], stride=[32768, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        tmp28 = ops.relu(tmp27)
+        tmp29 = ops.constant(38.49535961203812, torch.float32)
+        tmp30 = tmp28 + tmp29
+        tmp31 = ops.rsqrt(tmp30)
+        tmp32 = ops.constant(238.45825973457383, torch.float32)
+        tmp33 = tmp31 - tmp32
+        return tmp33
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, add_3, mul_1, add, sub_2, relu, add_2, mul_...
+  ))
+))
+
+IR realize_input StorageBox x: StorageBox(
+  ComputedBuffer(name='buf0', layout=FixedLayout('cuda', torch.float32, size=[32768, 32768], stride=[32768, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        tmp28 = ops.relu(tmp27)
+        tmp29 = ops.constant(38.49535961203812, torch.float32)
+        tmp30 = tmp28 + tmp29
+        tmp31 = ops.rsqrt(tmp30)
+        tmp32 = ops.constant(238.45825973457383, torch.float32)
+        tmp33 = tmp31 - tmp32
+        return tmp33
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, add_3, mul_1, add, sub_2, relu, add_2, mul_...
+  ))
+)
+
+Not realizing StorageBox with name: buf0
+
+Graph.lowering Input Pre-Realize-------------------------
+
+
+Not realizing StorageBox with name: arg0_1
+
+Graph.lowering Input Post-Realize-------------------------
+
+
+
+Realized Graph.lowering Output-------------------------
+
+Node 0: StorageBox(
+  ComputedBuffer(name='buf0', layout=FixedLayout('cuda', torch.float32, size=[32768, 32768], stride=[32768, 1]), data=Pointwise(
+    'cuda',
+    torch.float32,
+    def inner_fn(index):
+        i0, i1 = index
+        tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+        tmp1 = ops.constant(29.012376400946494, torch.float32)
+        tmp2 = tmp0 * tmp1
+        tmp3 = ops.rsqrt(tmp2)
+        tmp4 = ops.constant(125.71788480852999, torch.float32)
+        tmp5 = tmp3 * tmp4
+        tmp6 = ops.constant(138.7876283670131, torch.float32)
+        tmp7 = tmp5 * tmp6
+        tmp8 = ops.rsqrt(tmp7)
+        tmp9 = ops.constant(6.281757805345899, torch.float32)
+        tmp10 = tmp8 + tmp9
+        tmp11 = ops.rsqrt(tmp10)
+        tmp12 = ops.relu(tmp11)
+        tmp13 = ops.constant(184.0915520950937, torch.float32)
+        tmp14 = tmp12 * tmp13
+        tmp15 = ops.constant(207.79171694547819, torch.float32)
+        tmp16 = tmp14 + tmp15
+        tmp17 = ops.constant(7.922759225387921, torch.float32)
+        tmp18 = tmp16 - tmp17
+        tmp19 = ops.constant(149.45987261932987, torch.float32)
+        tmp20 = tmp18 + tmp19
+        tmp21 = ops.relu(tmp20)
+        tmp22 = ops.constant(175.98230380986698, torch.float32)
+        tmp23 = tmp21 - tmp22
+        tmp24 = ops.constant(33.065566754689065, torch.float32)
+        tmp25 = tmp23 * tmp24
+        tmp26 = ops.constant(210.8432547866285, torch.float32)
+        tmp27 = tmp25 - tmp26
+        tmp28 = ops.relu(tmp27)
+        tmp29 = ops.constant(38.49535961203812, torch.float32)
+        tmp30 = tmp28 + tmp29
+        tmp31 = ops.rsqrt(tmp30)
+        tmp32 = ops.constant(238.45825973457383, torch.float32)
+        tmp33 = tmp31 - tmp32
+        return tmp33
+    ,
+    ranges=[32768, 32768],
+    origins={rsqrt_2, add_3, mul_1, add, sub_2, relu, add_2, mul_...
+  ))
+)
+
+Finished Graph.lowering Output-------------------------
+
+
+Result after run_node: None
+Finished graph.run_node:------------------------------
+
+Init Scheduler-----------------------
+ir.LoopBodyBlock.__init__---------------------------
+self.graph: graph():
+    %ops : [#users=35] = placeholder[target=ops]
+    %get_index : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %load : [#users=1] = call_method[target=load](args = (%ops, arg0_1, %get_index), kwargs = {})
+    %constant : [#users=1] = call_method[target=constant](args = (%ops, 29.012376400946494, torch.float32), kwargs = {})
+    %mul : [#users=1] = call_method[target=mul](args = (%ops, %load, %constant), kwargs = {})
+    %rsqrt : [#users=1] = call_method[target=rsqrt](args = (%ops, %mul), kwargs = {})
+    %constant_1 : [#users=1] = call_method[target=constant](args = (%ops, 125.71788480852999, torch.float32), kwargs = {})
+    %mul_1 : [#users=1] = call_method[target=mul](args = (%ops, %rsqrt, %constant_1), kwargs = {})
+    %constant_2 : [#users=1] = call_method[target=constant](args = (%ops, 138.7876283670131, torch.float32), kwargs = {})
+    %mul_2 : [#users=1] = call_method[target=mul](args = (%ops, %mul_1, %constant_2), kwargs = {})
+    %rsqrt_1 : [#users=1] = call_method[target=rsqrt](args = (%ops, %mul_2), kwargs = {})
+    %constant_3 : [#users=1] = call_method[target=constant](args = (%ops, 6.281757805345899, torch.float32), kwargs = {})
+    %add : [#users=1] = call_method[target=add](args = (%ops, %rsqrt_1, %constant_3), kwargs = {})
+    %rsqrt_2 : [#users=1] = call_method[target=rsqrt](args = (%ops, %add), kwargs = {})
+    %relu : [#users=1] = call_method[target=relu](args = (%ops, %rsqrt_2), kwargs = {})
+    %constant_4 : [#users=1] = call_method[target=constant](args = (%ops, 184.0915520950937, torch.float32), kwargs = {})
+    %mul_3 : [#users=1] = call_method[target=mul](args = (%ops, %relu, %constant_4), kwargs = {})
+    %constant_5 : [#users=1] = call_method[target=constant](args = (%ops, 207.79171694547819, torch.float32), kwargs = {})
+    %add_1 : [#users=1] = call_method[target=add](args = (%ops, %mul_3, %constant_5), kwargs = {})
+    %constant_6 : [#users=1] = call_method[target=constant](args = (%ops, 7.922759225387921, torch.float32), kwargs = {})
+    %sub : [#users=1] = call_method[target=sub](args = (%ops, %add_1, %constant_6), kwargs = {})
+    %constant_7 : [#users=1] = call_method[target=constant](args = (%ops, 149.45987261932987, torch.float32), kwargs = {})
+    %add_2 : [#users=1] = call_method[target=add](args = (%ops, %sub, %constant_7), kwargs = {})
+    %relu_1 : [#users=1] = call_method[target=relu](args = (%ops, %add_2), kwargs = {})
+    %constant_8 : [#users=1] = call_method[target=constant](args = (%ops, 175.98230380986698, torch.float32), kwargs = {})
+    %sub_1 : [#users=1] = call_method[target=sub](args = (%ops, %relu_1, %constant_8), kwargs = {})
+    %constant_9 : [#users=1] = call_method[target=constant](args = (%ops, 33.065566754689065, torch.float32), kwargs = {})
+    %mul_4 : [#users=1] = call_method[target=mul](args = (%ops, %sub_1, %constant_9), kwargs = {})
+    %constant_10 : [#users=1] = call_method[target=constant](args = (%ops, 210.8432547866285, torch.float32), kwargs = {})
+    %sub_2 : [#users=1] = call_method[target=sub](args = (%ops, %mul_4, %constant_10), kwargs = {})
+    %relu_2 : [#users=1] = call_method[target=relu](args = (%ops, %sub_2), kwargs = {})
+    %constant_11 : [#users=1] = call_method[target=constant](args = (%ops, 38.49535961203812, torch.float32), kwargs = {})
+    %add_3 : [#users=1] = call_method[target=add](args = (%ops, %relu_2, %constant_11), kwargs = {})
+    %rsqrt_3 : [#users=1] = call_method[target=rsqrt](args = (%ops, %add_3), kwargs = {})
+    %constant_12 : [#users=1] = call_method[target=constant](args = (%ops, 238.45825973457383, torch.float32), kwargs = {})
+    %sub_3 : [#users=1] = call_method[target=sub](args = (%ops, %rsqrt_3, %constant_12), kwargs = {})
+    %get_index_1 : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %store : [#users=1] = call_method[target=store](args = (%ops, buf0, %get_index_1, %sub_3, None), kwargs = {})
+    return store
+ir.LoopBodyBlock.__init__---------------------------
+ir.LoopBodyBlock.__call__---------------------------
+self.graph: graph():
+    %ops : [#users=35] = placeholder[target=ops]
+    %get_index : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %load : [#users=1] = call_method[target=load](args = (%ops, arg0_1, %get_index), kwargs = {})
+    %constant : [#users=1] = call_method[target=constant](args = (%ops, 29.012376400946494, torch.float32), kwargs = {})
+    %mul : [#users=1] = call_method[target=mul](args = (%ops, %load, %constant), kwargs = {})
+    %rsqrt : [#users=1] = call_method[target=rsqrt](args = (%ops, %mul), kwargs = {})
+    %constant_1 : [#users=1] = call_method[target=constant](args = (%ops, 125.71788480852999, torch.float32), kwargs = {})
+    %mul_1 : [#users=1] = call_method[target=mul](args = (%ops, %rsqrt, %constant_1), kwargs = {})
+    %constant_2 : [#users=1] = call_method[target=constant](args = (%ops, 138.7876283670131, torch.float32), kwargs = {})
+    %mul_2 : [#users=1] = call_method[target=mul](args = (%ops, %mul_1, %constant_2), kwargs = {})
+    %rsqrt_1 : [#users=1] = call_method[target=rsqrt](args = (%ops, %mul_2), kwargs = {})
+    %constant_3 : [#users=1] = call_method[target=constant](args = (%ops, 6.281757805345899, torch.float32), kwargs = {})
+    %add : [#users=1] = call_method[target=add](args = (%ops, %rsqrt_1, %constant_3), kwargs = {})
+    %rsqrt_2 : [#users=1] = call_method[target=rsqrt](args = (%ops, %add), kwargs = {})
+    %relu : [#users=1] = call_method[target=relu](args = (%ops, %rsqrt_2), kwargs = {})
+    %constant_4 : [#users=1] = call_method[target=constant](args = (%ops, 184.0915520950937, torch.float32), kwargs = {})
+    %mul_3 : [#users=1] = call_method[target=mul](args = (%ops, %relu, %constant_4), kwargs = {})
+    %constant_5 : [#users=1] = call_method[target=constant](args = (%ops, 207.79171694547819, torch.float32), kwargs = {})
+    %add_1 : [#users=1] = call_method[target=add](args = (%ops, %mul_3, %constant_5), kwargs = {})
+    %constant_6 : [#users=1] = call_method[target=constant](args = (%ops, 7.922759225387921, torch.float32), kwargs = {})
+    %sub : [#users=1] = call_method[target=sub](args = (%ops, %add_1, %constant_6), kwargs = {})
+    %constant_7 : [#users=1] = call_method[target=constant](args = (%ops, 149.45987261932987, torch.float32), kwargs = {})
+    %add_2 : [#users=1] = call_method[target=add](args = (%ops, %sub, %constant_7), kwargs = {})
+    %relu_1 : [#users=1] = call_method[target=relu](args = (%ops, %add_2), kwargs = {})
+    %constant_8 : [#users=1] = call_method[target=constant](args = (%ops, 175.98230380986698, torch.float32), kwargs = {})
+    %sub_1 : [#users=1] = call_method[target=sub](args = (%ops, %relu_1, %constant_8), kwargs = {})
+    %constant_9 : [#users=1] = call_method[target=constant](args = (%ops, 33.065566754689065, torch.float32), kwargs = {})
+    %mul_4 : [#users=1] = call_method[target=mul](args = (%ops, %sub_1, %constant_9), kwargs = {})
+    %constant_10 : [#users=1] = call_method[target=constant](args = (%ops, 210.8432547866285, torch.float32), kwargs = {})
+    %sub_2 : [#users=1] = call_method[target=sub](args = (%ops, %mul_4, %constant_10), kwargs = {})
+    %relu_2 : [#users=1] = call_method[target=relu](args = (%ops, %sub_2), kwargs = {})
+    %constant_11 : [#users=1] = call_method[target=constant](args = (%ops, 38.49535961203812, torch.float32), kwargs = {})
+    %add_3 : [#users=1] = call_method[target=add](args = (%ops, %relu_2, %constant_11), kwargs = {})
+    %rsqrt_3 : [#users=1] = call_method[target=rsqrt](args = (%ops, %add_3), kwargs = {})
+    %constant_12 : [#users=1] = call_method[target=constant](args = (%ops, 238.45825973457383, torch.float32), kwargs = {})
+    %sub_3 : [#users=1] = call_method[target=sub](args = (%ops, %rsqrt_3, %constant_12), kwargs = {})
+    %get_index_1 : [#users=1] = call_module[target=get_index](args = (index0,), kwargs = {})
+    %store : [#users=1] = call_method[target=store](args = (%ops, buf0, %get_index_1, %sub_3, None), kwargs = {})
+    return store
+ir.LoopBodyBlock.__call__---------------------------
+
+New nodes after processing-----------------------
+
+Node------
+<class 'torch._inductor.scheduler.SchedulerNode'>
+{'_body': <torch._inductor.ir.LoopBody object at 0x2b7cafe64940>,
+ '_sizes': ([1073741824], []),
+ 'flops': 0,
+ 'group': (device(type='cuda', index=0), (1073741824, 1)),
+ 'inverse_users': [],
+ 'last_usage': {'arg0_1'},
+ 'max_order': 0,
+ 'min_order': 0,
+ 'node': ComputedBuffer(name='buf0', layout=FixedLayout('cuda', torch.float32, size=[32768, 32768], stride=[32768, 1]), data=Pointwise(
+  'cuda',
+  torch.float32,
+  def inner_fn(index):
+      i0, i1 = index
+      tmp0 = ops.load(arg0_1, i1 + 32768 * i0)
+      tmp1 = ops.constant(29.012376400946494, torch.float32)
+      tmp2 = tmp0 * tmp1
+      tmp3 = ops.rsqrt(tmp2)
+      tmp4 = ops.constant(125.71788480852999, torch.float32)
+      tmp5 = tmp3 * tmp4
+      tmp6 = ops.constant(138.7876283670131, torch.float32)
+      tmp7 = tmp5 * tmp6
+      tmp8 = ops.rsqrt(tmp7)
+      tmp9 = ops.constant(6.281757805345899, torch.float32)
+      tmp10 = tmp8 + tmp9
+      tmp11 = ops.rsqrt(tmp10)
+      tmp12 = ops.relu(tmp11)
+      tmp13 = ops.constant(184.0915520950937, torch.float32)
+      tmp14 = tmp12 * tmp13
+      tmp15 = ops.constant(207.79171694547819, torch.float32)
+      tmp16 = tmp14 + tmp15
+      tmp17 = ops.constant(7.922759225387921, torch.float32)
+      tmp18 = tmp16 - tmp17
+      tmp19 = ops.constant(149.45987261932987, torch.float32)
+      tmp20 = tmp18 + tmp19
+      tmp21 = ops.relu(tmp20)
+      tmp22 = ops.constant(175.98230380986698, torch.float32)
+      tmp23 = tmp21 - tmp22
+      tmp24 = ops.constant(33.065566754689065, torch.float32)
+      tmp25 = tmp23 * tmp24
+      tmp26 = ops.constant(210.8432547866285, torch.float32)
+      tmp27 = tmp25 - tmp26
+      tmp28 = ops.relu(tmp27)
+      tmp29 = ops.constant(38.49535961203812, torch.float32)
+      tmp30 = tmp28 + tmp29
+      tmp31 = ops.rsqrt(tmp30)
+      tmp32 = ops.constant(238.45825973457383, torch.float32)
+      tmp33 = tmp31 - tmp32
+      return tmp33
+  ,
+  ranges=[32768, 32768],
+  origins={rsqrt_2, add_3, mul_1, add, sub_2, relu, add_2, mul_...
+)),
+ 'origins': {relu_1,
+             rsqrt_1,
+             mul_1,
+             mul,
+             add_2,
+             rsqrt,
+             rsqrt_2,
+             add,
+             sub_2,
+             mul_2,
+             mul_3,
+             mul_4,
+             sub_1,
+             add_1,
+             sub,
+             add_3,
+             relu,
+             relu_2,
+             rsqrt_3,
+             sub_3},
+ 'read_writes': ReadWrites(reads={MemoryDep(name='arg0_1', index=c0, size=(1073741824,))}, writes={MemoryDep(name='buf0', index=c0, size=(1073741824,))}, index_exprs=set(), range_vars=[], var_ranges=OrderedDict([(d0, 1073741824)])),
+ 'recursive_predecessors': set(),
+ 'scheduler': <torch._inductor.scheduler.Scheduler object at 0x2b7cafe5c790>,
+ 'unmet_dependencies': set(),
+ 'users': [NodeUser(node=OUTPUT, can_inplace=False)],
+ 'written': False}
+
+Finished scheduler init-----------------------
+
+Scheduler.codegen--------------------------------------------
+ir.LoopBodyBlock.__call__---------------------------
+codegen.triton.call_kernel---------------
+
+Finished Scheduler.codegen--------------------------------------------
+
+ir.codegen_reference: buf0
+
+graph.compile_to_module----------------------------
+Code:
+
+from ctypes import c_void_p, c_long
+import torch
+import math
+import random
+import os
+import tempfile
+from torch._inductor.utils import maybe_profile
+
+from torch import empty_strided, as_strided, device
+from torch._inductor.codecache import AsyncCompile
+from torch._inductor.select_algorithm import extern_kernels
+
+aten = torch.ops.aten
+assert_size_stride = torch._C._dynamo.guards.assert_size_stride
+async_compile = AsyncCompile()
+
+import triton
+import triton.language as tl
+from torch._inductor.triton_heuristics import grid, start_graph, end_graph
+from torch._C import _cuda_getCurrentRawStream as get_cuda_stream
+
+
+# kernel path: /tmp/torchinductor_azhao/74/c74mfnk62hqrc262afw55keyxhoo4wx357gwcpm4rvufmmg77pxr.py
+# Original ATen: aten.add, aten.mul, aten.relu, aten.rsqrt, aten.sub
+
+# aten.add => add, add_1, add_2, add_3
+# aten.mul => mul, mul_1, mul_2, mul_3, mul_4
+# aten.relu => relu, relu_1, relu_2
+# aten.rsqrt => rsqrt, rsqrt_1, rsqrt_2, rsqrt_3
+# aten.sub => sub, sub_1, sub_2, sub_3
+triton_poi_fused_add_mul_relu_rsqrt_sub_0 = async_compile.triton('''
+import triton
+import triton.language as tl
+from torch._inductor.ir import ReductionHint
+from torch._inductor.ir import TileHint
+from torch._inductor.triton_heuristics import pointwise
+from torch._inductor.utils import instance_descriptor
+
+@pointwise(size_hints=[1073741824], filename=__file__, meta={'signature': {0: '*fp32', 1: '*fp32', 2: 'i32'}, 'device': 0, 'constants': {}, 'mutated_arg_names': [], 'configs': [instance_descriptor(divisible_by_16=(0, 1, 2), equal_to_1=())]})
+@triton.jit
+def triton_(in_ptr0, out_ptr0, xnumel, XBLOCK : tl.constexpr):
+    xnumel = 1073741824
+    xoffset = tl.program_id(0) * XBLOCK
+    xindex = xoffset + tl.arange(0, XBLOCK)[:]
+    xmask = xindex < xnumel
+    x0 = xindex
+    tmp0 = tl.load(in_ptr0 + (x0), None)
+    tmp1 = 29.012376400946494
+    tmp2 = tmp0 * tmp1
+    tmp3 = tl.math.rsqrt(tmp2)
+    tmp4 = 125.71788480852999
+    tmp5 = tmp3 * tmp4
+    tmp6 = 138.7876283670131
+    tmp7 = tmp5 * tmp6
+    tmp8 = tl.math.rsqrt(tmp7)
+    tmp9 = 6.281757805345899
+    tmp10 = tmp8 + tmp9
+    tmp11 = tl.math.rsqrt(tmp10)
+    tmp12 = tl.where(0 != 0, 0, tl.where(0 > tmp11, 0, tmp11))
+    tmp13 = 184.0915520950937
+    tmp14 = tmp12 * tmp13
+    tmp15 = 207.79171694547819
+    tmp16 = tmp14 + tmp15
+    tmp17 = 7.922759225387921
+    tmp18 = tmp16 - tmp17
+    tmp19 = 149.45987261932987
+    tmp20 = tmp18 + tmp19
+    tmp21 = tl.where(0 != 0, 0, tl.where(0 > tmp20, 0, tmp20))
+    tmp22 = 175.98230380986698
+    tmp23 = tmp21 - tmp22
+    tmp24 = 33.065566754689065
+    tmp25 = tmp23 * tmp24
+    tmp26 = 210.8432547866285
+    tmp27 = tmp25 - tmp26
+    tmp28 = tl.where(0 != 0, 0, tl.where(0 > tmp27, 0, tmp27))
+    tmp29 = 38.49535961203812
+    tmp30 = tmp28 + tmp29
+    tmp31 = tl.math.rsqrt(tmp30)
+    tmp32 = 238.45825973457383
+    tmp33 = tmp31 - tmp32
+    tl.store(out_ptr0 + (x0 + tl.zeros([XBLOCK], tl.int32)), tmp33, None)
+''')
+
+
+async_compile.wait(globals())
+del async_compile
+
+def call(args):
+    arg0_1, = args
+    args.clear()
+    start_graph()
+    with torch.cuda._DeviceGuard(0):
+        torch.cuda.set_device(0) # no-op to ensure context
+        buf0 = empty_strided((32768, 32768), (32768, 1), device='cuda', dtype=torch.float32)
+        stream0 = get_cuda_stream(0)
+        triton_poi_fused_add_mul_relu_rsqrt_sub_0.run(arg0_1, buf0, 1073741824, grid=grid(1073741824), stream=stream0)
+        del arg0_1
+        end_graph()
+        return (buf0, )
+
+
+def benchmark_compiled_module(times=10, repeat=10):
+    from torch._dynamo.testing import rand_strided
+    from torch._inductor.utils import print_performance
+    arg0_1 = rand_strided((32768, 32768), (32768, 1), device='cuda:0', dtype=torch.float32)
+    return print_performance(lambda: call([arg0_1]), times=times, repeat=repeat)
+
+
+if __name__ == "__main__":
+    from torch._inductor.utils import compiled_module_main
+    compiled_module_main('None', benchmark_compiled_module)
+
+graph.compile_to_module
+
+compile_fx_inner.result:
+<function align_inputs.<locals>.run at 0x2b7cafe5a820>
+
+compile_fx.fw_compiler_base--------------------------
+10.468ms    	8.590 GB 	  820.56GB/s 	 triton_poi_fused_add_mul_relu_rsqrt_sub_0
+SUMMARY (/tmp/torchinductor_azhao/pg/cpgtk33j5l6jxzyaoy2jyuk6rsilhmgwyf5kg65ivjsb5lnk5fah.py)
+10.47ms   	 8.59 GB	 820.56GB/s
+
+Runtime: 10.4684
+32768 32768 1
