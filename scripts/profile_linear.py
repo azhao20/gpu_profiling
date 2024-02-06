@@ -31,6 +31,7 @@ def main():
 
     precision = precision_map.get(precision_int, torch.float32)
     A = torch.randn(inputs, in_size, dtype=precision, device=device)
+    B = torch.randn(inputs, in_size, dtype=precision, device=device)
 
     class Linear(nn.Module):
         def __init__(self):
@@ -45,13 +46,15 @@ def main():
 
     torch.cuda.empty_cache()
     try:
+        # Do all of the fusion heuristics, so the later call won't need to.
+        res1 = model(A)
         torch.cuda.cudart().cudaProfilerStart()
         nvtx.range_push("profile_range")
-        res = model(A)
+        res2 = model(B)
         torch.cuda.synchronize()
         nvtx.range_pop()
         torch.cuda.cudart().cudaProfilerStop()
-        print(f"res: {res}")
+        print(f"Mark output: {res1 + res2}")
     except:
         print("Failed!")
         tb.print_exc()

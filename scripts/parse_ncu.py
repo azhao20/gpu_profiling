@@ -33,7 +33,8 @@ def main():
     kernel_params = kernel_params[:-1] # Remove the trailing period.
 
     for i in range(num_entries):
-        df = full_df[full_df['ID'] == i]
+        df = full_df[full_df['ID'] == i].reset_index()
+        assert(len(df) > 0)
 
         device_header = ['Kernel Name', 'Context', 'Stream', 'Block Size', 'Grid Size', 'Device', 'CC']
         for param in device_header:
