@@ -51,6 +51,7 @@ def main():
         torch.cuda.synchronize()
         nvtx.range_pop()
         torch.cuda.cudart().cudaProfilerStop()
+        print(f"res: {res}")
     except:
         print("Failed!")
         tb.print_exc()
