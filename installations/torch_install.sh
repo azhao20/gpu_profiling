@@ -6,6 +6,8 @@
 #SBATCH --gres=gpu:nvidia_a100-sxm4-80gb:2
 #SBATCH -o torch_install.out
 #SBATCH -e torch_install.err
+#SBATCH --mail-type=END
+#SBATCH --mail-user=apzhao@college.harvard.edu
 
 module load python/3.10.12-fasrc01
 module load cuda/12.0.1-fasrc01

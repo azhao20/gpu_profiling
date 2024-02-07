@@ -6,6 +6,8 @@
 #SBATCH --gres=gpu:nvidia_a100-sxm4-80gb:2
 #SBATCH -o torch_build.out
 #SBATCH -e torch_build.err
+#SBATCH --mail-type=END
+#SBATCH --mail-user=apzhao@college.harvard.edu
 
 module load python/3.10.12-fasrc01
 module load gcc/12.2.0-fasrc01
