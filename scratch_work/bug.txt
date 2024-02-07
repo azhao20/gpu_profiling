@@ -1,0 +1,8 @@
+/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/cuda/graphs.py:81: UserWarning: The CUDA Graph is empty. This usually means that the graph was attempted to be captured on wrong device or stream. (Triggered internally at /n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/aten/src/ATen/cuda/CUDAGraph.cpp:224.)
+  super().capture_end()
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/scripts/profile_linear.py", line 51, in main
+    with torch.cuda.graph(g):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/cuda/memory.py", line 162, in empty_cache
+    torch._C._cuda_emptyCache()
+RuntimeError: captures_underway == 0 INTERNAL ASSERT FAILED at "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/c10/cuda/CUDACachingAllocator.cpp":2650, please report a bug to PyTorch. 
