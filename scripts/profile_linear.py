@@ -6,6 +6,11 @@ from torch import nn
 from torch.cuda import nvtx
 import torch._dynamo as dynamo
 
+from utils import get_precision
+
+# TODO: wrap this into another file
+WARMUP_ITER = 10
+
 def main():
     """
     The features that are tested in a linear layer.
@@ -13,26 +18,17 @@ def main():
     Batch size, input size, output size: powers of 2 up to 1024 + multiples of 4
     """
     # Assume this script runs on one device.
-    device = f"cuda:0" if torch.cuda.is_available() else "cpu"
-    assert(device == f"cuda:0")
+    device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    assert(device == "cuda:0")
 
-    assert(len(sys.argv) >= 3)
-    precision_int, inputs, bias, in_size, out_size = int(sys.argv[1]), int(sys.argv[2]), bool(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5])
+    assert(len(sys.argv) == 6)
+    precision_flag, inputs, bias, in_size, out_size = int(sys.argv[1]), int(sys.argv[2]), bool(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5])
+    precision = get_precision(precision_flag)
 
-    # TODO: put this into utils.py.
-    precision_map = {
-        # 8: torch.float8_e5m2,
-        161: torch.bfloat16,
-        162: torch.float16,
-        32: torch.float32
-    }
-    if precision_int not in precision_map:
-        print("Precision wasn't specified, defaulting to torch.float32")
-
-    precision = precision_map.get(precision_int, torch.float32)
     A = torch.randn(inputs, in_size, dtype=precision, device=device)
     B = torch.randn(inputs, in_size, dtype=precision, device=device)
 
+    @torch.compile(backend="inductor")
     class Linear(nn.Module):
         def __init__(self):
             super().__init__()
@@ -42,19 +38,22 @@ def main():
             return self.lin(x)
 
     model = Linear().to(device, dtype=precision)
-    model = dynamo.optimize("inductor", nopython=True)(model)
+    # model = dynamo.optimize("inductor", nopython=True)(model)
+
+    res = [0] * (WARMUP_ITER + 1)
 
     torch.cuda.empty_cache()
     try:
         # Do all of the fusion heuristics, so the later call won't need to.
-        res1 = model(A)
+        for i in range(WARMUP_ITER):
+            res[i] = model(A)
         torch.cuda.cudart().cudaProfilerStart()
         nvtx.range_push("profile_range")
-        res2 = model(B)
+        res[-1] = model(B)
         torch.cuda.synchronize()
         nvtx.range_pop()
         torch.cuda.cudart().cudaProfilerStop()
-        print(f"Mark output: {res1 + res2}")
+        print(f"Mark output: {sum(res)}")
     except:
         print("Failed!")
         tb.print_exc()
