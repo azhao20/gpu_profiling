@@ -19,8 +19,8 @@ for precision in "${precisions[@]}"
 do
     for inputs in "${num_inputs[@]}"
     do
-        sbatch -o $OUTPUT_DIR/${precision}.${inputs}.%j.out \
-               -e $OUTPUT_DIR/${precision}.${inputs}.%j.err \
+        sbatch -o $OUTPUT_DIR.${precision}.${inputs}/${precision}.${inputs}.%j.out \
+               -e $OUTPUT_DIR.${precision}.${inputs}/${precision}.${inputs}.%j.err \
                $SCRIPT_DIR/profile_linear.sh $precision $inputs
     done
 done

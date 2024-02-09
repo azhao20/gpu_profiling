@@ -16,8 +16,8 @@ module load cmake
 HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
 SCRIPT_DIR=$HOME_DIR/gpu_profiling/scripts
 DATA_DIR="/n/holyscratch01/idreos_lab/Users/azhao/linear_data"
-FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.csv
 FILE=$DATA_DIR/$1.$2
+FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.$1.$2.csv # Avoid race conditions.
 
 mamba activate $HOME_DIR/env
 
@@ -48,4 +48,4 @@ do
 done
 
 rm $FILE.ncu-rep
-# rm $FILE.csv
+rm $FILE.csv
