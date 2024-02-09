@@ -37,7 +37,9 @@ do
 
             echo "$1, $2, $bias, $in_size, $out_size-------"
             # Run ncu and export into CSV format for preprocessing.
-            ncu --nvtx --nvtx-include "profile_range/" --set full -f --export $FILE --target-processes all $HOME_DIR/env/bin/python3 $SCRIPT_DIR/profile_linear.py $1 $2 $bias $in_size $out_size
+            ncu --nvtx --nvtx-include "profile_range/" \
+                --set full -f --export $FILE --target-processes all \
+                $HOME_DIR/env/bin/python3 $SCRIPT_DIR/profile_linear.py $1 $2 $bias $in_size $out_size
             ncu --import $FILE.ncu-rep --csv > $FILE.csv
 
             # Process the CSV.
