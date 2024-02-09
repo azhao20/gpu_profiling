@@ -6,7 +6,7 @@ from torch import nn
 from torch.cuda import nvtx
 import torch._dynamo as dynamo
 
-from utils import get_precision
+from utils.utils import get_precision
 
 # TODO: wrap this into another file
 WARMUP_ITER = 10
