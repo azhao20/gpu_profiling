@@ -53,12 +53,11 @@ def main():
         with open(out_file, mode='a', newline='') as file:
             writer = csv.writer(file)
 
-            if not os.path.isfile(out_file) and os.path.getsize(out_file) > 0:
+            if os.path.getsize(out_file) == 0:
                 device_header = ['Kernel Name', 'Context', 'Stream', 'Block Size', 'Grid Size', 'Device', 'CC']
                 # TODO: switch case to deal with linear, conv, etc.
                 if len(sys.argv) == 8:
                     input_header = ['Precision', 'Inputs', 'Bias', 'Input Size', 'Output Size']
-
                 writer.writerow(["Params"] + input_header + device_header + keys)
 
             result_row = [kernel_params] + input_params + extra_params + values

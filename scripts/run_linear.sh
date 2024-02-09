@@ -8,12 +8,12 @@ module load python/3.10.12-fasrc01
 
 # TODO: find a way to specify different configurations for GPUs.
 
-# precisions=(161 162 32)
-# num_inputs=(1 2 $(seq 4 4 1024))
+precisions=(161 162 32)
+num_inputs=(1 2 $(seq 4 4 1024))
 
 # Uncomment for testing purposes
-precisions=(32)
-num_inputs=(3)
+# precisions=(32)
+# num_inputs=(3)
 
 for precision in "${precisions[@]}"
 do

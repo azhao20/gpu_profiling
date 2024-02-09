@@ -4,7 +4,7 @@ import traceback as tb
 import torch
 from torch import nn
 from torch.cuda import nvtx
-import torch._dynamo as dynamo
+# import torch._dynamo as dynamo
 
 from utils.utils import get_precision
 
