@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -c 8
-#SBATCH -t 0-0:10
+#SBATCH -t 7-00:00
 #SBATCH -p seas_gpu
 #SBATCH --mem=64000
 #SBATCH --gres=gpu:nvidia_a100-sxm4-80gb:1
@@ -21,12 +21,12 @@ FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.$1.$2.csv # Avoid race conditions.
 
 mamba activate $HOME_DIR/env
 
-# biases=(0 1)
-# sizes=(1 2 $(seq 4 4 1024))
+biases=(0 1)
+sizes=(1 2 $(seq 4 4 1024))
 
 # Uncomment for testing purposes
-biases=(1)
-sizes=(1000)
+# biases=(1)
+# sizes=(1000)
 
 for bias in "${biases[@]}"
 do
