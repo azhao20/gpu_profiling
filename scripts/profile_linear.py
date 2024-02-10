@@ -6,7 +6,7 @@ from torch import nn
 from torch.cuda import nvtx
 # import torch._dynamo as dynamo
 
-from utils.utils import get_precision
+from utils import get_precision
 
 # TODO: wrap this into another file
 WARMUP_ITER = 10
@@ -28,7 +28,6 @@ def main():
     A = torch.randn(inputs, in_size, dtype=precision, device=device)
     B = torch.randn(inputs, in_size, dtype=precision, device=device)
 
-    @torch.compile(backend="inductor")
     class Linear(nn.Module):
         def __init__(self):
             super().__init__()
@@ -38,6 +37,7 @@ def main():
             return self.lin(x)
 
     model = Linear().to(device, dtype=precision)
+    model = torch.compile(model, backend="inductor")
     # model = dynamo.optimize("inductor", nopython=True)(model)
 
     res = [0] * (WARMUP_ITER + 1)
