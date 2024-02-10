@@ -28,6 +28,9 @@ sizes=(1 2 $(seq 4 4 1024))
 # biases=(1)
 # sizes=(1000)
 
+# Create file if it doesn't exist; empties it otherwise.
+truncate -s 0 $FINAL_CSV
+
 for bias in "${biases[@]}"
 do
     for in_size in "${sizes[@]}"

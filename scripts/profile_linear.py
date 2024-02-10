@@ -8,6 +8,9 @@ from torch.cuda import nvtx
 
 from utils import get_precision
 
+import warnings
+warnings.filterwarnings("ignore")
+
 # TODO: wrap this into another file
 WARMUP_ITER = 10
 
