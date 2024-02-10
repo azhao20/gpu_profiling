@@ -16,37 +16,32 @@ module load cmake
 HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
 SCRIPT_DIR=$HOME_DIR/gpu_profiling/scripts
 DATA_DIR="/n/holyscratch01/idreos_lab/Users/azhao/linear_data"
-FILE=$DATA_DIR/$1.$2
-FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.$1.$2.csv # Avoid race conditions.
+FILE=$DATA_DIR/$1.$2.$3
+FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.$1.$2.$3.csv # Avoid race conditions.
 
 mamba activate $HOME_DIR/env
 
-biases=(0 1)
 sizes=(1 2 $(seq 4 4 1024))
 
 # Uncomment for testing purposes
-# biases=(1)
 # sizes=(1000)
 
 # Create file if it doesn't exist; empties it otherwise.
 truncate -s 0 $FINAL_CSV
 
-for bias in "${biases[@]}"
+for in_size in "${sizes[@]}"
 do
-    for in_size in "${sizes[@]}"
+    for out_size in "${sizes[@]}"
     do
-        for out_size in "${sizes[@]}"
-        do
 
-            echo "$1, $2, $bias, $in_size, $out_size-------"
-            # Run ncu and export into CSV format for preprocessing.
-            ncu --nvtx --nvtx-include "profile_range/" --set full -f --export $FILE --target-processes all $HOME_DIR/env/bin/python3 $SCRIPT_DIR/profile_linear.py $1 $2 $bias $in_size $out_size
-            ncu --import $FILE.ncu-rep --csv > $FILE.csv
+        echo "$1, $2, $3, $in_size, $out_size-------"
+        # Run ncu and export into CSV format for preprocessing.
+        ncu --nvtx --nvtx-include "profile_range/" --set full -f --export $FILE --target-processes all $HOME_DIR/env/bin/python3 $SCRIPT_DIR/profile_linear.py $1 $2 $3 $in_size $out_size
+        ncu --import $FILE.ncu-rep --csv > $FILE.csv
 
-            # Process the CSV.
-            $HOME_DIR/env/bin/python3 $SCRIPT_DIR/parse_ncu.py $FILE.csv $FINAL_CSV $1 $2 $bias $in_size $out_size
+        # Process the CSV.
+        $HOME_DIR/env/bin/python3 $SCRIPT_DIR/parse_ncu.py $FILE.csv $FINAL_CSV $1 $2 $3 $in_size $out_size
 
-        done
     done
 done
 
