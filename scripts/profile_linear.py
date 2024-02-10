@@ -56,7 +56,7 @@ def main():
         torch.cuda.synchronize()
         nvtx.range_pop()
         torch.cuda.cudart().cudaProfilerStop()
-        print(f"Mark output: {sum(res)}")
+        # print(f"Mark output: {sum(res)}")
     except:
         print("Failed!")
         tb.print_exc()
