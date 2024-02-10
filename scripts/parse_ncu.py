@@ -21,7 +21,7 @@ def main():
 
     full_df = pd.read_csv(in_file)
     full_df['ID'] = full_df['ID'].astype(int)
-    num_entries = full_df['ID'].max()
+    num_entries = full_df['ID'].max() + 1
 
     # TODO: switch case to deal with linear, conv, etc.
     if len(sys.argv) == 8:
