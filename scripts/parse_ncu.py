@@ -57,7 +57,7 @@ def main():
                 device_header = ['Kernel Name', 'Context', 'Stream', 'Block Size', 'Grid Size', 'Device', 'CC']
                 # TODO: switch case to deal with linear, conv, etc.
                 if len(sys.argv) == 8:
-                    input_header = ['Precision', 'Inputs', 'Bias', 'Input Size', 'Output Size']
+                    input_header = ['Inputs', 'Precision', 'Bias', 'Input Size', 'Output Size']
                 writer.writerow(["Params"] + input_header + device_header + keys)
 
             result_row = [kernel_params] + input_params + extra_params + values

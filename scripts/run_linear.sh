@@ -8,25 +8,15 @@ module load python/3.10.12-fasrc01
 
 # TODO: find a way to specify different configurations for GPUs.
 
-precisions=(161 162 32)
-num_inputs=(1 2 $(seq 4 4 1024))
-biases=(0 1)
+num_inputs=(1 2 $(seq 4 4 124) $(seq 128 8 248) $(seq 256 16 368) $(seq 384 32 480) $(seq 512 64 1024))
 
 # Uncomment for testing purposes
-# precisions=(32)
 # num_inputs=(3)
-# biases=(1)
 
-for precision in "${precisions[@]}"
+for inputs in "${num_inputs[@]}"
 do
-    for inputs in "${num_inputs[@]}"
-    do
-        for bias in "${biases[@]}"
-        do
-            JOB_FILE=$OUTPUT_DIR/${precision}.${inputs}.${bias}
+    JOB_FILE=$OUTPUT_DIR/${inputs}
             sbatch -o $JOB_FILE.%j.out \
                    -e $JOB_FILE.%j.err \
-                   $SCRIPT_DIR/profile_linear.sh $precision $inputs $bias
-        done
-    done
+                   $SCRIPT_DIR/profile_linear.sh $inputs
 done
