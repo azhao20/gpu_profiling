@@ -25,7 +25,7 @@ def main():
     assert(device == "cuda:0")
 
     assert(len(sys.argv) == 6)
-    precision_flag, inputs, bias, in_size, out_size = int(sys.argv[1]), int(sys.argv[2]), bool(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5])
+    inputs, precision_flag, bias, in_size, out_size = int(sys.argv[1]), int(sys.argv[2]), bool(sys.argv[3]), int(sys.argv[4]), int(sys.argv[5])
     precision = get_precision(precision_flag)
 
     A = torch.randn(inputs, in_size, dtype=precision, device=device)

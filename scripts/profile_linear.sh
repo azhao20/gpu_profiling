@@ -16,32 +16,46 @@ module load cmake
 HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
 SCRIPT_DIR=$HOME_DIR/gpu_profiling/scripts
 DATA_DIR="/n/holyscratch01/idreos_lab/Users/azhao/linear_data"
-FILE=$DATA_DIR/$1.$2.$3
-FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.$1.$2.$3.csv # Avoid race conditions.
+FILE=$DATA_DIR/$1
+FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.$1.csv # Avoid race conditions.
 
 mamba activate $HOME_DIR/env
 
-sizes=(1 2 $(seq 4 4 1024))
+sizes=(1 2 $(seq 4 4 124) $(seq 128 8 248) $(seq 256 16 368) $(seq 384 32 480) $(seq 512 64 1024))
+precisions=(161 162 32)
+biases=(0 1)
 
 # Uncomment for testing purposes
 # sizes=(1000)
+# precisions=(32)
+# biases=(1)
 
 # Create file if it doesn't exist; empties it otherwise.
 truncate -s 0 $FINAL_CSV
 
-for in_size in "${sizes[@]}"
+for precision in "${precisions[@]}"
 do
-    for out_size in "${sizes[@]}"
+    for bias in "${biases[@]}"
     do
+        echo "$precision, $bias--------------\n" # For some sanity checking.
+        for in_size in "${sizes[@]}"
+        do
+            for out_size in "${sizes[@]}"
+            do
+                # Run ncu and export into CSV format for preprocessing.
+                ncu --nvtx --nvtx-include "profile_range/" --set full \
+                    -f --export $FILE --target-processes all \
+                    $HOME_DIR/env/bin/python3 $SCRIPT_DIR/profile_linear.py \
+                    $1 $precision $bias $in_size $out_size
 
-        echo "$1, $2, $3, $in_size, $out_size-------"
-        # Run ncu and export into CSV format for preprocessing.
-        ncu --nvtx --nvtx-include "profile_range/" --set full -f --export $FILE --target-processes all $HOME_DIR/env/bin/python3 $SCRIPT_DIR/profile_linear.py $1 $2 $3 $in_size $out_size
-        ncu --import $FILE.ncu-rep --csv > $FILE.csv
+                ncu --import $FILE.ncu-rep --csv > $FILE.csv
 
-        # Process the CSV.
-        $HOME_DIR/env/bin/python3 $SCRIPT_DIR/parse_ncu.py $FILE.csv $FINAL_CSV $1 $2 $3 $in_size $out_size
+                # Process the CSV.
+                $HOME_DIR/env/bin/python3 \
+                    $SCRIPT_DIR/parse_ncu.py $FILE.csv $FINAL_CSV $1 $precision $bias $in_size $out_size
 
+            done
+        done
     done
 done
 
