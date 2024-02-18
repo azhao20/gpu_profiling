@@ -32,12 +32,12 @@ do
     do
         for bias in "${biases[@]}"
         do
-            echo "$precision, $bias--------------\n" # For some sanity checking.
+            echo "$precision, $bias--------------" # For some sanity checking.
             for size in "${sizes[@]}"
             do
                 # Process the CSV.
                 $HOME_DIR/env/bin/python3 \
-                    $SCRIPT_DIR/verify_linear.py $inputs $precision $bias $in_size $out_size $FINAL_CSV 
+                    $SCRIPT_DIR/verify_linear.py $inputs $precision $bias $size $size $FINAL_CSV
 
             done
         done

@@ -39,7 +39,7 @@ def main():
     time = time_model(model, A, B)
 
     kernel_params = ""
-    for param in (inputs, precision_flag, bias, in_size, out_size):
+    for param in (inputs, precision_flag, str(sys.argv[3]), in_size, out_size):
         kernel_params += f"{param}" + "."
     kernel_params = kernel_params[:-1] # Remove the trailing period.
 

@@ -37,7 +37,7 @@ for precision in "${precisions[@]}"
 do
     for bias in "${biases[@]}"
     do
-        echo "$precision, $bias--------------\n" # For some sanity checking.
+        echo "$precision, $bias--------------" # For some sanity checking.
         for in_size in "${sizes[@]}"
         do
             for out_size in "${sizes[@]}"

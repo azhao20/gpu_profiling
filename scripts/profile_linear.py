@@ -6,13 +6,10 @@ from torch import nn
 from torch.cuda import nvtx
 # import torch._dynamo as dynamo
 
-from utils import get_precision
+from utils import get_precision, NREPS
 
 import warnings
 warnings.filterwarnings("ignore")
-
-# TODO: wrap this into another file
-WARMUP_ITER = 10
 
 def main():
     """
@@ -41,22 +38,18 @@ def main():
 
     model = Linear().to(device, dtype=precision)
     model = torch.compile(model, backend="inductor")
-    # model = dynamo.optimize("inductor", nopython=True)(model)
-
-    res = [0] * (WARMUP_ITER + 1)
+    res = [0] * (NREPS + 1)
 
     torch.cuda.empty_cache()
     try:
         # Do all of the fusion heuristics, so the later call won't need to.
-        for i in range(WARMUP_ITER):
+        for i in range(NREPS):
             res[i] = model(A)
         torch.cuda.cudart().cudaProfilerStart()
         nvtx.range_push("profile_range")
         res[-1] = model(B)
-        torch.cuda.synchronize()
         nvtx.range_pop()
         torch.cuda.cudart().cudaProfilerStop()
-        # print(f"Mark output: {sum(res)}")
     except:
         print("Failed!")
         tb.print_exc()
