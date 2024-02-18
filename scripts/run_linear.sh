@@ -20,3 +20,5 @@ do
                    -e $JOB_FILE.%j.err \
                    $SCRIPT_DIR/profile_linear.sh $inputs
 done
+
+source $SCRIPT_DIR/run_verify_linear.sh
