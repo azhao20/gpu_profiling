@@ -1,5 +1,9 @@
 import os, sys
+import numpy as np
 import torch
+
+# Assume warmup reps = nreps = 10.
+NREPS = 10
 
 class HiddenPrints:
     """
@@ -25,3 +29,36 @@ def get_precision(precision_flag: int):
         print("Precision wasn't specified, defaulting to torch.float32")
 
     return precision_map.get(precision_flag, torch.float32)
+
+def _time_iter(model, input):
+    """
+    Time in ms.
+    """
+    start = torch.cuda.Event(enable_timing=True)
+    end = torch.cuda.Event(enable_timing=True)
+    start.record()
+    result = model(input)
+    end.record()
+    torch.cuda.synchronize()
+    return result, start.elapsed_time(end)
+
+def time_model(model, warmup_input, input):
+    """
+    Based on:
+    https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html#demonstrating-speedups
+
+    Could consider:
+    https://www.speechmatics.com/company/articles-and-news/timing-operations-in-pytorch
+    """
+    times = []
+    # Warmup
+    # Do all of the fusion heuristics, so the later call won't need to.
+    for _ in range(NREPS):
+        _, time = _time_iter(model, warmup_input)
+        times.append(time)
+
+    # Actual eval.
+    for i in range(NREPS):
+        _, time = _time_iter(model, input)
+        times[i] = time
+    return np.median(np.array(times))
