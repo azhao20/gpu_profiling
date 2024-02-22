@@ -15,29 +15,34 @@ module load cmake
 
 HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
 SCRIPT_DIR=$HOME_DIR/gpu_profiling/scripts
-FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.verify.csv
+FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.time.$1.csv
 
 mamba activate $HOME_DIR/env
 
-sizes=(1 2 $(seq 32 32 1024))
+sizes=(1 2 $(seq 4 4 124) $(seq 128 8 248) $(seq 256 16 368) $(seq 384 32 480) $(seq 512 64 1024))
 precisions=(161 162 32)
 biases=(0 1)
+
+# Uncomment for testing purposes
+# sizes=(1000)
+# precisions=(32)
+# biases=(1)
 
 # Create file if it doesn't exist; empties it otherwise.
 truncate -s 0 $FINAL_CSV
 
-for inputs in "${sizes[@]}"
+for precision in "${precisions[@]}"
 do
-    for precision in "${precisions[@]}"
+    for bias in "${biases[@]}"
     do
-        for bias in "${biases[@]}"
+        echo "$precision, $bias--------------" # For some sanity checking.
+        for in_size in "${sizes[@]}"
         do
-            echo "$precision, $bias--------------" # For some sanity checking.
-            for size in "${sizes[@]}"
+            for out_size in "${sizes[@]}"
             do
                 # Process the CSV.
                 $HOME_DIR/env/bin/python3 \
-                    $SCRIPT_DIR/verify_linear.py $inputs $precision $bias $size $size $FINAL_CSV
+                    $SCRIPT_DIR/time_linear.py $1 $precision $bias $in_size $out_size $FINAL_CSV
 
             done
         done
