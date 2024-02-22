@@ -44,6 +44,8 @@ def _time_iter(model, input):
 
 def time_model(model, warmup_input, input):
     """
+    Returns the median runtime in ms.
+    
     Based on:
     https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html#demonstrating-speedups
 
@@ -54,11 +56,10 @@ def time_model(model, warmup_input, input):
     # Warmup
     # Do all of the fusion heuristics, so the later call won't need to.
     for _ in range(NREPS):
-        _, time = _time_iter(model, warmup_input)
-        times.append(time)
+        _ = model(warmup_input)
 
     # Actual eval.
-    for i in range(NREPS):
+    for _ in range(NREPS):
         _, time = _time_iter(model, input)
-        times[i] = time
+        times.append(time)
     return np.median(np.array(times))

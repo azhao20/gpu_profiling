@@ -1,9 +1,7 @@
 import os, sys, csv
-import traceback as tb
 
 import torch
 from torch import nn
-# import torch._dynamo as dynamo
 
 from utils import get_precision, time_model
 
