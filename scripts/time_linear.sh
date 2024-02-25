@@ -4,7 +4,7 @@
 #SBATCH -p seas_gpu
 #SBATCH --mem=64000
 #SBATCH --gres=gpu:nvidia_a100-sxm4-80gb:1
-#SBATCH --mail-type=END
+#SBATCH --mail-type=BEGIN,END
 #SBATCH --mail-user=apzhao@college.harvard.edu
 
 module load python/3.10.12-fasrc01
