@@ -15,12 +15,12 @@ module load cmake
 
 HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
 SCRIPT_DIR=$HOME_DIR/gpu_profiling/scripts
-FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.time.$1.redo.csv
+FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.time.$1.csv
 
 mamba activate $HOME_DIR/env
 
 sizes=(1 2 $(seq 4 4 124) $(seq 128 8 248) $(seq 256 16 368) $(seq 384 32 480) $(seq 512 64 1024))
-precisions=(162 32)
+precisions=(161 162 32)
 biases=(0 1)
 
 # Uncomment for testing purposes
@@ -30,6 +30,8 @@ biases=(0 1)
 
 # Create file if it doesn't exist; empties it otherwise.
 # truncate -s 9801 $FINAL_CSV
+
+# Create file if it doesn't exist
 if [ ! -f "$FINAL_CSV" ]; then
     touch "$FINAL_CSV"
 fi
