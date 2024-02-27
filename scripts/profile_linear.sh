@@ -33,6 +33,11 @@ biases=(0 1)
 # Create file if it doesn't exist; empties it otherwise.
 # truncate -s 0 $FINAL_CSV
 
+# Create file if it doesn't exist
+if [ ! -f "$FINAL_CSV" ]; then
+    touch "$FINAL_CSV"
+fi
+
 for precision in "${precisions[@]}"
 do
     for bias in "${biases[@]}"
