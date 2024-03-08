@@ -17,7 +17,6 @@ HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
 SCRIPT_DIR=$HOME_DIR/gpu_profiling/scripts
 DATA_DIR="/n/holyscratch01/idreos_lab/Users/azhao/linear_data"
 FILE=$DATA_DIR/$1
-FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.$1.csv # Avoid race conditions.
 
 mamba activate $HOME_DIR/env
 
@@ -26,9 +25,23 @@ precisions=(161 162 32)
 biases=(0 1)
 
 # Uncomment for testing purposes
-# sizes=(1000)
 # precisions=(32)
+# in_sizes=(1024)
+# out_sizes=($(seq 76 4 124) $(seq 128 8 248) $(seq 256 16 368) $(seq 384 32 480) $(seq 512 64 1024))
+
+# FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.$1.csv # Avoid race conditions.
+# in_sizes=($(seq 272 16 368) $(seq 384 32 480) $(seq 512 64 1024))
+# in_sizes=($(seq 768 64 1024))
+# out_sizes=(1 2 $(seq 4 4 124) $(seq 128 8 248) $(seq 256 16 368) $(seq 384 32 480) $(seq 512 64 1024))
+# biases=(0)
+
+# FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.$1.redo.csv # Avoid race conditions.
+# in_sizes=($(seq 92 4 124) $(seq 128 8 248) $(seq 256 16 368) $(seq 384 32 480) $(seq 512 64 1024))
+# in_sizes=(1 2 $(seq 4 4 124) $(seq 128 8 248) $(seq 256 16 368) $(seq 384 32 480) $(seq 512 64 1024))
+# out_sizes=(1 2 $(seq 4 4 124) $(seq 128 8 248) $(seq 256 16 368) $(seq 384 32 480) $(seq 512 64 1024))
 # biases=(1)
+
+# sizes=(1000)
 
 # Create file if it doesn't exist; empties it otherwise.
 # truncate -s 0 $FINAL_CSV
