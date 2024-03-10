@@ -1,0 +1,5 @@
+DRAM Frequency: ['cycle/nsecond' 'cycle/usecond']
+Dynamic Shared Memory Per Block: ['byte/block' 'Kbyte/block']
+Memory Throughput: ['byte/second' 'Mbyte/second' 'Gbyte/second']
+SM Frequency: ['cycle/nsecond' 'cycle/usecond']
+Static Shared Memory Per Block: ['byte/block' 'Kbyte/block']
