@@ -223,7 +223,8 @@ def scale_data(path: str):
 
 def combine_csv(pdf: pd.DataFrame, time_file: str):
     tdf = pd.read_csv(time_file)
-    return pdf.merge(tdf, how='inner', left_on='Params', right_on='Kernel Name')
+    tdf.rename(columns={'Kernel Name': 'Params'}, inplace=True)
+    return pdf.merge(tdf, how='inner', on='Params')
 
 def scale_csv(save_dfs: bool = False):
     """
@@ -234,13 +235,13 @@ def scale_csv(save_dfs: bool = False):
     TIME_PATH = f"{base_dir}/time_data/"
 
     # TODO: consider using for loops to get tqdm.
-    profile_dfs = [scale_data(path=PROFILE_PATH + f"linear.{i}.csv") for i in [1]]
+    profile_dfs = [scale_data(path=PROFILE_PATH + f"linear.{i}.csv") for i in LINEAR_SIZES]
     combined_dfs = [combine_csv(profile_dfs[i], TIME_PATH + f"linear.time.{time}.csv") \
-                    for i, time in enumerate([1])]
+                    for i, time in enumerate(LINEAR_SIZES)]
 
     print("Done!")
-    assert(len(profile_dfs) == 1)
-    assert(len(combined_dfs) == 1)
+    # assert(len(profile_dfs) == 1)
+    # assert(len(combined_dfs) == 1)
 
     if save_dfs:
         print("Not implemented yet!")
@@ -254,5 +255,32 @@ def scale_csv(save_dfs: bool = False):
 
     combined_df = pd.concat(combined_dfs, ignore_index=True)
     print(combined_df.shape)
-    path = f"{base_dir}/hello.csv"
+    path = f"{base_dir}/combined.csv"
     combined_df.to_csv(path, index=False)
+
+def merge_kernel_time(df: pd.DataFrame):
+    """
+    TODO: update comments.
+    Note: this returns a df with only the integer values.
+
+    Takes a weighted average based on "Duration (usecond)".
+
+    Joins kernels based on "Params".
+
+    Note: assumes that numerical columns have already been converted.
+    """
+    # Exclude categorical columns and columns not involved in the weighted average
+    numerical_cols = df.select_dtypes(include=['number']).columns.drop(['Duration (usecond)'])
+
+    # Function to calculate weighted average for a group
+    def weighted_avg(group, avg_columns, weight_column):
+        weighted_avgs = {col: np.average(group[col], weights=group[weight_column]) for col in avg_columns}
+        weighted_avgs[weight_column] = group[weight_column].sum()  # Sum 'Duration (usecond)'
+        weighted_avgs['Kernels Launched'] = group.shape[0]  # This counts the number of rows in the group
+        return pd.Series(weighted_avgs)
+
+    # Compute weighted averages for each group
+    return df.groupby('Params').apply(weighted_avg, numerical_cols, 'Duration (usecond)').reset_index()
+
+def get_fc_flops(row):
+    return row['Inputs'] * (2 * row['Input Size'] + 1) * row['Output Size'] / (10**3)
