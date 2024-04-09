@@ -8,7 +8,8 @@ import torch
 # Once we do that, create a separate utils folder, and split this file into multiple folders.
 
 # Assume warmup reps = nreps = 10.
-NREPS = 10
+WARMUP_REPS = 10
+NREPS = 30
 LINEAR_SIZES = [1, 2] + [i for i in range(4, 128, 4)] + [i for i in range(128, 256, 8)] + [i for i in range(256, 384, 16)] + [i for i in range(384, 512, 32)] + [i for i in range(512, 1024 + 1, 64)]
 
 # TODO: abstract out for convolution.
@@ -330,3 +331,67 @@ def optimized_merge_kernel_time(df: pd.DataFrame):
 
 def get_fc_flops(row):
     return row['Inputs'] * (2 * row['Input Size'] + 1) * row['Output Size'] / (10**3)
+
+def _time_addmm(model, A, B, bias):
+    """
+    Time in ms.
+    """
+    start = torch.cuda.Event(enable_timing=True)
+    end = torch.cuda.Event(enable_timing=True)
+    start.record()
+    result = model(bias, A, B)
+    end.record()
+    torch.cuda.synchronize()
+    return result, start.elapsed_time(end)
+
+def _time_mm(model, A, B):
+    """
+    Time in ms.
+    """
+    start = torch.cuda.Event(enable_timing=True)
+    end = torch.cuda.Event(enable_timing=True)
+    start.record()
+    result = model(A, B)
+    end.record()
+    torch.cuda.synchronize()
+    return result, start.elapsed_time(end)
+
+def time_addmm(A, B, C = None):
+    """
+    Returns the median runtime in ms.
+    C = None if we don't use bias.
+
+    Based on:
+    https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html#demonstrating-speedups
+
+    Could consider:
+    https://www.speechmatics.com/company/articles-and-news/timing-operations-in-pytorch
+    """
+
+    @torch.compile(backend="inductor")
+    def addmm(a, b, bias):
+        return torch.addmm(bias, a, b)
+
+    @torch.compile(backend="inductor")
+    def mm(a, b):
+        return torch.mm(a, b)
+
+    if C is not None:
+        fn = addmm
+        time_fn = _time_addmm
+        args = (A, B, C)
+    else:
+        fn = mm
+        time_fn = _time_mm
+        args = (A, B)
+
+    # Do all of the fusion heuristics, so the later call won't need to.
+    for _ in range(WARMUP_REPS):
+        _ = fn(*args)
+
+    times = []
+    # Actual eval.
+    for _ in range(NREPS):
+        _, time = time_fn(fn, *args)
+        times.append(time)
+    return np.median(np.array(times))

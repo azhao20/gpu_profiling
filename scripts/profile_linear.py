@@ -6,7 +6,7 @@ from torch import nn
 from torch.cuda import nvtx
 # import torch._dynamo as dynamo
 
-from utils import get_precision, NREPS
+from utils import get_precision, NREPS, WARMUP_REPS
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -26,30 +26,57 @@ def main():
     precision = get_precision(precision_flag)
 
     A = torch.randn(inputs, in_size, dtype=precision, device=device)
-    B = torch.randn(inputs, in_size, dtype=precision, device=device)
+    B = torch.randn(in_size, out_size, dtype=precision, device=device)
+    C = torch.randn(out_size, dtype=precision, device=device)
 
-    class Linear(nn.Module):
-        def __init__(self):
-            super().__init__()
-            self.lin = nn.Linear(in_size, out_size, bias=bias)
+    # class Linear(nn.Module):
+    #     def __init__(self):
+    #         super().__init__()
+    #         self.lin = nn.Linear(in_size, out_size, bias=bias)
 
-        def forward(self, x):
-            return self.lin(x)
+    #     def forward(self, x):
+    #         return self.lin(x)
 
-    model = Linear().to(device, dtype=precision)
-    model = torch.compile(model, backend="inductor")
-    res = [0] * (NREPS + 1)
+    @torch.compile(backend="inductor")
+    def mm(A, B):
+        return torch.mm(A, B)
+
+    @torch.compile(backend="inductor")
+    def addmm(bias, A, B):
+        return torch.addmm(bias, A, B)
+
+    model = addmm if bias else mm
+    # model = Linear().to(device, dtype=precision)
+    # model = torch.compile(model, backend="inductor")
+    # model.eval()
+    res = [0] * (WARMUP_REPS + 1)
 
     torch.cuda.empty_cache()
     try:
         # Do all of the fusion heuristics, so the later call won't need to.
-        for i in range(NREPS):
-            res[i] = model(A)
-        torch.cuda.cudart().cudaProfilerStart()
-        nvtx.range_push("profile_range")
-        res[-1] = model(B)
-        nvtx.range_pop()
-        torch.cuda.cudart().cudaProfilerStop()
+        with torch.no_grad():
+            if bias:
+                for i in range(WARMUP_REPS):
+                    res[i] = model(C, A, B)
+                torch.cuda.cudart().cudaProfilerStart()
+                nvtx.range_push("profile_range")
+                res[-1] = model(C, A, B)
+                nvtx.range_pop()        
+            else:
+                for i in range(WARMUP_REPS):
+                    res[i] = model(A, B)
+                torch.cuda.cudart().cudaProfilerStart()
+                nvtx.range_push("profile_range")
+                res[-1] = model(A, B)
+                nvtx.range_pop()
+                
+            # for i in range(WARMUP_REPS):
+            #     res[i] = model(A)
+            # torch.cuda.cudart().cudaProfilerStart()
+            # nvtx.range_push("profile_range")
+            # res[-1] = model(A)
+            # nvtx.range_pop()
+            # torch.cuda.cudart().cudaProfilerStop()
     except:
         print("Failed!")
         tb.print_exc()
