@@ -3,7 +3,7 @@ import os, sys, csv
 import torch
 from torch import nn
 
-from utils import get_precision, time_model
+from utils import get_precision, time_model, time_addmm, time_mm
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -20,21 +20,24 @@ def main():
     precision = get_precision(precision_flag)
 
     A = torch.randn(inputs, in_size, dtype=precision, device=device)
-    B = torch.randn(inputs, in_size, dtype=precision, device=device)
+    # B = torch.randn(inputs, in_size, dtype=precision, device=device)
+    B = torch.randn(in_size, out_size, dtype=precision, device=device)
+    C = torch.randn(out_size, dtype=precision, device=device)
 
-    class Linear(nn.Module):
-        def __init__(self):
-            super().__init__()
-            self.lin = nn.Linear(in_size, out_size, bias=bias)
+    # class Linear(nn.Module):
+    #     def __init__(self):
+    #         super().__init__()
+    #         self.lin = nn.Linear(in_size, out_size, bias=bias)
 
-        def forward(self, x):
-            return self.lin(x)
+    #     def forward(self, x):
+    #         return self.lin(x)
 
-    model = Linear().to(device, dtype=precision)
-    model = torch.compile(model, backend="inductor")
+    # model = Linear().to(device, dtype=precision)
+    # model = torch.compile(model, backend="inductor")
+    # model.eval()
 
     torch.cuda.empty_cache()
-    time = time_model(model, A, B)
+    time = time_addmm(A, B, C) if bias else time_mm(A, B)
 
     kernel_params = ""
     for param in (inputs, precision_flag, str(sys.argv[3]), in_size, out_size):
