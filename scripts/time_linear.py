@@ -3,7 +3,7 @@ import os, sys, csv
 import torch
 from torch import nn
 
-from utils import get_precision, time_model, time_addmm, time_mm
+from utils import get_precision, time_model, time_addmm
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -37,7 +37,8 @@ def main():
     # model.eval()
 
     torch.cuda.empty_cache()
-    time = time_addmm(A, B, C) if bias else time_mm(A, B)
+    args = (A, B, C) if bias else (A, B)
+    time = time_addmm(*args)
 
     kernel_params = ""
     for param in (inputs, precision_flag, str(sys.argv[3]), in_size, out_size):

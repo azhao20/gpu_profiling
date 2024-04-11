@@ -29,54 +29,54 @@ def main():
     B = torch.randn(in_size, out_size, dtype=precision, device=device)
     C = torch.randn(out_size, dtype=precision, device=device)
 
-    # class Linear(nn.Module):
-    #     def __init__(self):
-    #         super().__init__()
-    #         self.lin = nn.Linear(in_size, out_size, bias=bias)
+    class Linear(nn.Module):
+        def __init__(self):
+            super().__init__()
+            self.lin = nn.Linear(in_size, out_size, bias=bias)
 
-    #     def forward(self, x):
-    #         return self.lin(x)
-
-    @torch.compile(backend="inductor")
-    def mm(A, B):
-        return torch.mm(A, B)
+        def forward(self, x):
+            return self.lin(x)
 
     @torch.compile(backend="inductor")
-    def addmm(bias, A, B):
-        return torch.addmm(bias, A, B)
+    def mm(a, b):
+        return torch.mm(a, b)
 
-    model = addmm if bias else mm
-    # model = Linear().to(device, dtype=precision)
-    # model = torch.compile(model, backend="inductor")
-    # model.eval()
+    @torch.compile(backend="inductor")
+    def addmm(a, b, bias):
+        return torch.addmm(bias, a, b)
+    
+    # if bias:
+    #     model = addmm
+    #     args = (A, B, C)
+    # else:
+    #     model = mm
+    #     args = (A, B)
+
+    model = Linear().to(device, dtype=precision)
+    model = torch.compile(model, backend="inductor")
+    model.eval()
     res = [0] * (WARMUP_REPS + 1)
 
     torch.cuda.empty_cache()
     try:
-        # Do all of the fusion heuristics, so the later call won't need to.
         with torch.no_grad():
-            if bias:
-                for i in range(WARMUP_REPS):
-                    res[i] = model(C, A, B)
-                torch.cuda.cudart().cudaProfilerStart()
-                nvtx.range_push("profile_range")
-                res[-1] = model(C, A, B)
-                nvtx.range_pop()        
-            else:
-                for i in range(WARMUP_REPS):
-                    res[i] = model(A, B)
-                torch.cuda.cudart().cudaProfilerStart()
-                nvtx.range_push("profile_range")
-                res[-1] = model(A, B)
-                nvtx.range_pop()
-                
+            # Do all of the fusion heuristics, so the later call won't need to.
             # for i in range(WARMUP_REPS):
-            #     res[i] = model(A)
+            #     res[i] = model(*args)
+
             # torch.cuda.cudart().cudaProfilerStart()
             # nvtx.range_push("profile_range")
-            # res[-1] = model(A)
+            # res[-1] = model(*args)
             # nvtx.range_pop()
             # torch.cuda.cudart().cudaProfilerStop()
+
+            for i in range(WARMUP_REPS):
+                res[i] = model(A)
+            torch.cuda.cudart().cudaProfilerStart()
+            nvtx.range_push("profile_range")
+            res[-1] = model(A)
+            nvtx.range_pop()
+            torch.cuda.cudart().cudaProfilerStop()
     except:
         print("Failed!")
         tb.print_exc()

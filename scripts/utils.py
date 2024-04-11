@@ -332,26 +332,14 @@ def optimized_merge_kernel_time(df: pd.DataFrame):
 def get_fc_flops(row):
     return row['Inputs'] * (2 * row['Input Size'] + 1) * row['Output Size'] / (10**3)
 
-def _time_addmm(model, A, B, bias):
+def _time_model(model, *args):
     """
     Time in ms.
     """
     start = torch.cuda.Event(enable_timing=True)
     end = torch.cuda.Event(enable_timing=True)
     start.record()
-    result = model(bias, A, B)
-    end.record()
-    torch.cuda.synchronize()
-    return result, start.elapsed_time(end)
-
-def _time_mm(model, A, B):
-    """
-    Time in ms.
-    """
-    start = torch.cuda.Event(enable_timing=True)
-    end = torch.cuda.Event(enable_timing=True)
-    start.record()
-    result = model(A, B)
+    result = model(*args)
     end.record()
     torch.cuda.synchronize()
     return result, start.elapsed_time(end)
@@ -378,11 +366,9 @@ def time_addmm(A, B, C = None):
 
     if C is not None:
         fn = addmm
-        time_fn = _time_addmm
         args = (A, B, C)
     else:
         fn = mm
-        time_fn = _time_mm
         args = (A, B)
 
     # Do all of the fusion heuristics, so the later call won't need to.
@@ -392,6 +378,6 @@ def time_addmm(A, B, C = None):
     times = []
     # Actual eval.
     for _ in range(NREPS):
-        _, time = time_fn(fn, *args)
+        _, time = _time_model(fn, *args)
         times.append(time)
     return np.median(np.array(times))
