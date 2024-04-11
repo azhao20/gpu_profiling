@@ -1,9 +1,8 @@
 import os, sys, csv
 
 import torch
-from torch import nn
 
-from utils import get_precision, time_model, time_addmm
+from utils.profile_utils import get_precision, time_model, time_addmm
 
 import warnings
 warnings.filterwarnings("ignore")

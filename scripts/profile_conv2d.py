@@ -5,7 +5,7 @@ import torch
 from torch import nn
 from torch.cuda import nvtx
 
-from utils import get_precision, NREPS
+from utils.profile_utils import get_precision, NREPS
 
 import warnings
 warnings.filterwarnings("ignore")

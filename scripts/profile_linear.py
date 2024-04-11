@@ -6,7 +6,7 @@ from torch import nn
 from torch.cuda import nvtx
 # import torch._dynamo as dynamo
 
-from utils import get_precision, NREPS, WARMUP_REPS
+from utils.profile_utils import get_precision, WARMUP_REPS
 
 import warnings
 warnings.filterwarnings("ignore")

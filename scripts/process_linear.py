@@ -1,5 +1,5 @@
 import sys
-from utils import combine_profile_csv, get_unique_mapping, scale_csv
+from utils.process_utils import combine_profile_csv, get_unique_mapping, scale_csv
 # from utils import combine_data_csv
 
 def main():

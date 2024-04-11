@@ -1,16 +1,8 @@
-import os, sys
-from collections import defaultdict
 import numpy as np
 import pandas as pd
-import torch
+from collections import defaultdict
 
-# TODO: figure out to create .__init__.py folders
-# Once we do that, create a separate utils folder, and split this file into multiple folders.
-
-# Assume warmup reps = nreps = 10.
-WARMUP_REPS = 10
-NREPS = 30
-LINEAR_SIZES = [1, 2] + [i for i in range(4, 128, 4)] + [i for i in range(128, 256, 8)] + [i for i in range(256, 384, 16)] + [i for i in range(384, 512, 32)] + [i for i in range(512, 1024 + 1, 64)]
+from utils import LINEAR_SIZES
 
 # TODO: abstract out for convolution.
 # Function Cache Configuration: only one unique value: "CachePreferNone"
@@ -18,66 +10,6 @@ NON_NUMERIC = {"Params", "Kernel Name", "Block Size", "Grid Size", "Function Cac
 CATEGORICAL = {"Precision"}
 NO_PROCESS = {"Params", "Inputs", "Precision", "Bias", "Input Size", "Output Size",
               "Context", "Device", "Stream", "CC", "Kernel Name", "Block Size", "Grid Size"}
-
-class HiddenPrints:
-    """
-    A class that suppresses print statements. Use inside of a context manager.
-    """
-    def __enter__(self):
-        self._original_stdout = sys.stdout
-        sys.stdout = open(os.devnull, 'w')
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        sys.stdout.close()
-        sys.stdout = self._original_stdout
-
-
-def get_precision(precision_flag: int):
-    precision_map = {
-        # 8: torch.float8_e5m2, # No support for float8 yet.
-        161: torch.bfloat16,
-        162: torch.float16,
-        32: torch.float32
-    }
-    if precision_flag not in precision_map:
-        print("Precision wasn't specified, defaulting to torch.float32")
-
-    return precision_map.get(precision_flag, torch.float32)
-
-def _time_iter(model, input):
-    """
-    Time in ms.
-    """
-    start = torch.cuda.Event(enable_timing=True)
-    end = torch.cuda.Event(enable_timing=True)
-    start.record()
-    result = model(input)
-    end.record()
-    torch.cuda.synchronize()
-    return result, start.elapsed_time(end)
-
-def time_model(model, warmup_input, input):
-    """
-    Returns the median runtime in ms.
-    
-    Based on:
-    https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html#demonstrating-speedups
-
-    Could consider:
-    https://www.speechmatics.com/company/articles-and-news/timing-operations-in-pytorch
-    """
-    times = []
-    # Warmup
-    # Do all of the fusion heuristics, so the later call won't need to.
-    for _ in range(NREPS):
-        _ = model(warmup_input)
-
-    # Actual eval.
-    for _ in range(NREPS):
-        _, time = _time_iter(model, input)
-        times.append(time)
-    return np.median(np.array(times))
-
 
 def combine_profile_csv(layer: str = "linear", sizes: list[int] = LINEAR_SIZES):
     """
@@ -241,7 +173,10 @@ def scale_csv(save_dfs: bool = False):
     TIME_PATH = f"{base_dir}/time_data/"
 
     # TODO: consider using for loops to get tqdm.
-    profile_dfs = [scale_data(path=PROFILE_PATH + f"linear.{i}.csv") for i in LINEAR_SIZES]
+    # profile_dfs = [scale_data(path=PROFILE_PATH + f"linear.{i}.csv") for i in LINEAR_SIZES]
+    # combined_dfs = [combine_csv(profile_dfs[i], TIME_PATH + f"linear.time.{time}.csv") \
+    #                 for i, time in enumerate(LINEAR_SIZES)]
+    profile_dfs = [scale_data(path=PROFILE_PATH + f"linear.time.eval.csv")]
     combined_dfs = [combine_csv(profile_dfs[i], TIME_PATH + f"linear.time.{time}.csv") \
                     for i, time in enumerate(LINEAR_SIZES)]
 
@@ -331,53 +266,3 @@ def optimized_merge_kernel_time(df: pd.DataFrame):
 
 def get_fc_flops(row):
     return row['Inputs'] * (2 * row['Input Size'] + 1) * row['Output Size'] / (10**3)
-
-def _time_model(model, *args):
-    """
-    Time in ms.
-    """
-    start = torch.cuda.Event(enable_timing=True)
-    end = torch.cuda.Event(enable_timing=True)
-    start.record()
-    result = model(*args)
-    end.record()
-    torch.cuda.synchronize()
-    return result, start.elapsed_time(end)
-
-def time_addmm(A, B, C = None):
-    """
-    Returns the median runtime in ms.
-    C = None if we don't use bias.
-
-    Based on:
-    https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html#demonstrating-speedups
-
-    Could consider:
-    https://www.speechmatics.com/company/articles-and-news/timing-operations-in-pytorch
-    """
-
-    @torch.compile(backend="inductor")
-    def addmm(a, b, bias):
-        return torch.addmm(bias, a, b)
-
-    @torch.compile(backend="inductor")
-    def mm(a, b):
-        return torch.mm(a, b)
-
-    if C is not None:
-        fn = addmm
-        args = (A, B, C)
-    else:
-        fn = mm
-        args = (A, B)
-
-    # Do all of the fusion heuristics, so the later call won't need to.
-    for _ in range(WARMUP_REPS):
-        _ = fn(*args)
-
-    times = []
-    # Actual eval.
-    for _ in range(NREPS):
-        _, time = _time_model(fn, *args)
-        times.append(time)
-    return np.median(np.array(times))
