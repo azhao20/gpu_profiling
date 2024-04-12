@@ -29,7 +29,7 @@ biases=(0 1)
 # in_sizes=(1024)
 # out_sizes=($(seq 76 4 124) $(seq 128 8 248) $(seq 256 16 368) $(seq 384 32 480) $(seq 512 64 1024))
 
-# FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.$1.csv # Avoid race conditions.
+FINAL_CSV=$HOME_DIR/gpu_profiling/data/linear.$1.csv # Avoid race conditions.
 # in_sizes=($(seq 272 16 368) $(seq 384 32 480) $(seq 512 64 1024))
 # in_sizes=($(seq 768 64 1024))
 # out_sizes=(1 2 $(seq 4 4 124) $(seq 128 8 248) $(seq 256 16 368) $(seq 384 32 480) $(seq 512 64 1024))
