@@ -1,10 +1,12 @@
-import sys
+import os,sys
 import traceback as tb
 
 import torch
 from torch import nn
 from torch.cuda import nvtx
 # import torch._dynamo as dynamo
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), '..')))
 
 from utils.profile_utils import get_precision, WARMUP_REPS
 
@@ -29,54 +31,55 @@ def main():
     B = torch.randn(in_size, out_size, dtype=precision, device=device)
     C = torch.randn(out_size, dtype=precision, device=device)
 
-    class Linear(nn.Module):
-        def __init__(self):
-            super().__init__()
-            self.lin = nn.Linear(in_size, out_size, bias=bias)
+    # class Linear(nn.Module):
+    #     def __init__(self):
+    #         super().__init__()
+    #         self.lin = nn.Linear(in_size, out_size, bias=bias)
 
-        def forward(self, x):
-            return self.lin(x)
+    #     def forward(self, x):
+    #         return self.lin(x)
 
-    @torch.compile(backend="inductor")
-    def mm(a, b):
-        return torch.mm(a, b)
+    # Have to put the function inside of the if statement.
+    if bias:
+        @torch.compile(backend="inductor")
+        def addmm(a, b, bias):
+            return torch.addmm(bias, a, b)
 
-    @torch.compile(backend="inductor")
-    def addmm(a, b, bias):
-        return torch.addmm(bias, a, b)
-    
-    # if bias:
-    #     model = addmm
-    #     args = (A, B, C)
-    # else:
-    #     model = mm
-    #     args = (A, B)
+        model = addmm
+        args = (A, B, C)
+    else:
+        @torch.compile(backend="inductor")
+        def mm(a, b):
+            return torch.mm(a, b)
 
-    model = Linear().to(device, dtype=precision)
-    model = torch.compile(model, backend="inductor")
-    model.eval()
+        model = mm
+        args = (A, B)
+
+    # model = Linear().to(device, dtype=precision)
+    # model = torch.compile(model, backend="inductor")
+    # model.eval()
+
     res = [0] * (WARMUP_REPS + 1)
-
     torch.cuda.empty_cache()
     try:
         with torch.no_grad():
             # Do all of the fusion heuristics, so the later call won't need to.
-            # for i in range(WARMUP_REPS):
-            #     res[i] = model(*args)
-
-            # torch.cuda.cudart().cudaProfilerStart()
-            # nvtx.range_push("profile_range")
-            # res[-1] = model(*args)
-            # nvtx.range_pop()
-            # torch.cuda.cudart().cudaProfilerStop()
-
             for i in range(WARMUP_REPS):
-                res[i] = model(A)
+                res[i] = model(*args)
+
             torch.cuda.cudart().cudaProfilerStart()
             nvtx.range_push("profile_range")
-            res[-1] = model(A)
+            res[-1] = model(*args)
             nvtx.range_pop()
             torch.cuda.cudart().cudaProfilerStop()
+
+            # for i in range(WARMUP_REPS):
+            #     res[i] = model(A)
+            # torch.cuda.cudart().cudaProfilerStart()
+            # nvtx.range_push("profile_range")
+            # res[-1] = model(A)
+            # nvtx.range_pop()
+            # torch.cuda.cudart().cudaProfilerStop()
     except:
         print("Failed!")
         tb.print_exc()
