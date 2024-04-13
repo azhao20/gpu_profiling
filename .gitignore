@@ -1,3 +1,20 @@
 scripts/__pycache__/
+utils/__pycache__/
+
 thoughts.py
+
+# Data
+data/linear/combined.csv
 data/linear/profile.csv
+data/linear/small.csv
+
+data/linear/merged_kernel_times.csv
+data/linear/merged_eval_times.csv
+data/linear/merged_func_times.csv
+
+data/linear/profile_data/linear.function.old.csv
+
+# TODO: this isn't working as expected.
+data/linear/*eval.csv
+data/linear/*function.csv
+data/linear/time_data/linear.time.function.csv

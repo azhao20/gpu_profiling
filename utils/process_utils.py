@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 from collections import defaultdict
 
-from utils import LINEAR_SIZES
+from utils.utils import LINEAR_SIZES
 
 # TODO: abstract out for convolution.
 # Function Cache Configuration: only one unique value: "CachePreferNone"
@@ -173,12 +173,11 @@ def scale_csv(save_dfs: bool = False):
     TIME_PATH = f"{base_dir}/time_data/"
 
     # TODO: consider using for loops to get tqdm.
-    # profile_dfs = [scale_data(path=PROFILE_PATH + f"linear.{i}.csv") for i in LINEAR_SIZES]
-    # combined_dfs = [combine_csv(profile_dfs[i], TIME_PATH + f"linear.time.{time}.csv") \
-    #                 for i, time in enumerate(LINEAR_SIZES)]
-    profile_dfs = [scale_data(path=PROFILE_PATH + f"linear.time.eval.csv")]
+    profile_dfs = [scale_data(path=PROFILE_PATH + f"linear.{i}.csv") for i in LINEAR_SIZES]
     combined_dfs = [combine_csv(profile_dfs[i], TIME_PATH + f"linear.time.{time}.csv") \
                     for i, time in enumerate(LINEAR_SIZES)]
+    # profile_dfs = [scale_data(path=PROFILE_PATH + f"linear.function.csv")]
+    # combined_dfs = [combine_csv(profile_dfs[0], TIME_PATH + f"linear.time.function.csv")]
 
     print("Done!")
     # assert(len(profile_dfs) == 1)
@@ -196,7 +195,7 @@ def scale_csv(save_dfs: bool = False):
 
     combined_df = pd.concat(combined_dfs, ignore_index=True)
     print(combined_df.shape)
-    path = f"{base_dir}/combined.csv"
+    path = f"{base_dir}/function.csv"
     combined_df.to_csv(path, index=False)
 
 # Function to calculate weighted average for a group
