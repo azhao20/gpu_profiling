@@ -4,31 +4,31 @@ import numpy as np
 WARMUP_REPS = 10
 NREPS = 30
 
-def get_precision(precision_flag: int):
-    precision_map = {
+def get_dtype(dtype_flag: int):
+    dtype_map = {
         # 8: torch.float8_e5m2, # No support for float8 yet.
         161: torch.bfloat16,
         162: torch.float16,
         32: torch.float32
     }
-    if precision_flag not in precision_map:
-        print("Precision wasn't specified, defaulting to torch.float32")
+    if dtype_flag not in dtype_map:
+        print("dtype wasn't specified, defaulting to torch.float32")
 
-    return precision_map.get(precision_flag, torch.float32)
+    return dtype_map.get(dtype_flag, torch.float32)
 
-def _time_iter(model, input):
+def _time_iter(model, *args):
     """
     Time in ms.
     """
     start = torch.cuda.Event(enable_timing=True)
     end = torch.cuda.Event(enable_timing=True)
     start.record()
-    result = model(input)
+    result = model(*args)
     end.record()
     torch.cuda.synchronize()
     return result, start.elapsed_time(end)
 
-def time_model(model, warmup_input, input):
+def time_model(model, *args):
     """
     Returns the median runtime in ms.
     
@@ -38,15 +38,16 @@ def time_model(model, warmup_input, input):
     Could consider:
     https://www.speechmatics.com/company/articles-and-news/timing-operations-in-pytorch
     """
+    torch.cuda.empty_cache()
     times = []
     # Warmup
     # Do all of the fusion heuristics, so the later call won't need to.
     for _ in range(NREPS):
-        _ = model(warmup_input)
+        _ = model(*args)
 
     # Actual eval.
     for _ in range(NREPS):
-        _, time = _time_iter(model, input)
+        _, time = _time_iter(model, *args)
         times.append(time)
     return np.median(np.array(times))
 
@@ -74,21 +75,52 @@ def time_addmm(A, B, C = None):
     https://www.speechmatics.com/company/articles-and-news/timing-operations-in-pytorch
     """
 
-    @torch.compile(backend="inductor")
-    def addmm(a, b, bias):
-        return torch.addmm(bias, a, b)
-
-    @torch.compile(backend="inductor")
-    def mm(a, b):
-        return torch.mm(a, b)
-
     if C is not None:
+        @torch.compile(backend="inductor")
+        def addmm(a, b, bias):
+            return torch.addmm(bias, a, b)
+
         fn = addmm
         args = (A, B, C)
     else:
+        @torch.compile(backend="inductor")
+        def mm(a, b):
+            return torch.mm(a, b)
+
         fn = mm
         args = (A, B)
 
+    torch.cuda.empty_cache()
+    # Do all of the fusion heuristics, so the later call won't need to.
+    for _ in range(WARMUP_REPS):
+        _ = fn(*args)
+
+    times = []
+    # Actual eval.
+    for _ in range(NREPS):
+        _, time = _time_model(fn, *args)
+        times.append(time)
+    return np.median(np.array(times))
+
+def time_conv2d(input, weight):
+    """
+    Returns the median runtime in ms.
+    C = None if we don't use bias.
+
+    Based on:
+    https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html#demonstrating-speedups
+
+    Could consider:
+    https://www.speechmatics.com/company/articles-and-news/timing-operations-in-pytorch
+    """
+
+    # Define the convolution operation
+    @torch.compile(backend="inductor")
+    def conv2d(x, w):
+        return F.conv2d(x, w, bias=bias_tensor, stride=stride, padding=padding, dilation=dilation, groups=groups)
+
+
+    torch.cuda.empty_cache()
     # Do all of the fusion heuristics, so the later call won't need to.
     for _ in range(WARMUP_REPS):
         _ = fn(*args)
