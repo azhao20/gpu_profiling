@@ -28,6 +28,11 @@ mamba install -y -c conda-forge tqdm
 mamba install -y -c huggingface transformers
 mamba install -y -c pytorch magma-cuda121
 
+python -m pip install triton
+python -m pip install pyre-extensions
+python -m pip install torchrec
+python -m pip install --index-url https://download.pytorch.org/whl/test/ pytorch-triton==3.0.0
+
 export CCACHE_DIR=${HOME}
 export CMAKE_PREFIX_PATH=${CONDA_PREFIX}
 export CUDA_NVCC_EXECUTABLE=${CUDA_HOME}/bin/nvcc
