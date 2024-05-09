@@ -18,3 +18,6 @@ data/linear/profile_data/linear.function.old.csv
 data/linear/*eval.csv
 data/linear/*function.csv
 data/linear/time_data/linear.time.function.csv
+
+# Sensitive data
+sh/.env
