@@ -1,0 +1,3 @@
+grad_out_shape,query_shape,key_shape,value_shape
+"torch.Size([16, 16, 1, 48])","torch.Size([16, 16, 1, 48])","torch.Size([16, 16, 785, 48])","torch.Size([16, 16, 785, 48])"
+"torch.Size([16, 16, 1, 48])","torch.Size([16, 16, 1, 48])","torch.Size([16, 16, 785, 48])","torch.Size([16, 16, 785, 48])"

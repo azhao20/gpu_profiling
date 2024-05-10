@@ -1,0 +1,3 @@
+query_shape,key_shape,value_shape,shapes,out_shape
+"torch.Size([16, 16, 1, 48])","torch.Size([16, 16, 785, 48])","torch.Size([16, 16, 785, 48])","[[256, 1, 48, 785], [256, 1, 785, 48]]","(torch.Size([16, 16, 1, 48]), torch.Size([16, 16, 1]), None, None, 1, 785, torch.Size([]), torch.Size([]), torch.Size([0]))"
+"torch.Size([16, 16, 1, 48])","torch.Size([16, 16, 785, 48])","torch.Size([16, 16, 785, 48])","[[256, 1, 48, 785], [256, 1, 785, 48]]","(torch.Size([16, 16, 1, 48]), torch.Size([16, 16, 1]), None, None, 1, 785, torch.Size([]), torch.Size([]), torch.Size([0]))"

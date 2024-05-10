@@ -82,6 +82,8 @@ def process_single_or_tuple(value):
         parsed = eval(value)
         if isinstance(parsed, int):
             return (parsed, parsed)
+        elif isinstance(parsed, (tuple, list)) and len(parsed) == 1:
+            return (parsed[0], parsed[0])
         if isinstance(parsed, (tuple, list)) and len(parsed) == 2:
             return tuple(parsed)
         raise ValueError
@@ -107,7 +109,11 @@ def parse_conv_params(path):
 
             batch_size = x_shape[0]
             in_channels = x_shape[1]
-            iH, iW = x_shape[2], x_shape[3]
+            try:
+                iH, iW = x_shape[2], x_shape[3]
+            except:
+                print(f"Convolution was missing fourth dimension: {x_shape}")
+                continue
 
             out_channels = w_shape[0]
             kH, kW = w_shape[2], w_shape[3]
@@ -156,7 +162,7 @@ def main():
     csv_path = os.path.join(args.path, args.op_type + ".csv")
 
     if not os.path.isfile(csv_path):
-        print(f"Error: CSV file not found: {csv_path}", file=sys.stderr)
+        print(f"CSV file not found: {csv_path}", file=sys.stderr)
         sys.exit(0)
 
     if args.op_type in ("addmm", "bmm", "mm"):

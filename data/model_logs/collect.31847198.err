@@ -1,0 +1,1769 @@
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.94s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.96s/it]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 19:13:33.282000 23064876017472 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.93s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.93s/it]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 19:13:57.070000 22385067722560 torch/_dynamo/variables/tensor.py:696] [2/0] Graph break from `Tensor.item()`, consider setting:
+W0509 19:13:57.070000 22385067722560 torch/_dynamo/variables/tensor.py:696] [2/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 19:13:57.070000 22385067722560 torch/_dynamo/variables/tensor.py:696] [2/0] or:
+W0509 19:13:57.070000 22385067722560 torch/_dynamo/variables/tensor.py:696] [2/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 19:13:57.070000 22385067722560 torch/_dynamo/variables/tensor.py:696] [2/0] to include these operations in the captured graph.
+W0509 19:13:57.070000 22385067722560 torch/_dynamo/variables/tensor.py:696] [2/0] 
+W0509 19:16:05.943000 22385067722560 torch/_logging/_internal.py:1024] [15/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.10it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.10it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 19:18:01.717000 23183588591424 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpahvvmqlf
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 19:19:44.227000 22629100644160 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmp01x80xf3
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 19:20:53.226000 22464209397568 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.51it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.51it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 19:22:47.949000 22472124553024 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.77it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.77it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:27, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 19:25:10.612000 23287469160256 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpgeo6fp_l
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 19:26:40.110000 22383057323840 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmp3h7g9x09
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 19:27:48.722000 23212016596800 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.41it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.41it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 19:29:56.207000 22724246562624 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.84it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.84it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 19:32:00.495000 22972675536704 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.22it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.22it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:12, ?it/s]
+ERROR:common:Backend eager failed in warmup()
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2742, in warmup
+    fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 577, in forward_and_backward_pass
+    self.optimizer_step()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2329, in optimizer_step
+    self.optimizer.step()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/optim/optimizer.py", line 438, in wrapper
+    out = func(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/optim/optimizer.py", line 87, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/optim/adam.py", line 222, in step
+    adam(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/optim/adam.py", line 383, in adam
+    func(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/optim/adam.py", line 649, in _multi_tensor_adam
+    exp_avg_sq_sqrt = torch._foreach_sqrt(device_exp_avg_sqs)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 36.00 MiB. GPU 0 has a total capacity of 19.50 GiB of which 35.94 MiB is free. Including non-PyTorch memory, this process has 19.42 GiB memory in use. Of the allocated memory 18.80 GiB is allocated by PyTorch, and 407.65 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Run failed with return code:  255
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.34it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.34it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 19:36:00.431000 23304664573760 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 19:36:32.947000 23304664573760 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmp1tea137j
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 19:37:38.332000 22682411272000 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 19:38:10.407000 22682411272000 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmppuohm040
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 19:39:16.794000 23379917698880 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.38it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.38it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]If you want to use `ElectraForCausalLM` as a standalone, add `is_decoder=True.`
+loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.19it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.18it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 19:42:00.741000 22939052459840 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.66it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.65it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 19:43:56.401000 22662718953280 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.45it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.45it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]WARNING:common:Model GoogleFnet supports float32 only
+loading model: 0it [00:02, ?it/s]
+WARNING:common:Model GoogleFnet supports float32 only
+WARNING:common:Model GoogleFnet supports float32 only
+W0509 19:45:28.499000 22772788070208 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.21it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.21it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 19:47:15.101000 23228462417728 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.47it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.47it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 19:49:16.744000 22845623314240 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.76it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.76it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:10, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 19:52:05.812000 22419266795328 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpj775en_0
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 19:53:20.368000 22681744987968 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpw3m4f_46
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 19:55:18.292000 22908782622528 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmp3g7ibtw4
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 19:56:59.609000 22843689912128 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 19:57:52.981000 22843689912128 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmp060b1d95
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]If you want to use `MegatronBertForCausalLM` as a standalone, add `is_decoder=True.`
+loading model: 0it [00:04, ?it/s]
+W0509 19:59:23.635000 22675461236544 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.93it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.93it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 20:02:05.134000 22999939053376 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.28it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.28it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.13it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.13it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.24it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.24it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 20:09:20.856000 23130061944640 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpitdj8asz
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 20:10:20.921000 23231112816448 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpv9ddnvix
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 20:11:42.217000 22535512078144 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpeljac2ld
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 20:12:57.541000 22375383181120 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpataqhmw0
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:08, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 20:14:54.663000 23396338874176 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpum9a376_
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]If you want to use `RobertaLMHeadModel` as a standalone, add `is_decoder=True.`
+We strongly recommend passing in an `attention_mask` since your input_ids may be padded. See https://huggingface.co/docs/transformers/troubleshooting#incorrect-output-when-padding-tokens-arent-masked.
+You may ignore this warning if your `pad_token_id` (0) is identical to the `bos_token_id` (0), `eos_token_id` (2), or the `sep_token_id` (None), and your input is not padded.
+loading model: 0it [00:03, ?it/s]
+W0509 20:16:05.471000 22371728693056 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.22it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.22it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]We strongly recommend passing in an `attention_mask` since your input_ids may be padded. See https://huggingface.co/docs/transformers/troubleshooting#incorrect-output-when-padding-tokens-arent-masked.
+You may ignore this warning if your `pad_token_id` (0) is identical to the `bos_token_id` (0), `eos_token_id` (2), or the `sep_token_id` (None), and your input is not padded.
+loading model: 0it [00:02, ?it/s]
+W0509 20:17:58.608000 22590278338368 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.76it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.76it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 20:19:42.397000 22823329621824 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpcmo5f__7
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 20:20:57.970000 23430838273856 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 20:21:35.843000 23430838273856 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpd5vui4on
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 20:22:53.436000 22689082787648 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 20:23:31.402000 22689082787648 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpsl4pl9cv
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 20:24:47.139000 23304218724160 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmp7mh45746
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 20:26:27.141000 23007371396928 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpz_50atvf
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 677, in <module>
+    huggingface_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 673, in huggingface_main
+    main(HuggingfaceRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 571, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 572, in torch_dynamo_resume_in_forward_and_backward_pass_at_571
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/huggingface.py", line 576, in torch_dynamo_resume_in_forward_and_backward_pass_at_572
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 20:27:15.179000 23169427343168 torch/_inductor/utils.py:1103] [2/0_1] DeviceCopy in input program
+W0509 20:28:34.434000 23169427343168 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.52s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.52s/it]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 20:31:19.436000 22693085783872 torch/_logging/_internal.py:1024] [3/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.43it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.43it/s]
+mkdir: cannot create directory ‘/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/models’: File exists
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.05it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.03it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:14, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.33it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.32it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:18, ?it/s]
+W0509 20:35:17.481000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:35:17.588000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:35:17.666000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:35:17.745000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:35:17.823000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:35:17.902000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:35:17.979000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:35:18.057000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:35:18.135000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:35:18.212000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:35:18.290000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:35:18.368000 22916231468864 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 20:36:09.542000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 20:36:09.616000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 20:36:09.686000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 20:36:09.756000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 20:36:09.824000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 20:36:09.893000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 20:36:09.962000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 20:36:10.031000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 20:36:10.100000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 20:36:10.169000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 20:36:10.238000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 20:36:10.306000 22916231468864 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.46it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.46it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 25.66it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.33it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.33it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 31.86it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:08, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 37.63it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 28.02it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 101.31it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 117.59it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:06<00:00,  6.79s/it]running benchmark: 100%|██████████| 1/1 [00:06<00:00,  6.79s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 105.98it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.93it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.92it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.35it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.35it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+W0509 20:49:48.944000 23072218892096 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:07, ?it/s]
+W0509 20:51:09.655000 23009033594688 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.85it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.85it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 20:52:43.359000 22950951823168 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.24it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.24it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 20:53:48.856000 22884635531072 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.64it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.63it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+W0509 20:55:02.591000 22547187492672 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.10it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.10it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 20:56:29.005000 22907471271744 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.50it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.49it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 20:57:37.224000 22865200256832 torch/_dynamo/convert_frame.py:368] torch._dynamo hit config.cache_size_limit (8)
+W0509 20:57:37.224000 22865200256832 torch/_dynamo/convert_frame.py:368]    function: 'forward' (/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/detectron2/layers/batch_norm.py:318)
+W0509 20:57:37.224000 22865200256832 torch/_dynamo/convert_frame.py:368]    last reason: L['self']._pos == 0                                         
+W0509 20:57:37.224000 22865200256832 torch/_dynamo/convert_frame.py:368] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0509 20:57:37.224000 22865200256832 torch/_dynamo/convert_frame.py:368] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.40it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.39it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 20:58:52.826000 23429278062400 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+W0509 20:59:06.617000 23429278062400 torch/_inductor/utils.py:1103] [30/1_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.78it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.78it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 21:00:43.652000 23092388296512 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+W0509 21:00:54.769000 23092388296512 torch/_inductor/utils.py:1103] [30/1_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.21it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 21:01:58.214000 23006356936512 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+W0509 21:02:11.956000 23006356936512 torch/_inductor/utils.py:1103] [30/1_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.92it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.92it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 21:03:41.742000 23189811025728 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+W0509 21:03:52.171000 23189811025728 torch/_inductor/utils.py:1103] [30/1_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.91it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.90it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:13, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 57.09it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:22, ?it/s]
+W0509 21:05:06.985000 22733930456896 torch/_inductor/utils.py:1103] [1/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 10.98it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+E0509 21:06:31.959000 22839510771520 torch/fx/experimental/recording.py:280] [2/0] failed while running evaluate_expr(*(Ne(u0, 123), None), **{'fx_node': None})
+E0509 21:06:31.997000 22839510771520 torch/fx/experimental/recording.py:280] [3/0] failed while running evaluate_expr(*(Ne(u0, 123), None), **{'fx_node': None})
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 55.43it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:10, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 140.07it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 21:07:15.052000 22449182177088 torch/_dynamo/variables/tensor.py:696] [0/0] Graph break from `Tensor.item()`, consider setting:
+W0509 21:07:15.052000 22449182177088 torch/_dynamo/variables/tensor.py:696] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 21:07:15.052000 22449182177088 torch/_dynamo/variables/tensor.py:696] [0/0] or:
+W0509 21:07:15.052000 22449182177088 torch/_dynamo/variables/tensor.py:696] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 21:07:15.052000 22449182177088 torch/_dynamo/variables/tensor.py:696] [0/0] to include these operations in the captured graph.
+W0509 21:07:15.052000 22449182177088 torch/_dynamo/variables/tensor.py:696] [0/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.71it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.71it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 40.57it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 176.96it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:11, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 21:10:18.419000 22611624843072 torch/_dynamo/variables/tensor.py:696] [3/0] Graph break from `Tensor.item()`, consider setting:
+W0509 21:10:18.419000 22611624843072 torch/_dynamo/variables/tensor.py:696] [3/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 21:10:18.419000 22611624843072 torch/_dynamo/variables/tensor.py:696] [3/0] or:
+W0509 21:10:18.419000 22611624843072 torch/_dynamo/variables/tensor.py:696] [3/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 21:10:18.419000 22611624843072 torch/_dynamo/variables/tensor.py:696] [3/0] to include these operations in the captured graph.
+W0509 21:10:18.419000 22611624843072 torch/_dynamo/variables/tensor.py:696] [3/0] 
+W0509 21:11:57.860000 22611624843072 torch/_dynamo/convert_frame.py:368] torch._dynamo hit config.cache_size_limit (8)
+W0509 21:11:57.860000 22611624843072 torch/_dynamo/convert_frame.py:368]    function: 'forward' (/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py:1647)
+W0509 21:11:57.860000 22611624843072 torch/_dynamo/convert_frame.py:368]    last reason: ___check_obj_id(L['past_key_values'], 94128653002720)       
+W0509 21:11:57.860000 22611624843072 torch/_dynamo/convert_frame.py:368] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0509 21:11:57.860000 22611624843072 torch/_dynamo/convert_frame.py:368] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+W0509 21:13:00.732000 22611624843072 torch/_dynamo/convert_frame.py:368] torch._dynamo hit config.cache_size_limit (8)
+W0509 21:13:00.732000 22611624843072 torch/_dynamo/convert_frame.py:368]    function: 'forward' (/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py:978)
+W0509 21:13:00.732000 22611624843072 torch/_dynamo/convert_frame.py:368]    last reason: tensor 'L['input_ids']' stride mismatch at index 0. expected 9, actual 17
+W0509 21:13:00.732000 22611624843072 torch/_dynamo/convert_frame.py:368] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0509 21:13:00.732000 22611624843072 torch/_dynamo/convert_frame.py:368] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:14<00:00, 14.37s/it]running benchmark: 100%|██████████| 1/1 [00:14<00:00, 14.37s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 31.37it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.06it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.05it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 252.40it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 19.73it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:37, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [01:14, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+W0509 21:18:56.674000 22547428067136 torch/_dynamo/variables/tensor.py:696] [4/0] Graph break from `Tensor.item()`, consider setting:
+W0509 21:18:56.674000 22547428067136 torch/_dynamo/variables/tensor.py:696] [4/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 21:18:56.674000 22547428067136 torch/_dynamo/variables/tensor.py:696] [4/0] or:
+W0509 21:18:56.674000 22547428067136 torch/_dynamo/variables/tensor.py:696] [4/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 21:18:56.674000 22547428067136 torch/_dynamo/variables/tensor.py:696] [4/0] to include these operations in the captured graph.
+W0509 21:18:56.674000 22547428067136 torch/_dynamo/variables/tensor.py:696] [4/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 21:19:36.077000 22547428067136 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmp47f15om_
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 443, in <module>
+    torchbench_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 439, in torchbench_main
+    main(TorchBenchmarkRunner(), original_dir)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 420, in forward_pass
+    return mod(*inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1595, in _call_impl
+    hook_result = hook(self, args, result)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 504, in f
+    outputs = _pytreeify_preserve_structure(self._create_post_module(name))(outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 358, in nf
+    out = f(*flat_args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 571, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 512, in forward
+    assert self.parents[-1] == name, f"{self.parents[-1]} is not {name}"
+AssertionError: Global is not Meta
+Run failed with return code:  1
+Output:  None
+Error:  None
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 182.76it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+W0509 21:19:59.803000 22815263536960 torch/_dynamo/variables/tensor.py:696] [0/0] Graph break from `Tensor.item()`, consider setting:
+W0509 21:19:59.803000 22815263536960 torch/_dynamo/variables/tensor.py:696] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 21:19:59.803000 22815263536960 torch/_dynamo/variables/tensor.py:696] [0/0] or:
+W0509 21:19:59.803000 22815263536960 torch/_dynamo/variables/tensor.py:696] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 21:19:59.803000 22815263536960 torch/_dynamo/variables/tensor.py:696] [0/0] to include these operations in the captured graph.
+W0509 21:19:59.803000 22815263536960 torch/_dynamo/variables/tensor.py:696] [0/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 21.59it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 18.52it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 18.31it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 15.73it/s]
+loading model: 0it [00:00, ?it/s][W509 21:22:17.469795451 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+loading model: 0it [00:02, ?it/s]
+[rank0]:W0509 21:22:19.827000 22958045325120 torch/_logging/_internal.py:1024] [0/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+[rank0]:W0509 21:22:22.671000 22958045325120 torch/_dynamo/backends/distributed.py:88] [1/0_1] Some buckets were extended beyond their requested parameter capacities in order to ensure each subgraph has an output node, required for fx graph partitioning. This can be the case when a subgraph would have only contained nodes performing inplace mutation, and returning no logical outputs. This should not be a problem, unless it results in too few graph partitions for optimal DDP performance.
+[rank0]:W0509 21:22:22.688000 22958045325120 torch/_dynamo/backends/distributed.py:105] [1/0_1] DDPOptimizer extended these buckets to ensure per-subgraph output nodes:
+[rank0]:W0509 21:22:22.688000 22958045325120 torch/_dynamo/backends/distributed.py:105] [1/0_1] ┌─────────┬─────────────┬────────────────────────┐
+[rank0]:W0509 21:22:22.688000 22958045325120 torch/_dynamo/backends/distributed.py:105] [1/0_1] │   Index │   Extra Ops │   Extra Param Size (b) │
+[rank0]:W0509 21:22:22.688000 22958045325120 torch/_dynamo/backends/distributed.py:105] [1/0_1] ├─────────┼─────────────┼────────────────────────┤
+[rank0]:W0509 21:22:22.688000 22958045325120 torch/_dynamo/backends/distributed.py:105] [1/0_1] │       0 │         160 │               94032128 │
+[rank0]:W0509 21:22:22.688000 22958045325120 torch/_dynamo/backends/distributed.py:105] [1/0_1] └─────────┴─────────────┴────────────────────────┘
+[rank0]:W0509 21:23:18.694000 22958045325120 torch/_inductor/utils.py:1103] [2/0_1] DeviceCopy in input program
+[rank0]:W0509 21:23:19.641000 22958045325120 torch/_dynamo/variables/tensor.py:696] [4/0] Graph break from `Tensor.item()`, consider setting:
+[rank0]:W0509 21:23:19.641000 22958045325120 torch/_dynamo/variables/tensor.py:696] [4/0]     torch._dynamo.config.capture_scalar_outputs = True
+[rank0]:W0509 21:23:19.641000 22958045325120 torch/_dynamo/variables/tensor.py:696] [4/0] or:
+[rank0]:W0509 21:23:19.641000 22958045325120 torch/_dynamo/variables/tensor.py:696] [4/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+[rank0]:W0509 21:23:19.641000 22958045325120 torch/_dynamo/variables/tensor.py:696] [4/0] to include these operations in the captured graph.
+[rank0]:W0509 21:23:19.641000 22958045325120 torch/_dynamo/variables/tensor.py:696] [4/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.94it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.94it/s]
+loading model: 0it [00:00, ?it/s]You are using a model of type moondream1 to instantiate a model of type phi. This is not supported for all configurations of models and can yield errors.
+loading model: 0it [00:17, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 18.50it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 23.68it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 38.01it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 15.79it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 42.06it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 41.15it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 15.46it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 25.19it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 25.58it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 20.88it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.33it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.33it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.90it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.90it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 46.25it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.22it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.22it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.76it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.76it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:10, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.53it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.53it/s]
+loading model: 0it [00:00, ?it/s]W0509 21:35:53.584000 22501016852288 torch/_inductor/utils.py:897] [0/0] Not enough SMs to use max_autotune_gemm mode
+AUTOTUNE addmm(4096x3840, 4096x1280, 1280x3840)
+  addmm 0.5181 ms 100.0%
+  bias_addmm 0.5202 ms 99.6%
+SingleProcess AUTOTUNE benchmarking takes 0.2304 seconds and 0.0000 seconds precompiling
+loading model: 0it [01:26, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:24<?, ?it/s]
+W0509 21:38:44.653000 22501016852288 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpdnw5to1e
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 443, in <module>
+    torchbench_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 439, in torchbench_main
+    main(TorchBenchmarkRunner(), original_dir)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 420, in forward_pass
+    return mod(*inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/sam.py", line 98, in forward
+    image_embeddings = self.image_encoder(input_images)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 108, in forward
+    x = self.patch_embed(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 113, in torch_dynamo_resume_in_forward_at_108
+    x = blk(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 169, in forward
+    x = self.norm1(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 175, in torch_dynamo_resume_in_forward_at_169
+    x = self.attn(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 181, in torch_dynamo_resume_in_forward_at_175
+    x = x + self.mlp(self.norm2(x))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 181, in torch_dynamo_resume_in_forward_at_181
+    x = x + self.mlp(self.norm2(x))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/common.py", line 26, in forward
+    return self.lin2(self.act(self.lin1(x)))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/convert_frame.py", line 979, in catch_errors
+    return callback(frame, cache_entry, hooks, frame_state, skip=1)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/convert_frame.py", line 820, in _convert_frame
+    result = inner_convert(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/convert_frame.py", line 377, in _convert_frame_assert
+    format_guard_failures(),
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/convert_frame.py", line 365, in format_guard_failures
+    assert recompile_reasons, "TODO(whc) any other recompile reasons?"
+AssertionError: TODO(whc) any other recompile reasons?
+Run failed with return code:  1
+Output:  None
+Error:  None
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 16.93it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 331.96it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.65it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.64it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 48.12it/s]
+loading model: 0it [00:00, ?it/s]
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][A
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:03,  1.45it/s][A
+Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:01,  2.53it/s][A
+Loading pipeline components...:  67%|██████▋   | 4/6 [00:05<00:03,  1.54s/it][A
+Loading pipeline components...: 100%|██████████| 6/6 [00:06<00:00,  1.21s/it][ALoading pipeline components...: 100%|██████████| 6/6 [00:06<00:00,  1.16s/it]
+loading model: 0it [00:34, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.12it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.11it/s]
+loading model: 0it [00:00, ?it/s]
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][A
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:00,  8.77it/s][A
+Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 16.30it/s][ALoading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 15.62it/s]
+loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:13, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.53it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.51it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.55it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.55it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 16.03it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 11.81it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:14, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 11.39it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.38it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.37it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 37.48it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 48.06it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 21:51:20.216000 22994189010752 torch/_dynamo/variables/tensor.py:696] [28/0] Graph break from `Tensor.item()`, consider setting:
+W0509 21:51:20.216000 22994189010752 torch/_dynamo/variables/tensor.py:696] [28/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 21:51:20.216000 22994189010752 torch/_dynamo/variables/tensor.py:696] [28/0] or:
+W0509 21:51:20.216000 22994189010752 torch/_dynamo/variables/tensor.py:696] [28/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 21:51:20.216000 22994189010752 torch/_dynamo/variables/tensor.py:696] [28/0] to include these operations in the captured graph.
+W0509 21:51:20.216000 22994189010752 torch/_dynamo/variables/tensor.py:696] [28/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.26it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.25it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.68it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.67it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.31it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.31it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.85it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.85it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:17, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.44it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.44it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.94it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.94it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.43it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.43it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.44it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.44it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.91it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.91it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.75it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.75it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.58it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.58it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.60it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.60it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.53it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.53it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.93it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.93it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.85it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.85it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.48it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.48it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.28it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.27it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.67it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.67it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.20it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.19it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.65it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.65it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.86it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.85it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 12.47it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.81it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.81it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.80it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.80it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.69it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.69it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.92it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.92it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.02it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.01it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.23it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.66it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.65it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.92it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.92it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.69it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.69it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.05it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.05it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.23it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.23it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.23it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.24it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.24it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.71it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.71it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.26it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.26it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.98it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.98it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.99it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.98it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.99it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.99it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.15it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.15it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.37it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.36it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.93it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.93it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.62it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.62it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.02it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.01it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.50it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.50it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.11it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.11it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.36it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.36it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.61it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.61it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.93it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.92it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:13, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.57it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.57it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.05it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.05it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.06it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 23:03:32.419000 22495664523072 torch/_dynamo/variables/tensor.py:696] [0/0] Graph break from `Tensor.item()`, consider setting:
+W0509 23:03:32.419000 22495664523072 torch/_dynamo/variables/tensor.py:696] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 23:03:32.419000 22495664523072 torch/_dynamo/variables/tensor.py:696] [0/0] or:
+W0509 23:03:32.419000 22495664523072 torch/_dynamo/variables/tensor.py:696] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 23:03:32.419000 22495664523072 torch/_dynamo/variables/tensor.py:696] [0/0] to include these operations in the captured graph.
+W0509 23:03:32.419000 22495664523072 torch/_dynamo/variables/tensor.py:696] [0/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.01it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.01it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.76it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.76it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.18it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.18it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.13it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.12it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.76it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.75it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:26, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.88it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.87it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.34it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.33it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.82it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.82it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.31it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.31it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.95it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.95it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:11, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.54it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.54it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.97it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.96it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.12it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.11it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.48it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.50it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.50it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]If you want to use `ElectraForCausalLM` as a standalone, add `is_decoder=True.`
+loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.83it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.83it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.48it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.47it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.43it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.43it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]WARNING:common:Model GoogleFnet supports float32 only
+loading model: 0it [00:01, ?it/s]
+WARNING:common:Model GoogleFnet supports float32 only
+WARNING:common:Model GoogleFnet supports float32 only
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.45it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.45it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.10it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.09it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.71it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.71it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.93it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.92it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.08it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.08it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.35it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.35it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.54it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.53it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]If you want to use `MegatronBertForCausalLM` as a standalone, add `is_decoder=True.`
+loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.98it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.98it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.83it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.83it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.01it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.01it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.64it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.64it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.49it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.49it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.69it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.69it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.60it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.60it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:08, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.88it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.88it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]If you want to use `RobertaLMHeadModel` as a standalone, add `is_decoder=True.`
+We strongly recommend passing in an `attention_mask` since your input_ids may be padded. See https://huggingface.co/docs/transformers/troubleshooting#incorrect-output-when-padding-tokens-arent-masked.
+You may ignore this warning if your `pad_token_id` (0) is identical to the `bos_token_id` (0), `eos_token_id` (2), or the `sep_token_id` (None), and your input is not padded.
+loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.53it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.53it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]We strongly recommend passing in an `attention_mask` since your input_ids may be padded. See https://huggingface.co/docs/transformers/troubleshooting#incorrect-output-when-padding-tokens-arent-masked.
+You may ignore this warning if your `pad_token_id` (0) is identical to the `bos_token_id` (0), `eos_token_id` (2), or the `sep_token_id` (None), and your input is not padded.
+loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.76it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.75it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.95it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.95it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.85it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.85it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.84it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.84it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.74it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.74it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 23:32:06.192000 23179417302848 torch/_inductor/utils.py:1103] [0/0] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.37it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.37it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.15it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.15it/s]

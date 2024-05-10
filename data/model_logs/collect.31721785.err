@@ -1,0 +1,628 @@
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.10it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.08it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.11it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.10it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:10, ?it/s]
+W0509 10:13:37.986000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:13:38.093000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:13:38.171000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:13:38.249000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:13:38.327000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:13:38.405000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:13:38.484000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:13:38.562000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:13:38.640000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:13:38.718000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:13:38.795000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:13:38.873000 22746820474688 torch/_inductor/utils.py:1103] [2/1_2] DeviceCopy in input program
+W0509 10:14:30.701000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 10:14:30.776000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 10:14:30.846000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 10:14:30.916000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 10:14:30.985000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 10:14:31.054000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 10:14:31.124000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 10:14:31.193000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 10:14:31.262000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 10:14:31.331000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 10:14:31.402000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+W0509 10:14:31.472000 22746820474688 torch/_inductor/utils.py:1103] [6/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.49it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.49it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 33.26it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.84it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.84it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 31.87it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:08, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 37.54it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 86.90it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 104.33it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 116.17it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:06<00:00,  6.91s/it]running benchmark: 100%|██████████| 1/1 [00:06<00:00,  6.91s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 107.21it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.93it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.92it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.34it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.33it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+W0509 10:28:11.097000 23014632449856 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.67it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.67it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:07, ?it/s]
+W0509 10:29:32.821000 22974276896576 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.40it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.39it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 10:31:06.721000 23188542142272 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.59it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.58it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 10:32:13.094000 23259472979776 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.39it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.38it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+W0509 10:33:28.064000 23072549726016 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.91it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.90it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 10:34:55.208000 23138074388288 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.06it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.06it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 10:36:04.960000 23006476916544 torch/_dynamo/convert_frame.py:368] torch._dynamo hit config.cache_size_limit (8)
+W0509 10:36:04.960000 23006476916544 torch/_dynamo/convert_frame.py:368]    function: 'forward' (/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/detectron2/layers/batch_norm.py:318)
+W0509 10:36:04.960000 23006476916544 torch/_dynamo/convert_frame.py:368]    last reason: L['self']._pos == 0                                         
+W0509 10:36:04.960000 23006476916544 torch/_dynamo/convert_frame.py:368] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0509 10:36:04.960000 23006476916544 torch/_dynamo/convert_frame.py:368] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.71it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.71it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 10:37:21.680000 23309473847104 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+W0509 10:37:35.560000 23309473847104 torch/_inductor/utils.py:1103] [30/1_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.77it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.77it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 10:39:13.361000 23447607195456 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+W0509 10:39:24.432000 23447607195456 torch/_inductor/utils.py:1103] [30/1_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.96it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.96it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 10:40:28.687000 22890525214528 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+W0509 10:40:42.515000 22890525214528 torch/_inductor/utils.py:1103] [30/1_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.41it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.41it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 10:42:12.940000 23065885067072 torch/_inductor/utils.py:1103] [30/0_1] DeviceCopy in input program
+W0509 10:42:23.323000 23065885067072 torch/_inductor/utils.py:1103] [30/1_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.21it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.21it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:08, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 56.72it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:22, ?it/s]
+W0509 10:43:33.796000 23344674408256 torch/_inductor/utils.py:1103] [1/0_1] DeviceCopy in input program
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 10.95it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+E0509 10:44:59.784000 23037006649152 torch/fx/experimental/recording.py:280] [2/0] failed while running evaluate_expr(*(Ne(u0, 123), None), **{'fx_node': None})
+E0509 10:44:59.822000 23037006649152 torch/fx/experimental/recording.py:280] [3/0] failed while running evaluate_expr(*(Ne(u0, 123), None), **{'fx_node': None})
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 56.73it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:08, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 138.05it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 10:45:39.319000 23386672449344 torch/_dynamo/variables/tensor.py:696] [0/0] Graph break from `Tensor.item()`, consider setting:
+W0509 10:45:39.319000 23386672449344 torch/_dynamo/variables/tensor.py:696] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 10:45:39.319000 23386672449344 torch/_dynamo/variables/tensor.py:696] [0/0] or:
+W0509 10:45:39.319000 23386672449344 torch/_dynamo/variables/tensor.py:696] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 10:45:39.319000 23386672449344 torch/_dynamo/variables/tensor.py:696] [0/0] to include these operations in the captured graph.
+W0509 10:45:39.319000 23386672449344 torch/_dynamo/variables/tensor.py:696] [0/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.56it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.56it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 41.42it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 155.63it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:11, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 10:48:41.983000 22708795295552 torch/_dynamo/variables/tensor.py:696] [3/0] Graph break from `Tensor.item()`, consider setting:
+W0509 10:48:41.983000 22708795295552 torch/_dynamo/variables/tensor.py:696] [3/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 10:48:41.983000 22708795295552 torch/_dynamo/variables/tensor.py:696] [3/0] or:
+W0509 10:48:41.983000 22708795295552 torch/_dynamo/variables/tensor.py:696] [3/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 10:48:41.983000 22708795295552 torch/_dynamo/variables/tensor.py:696] [3/0] to include these operations in the captured graph.
+W0509 10:48:41.983000 22708795295552 torch/_dynamo/variables/tensor.py:696] [3/0] 
+W0509 10:50:22.189000 22708795295552 torch/_dynamo/convert_frame.py:368] torch._dynamo hit config.cache_size_limit (8)
+W0509 10:50:22.189000 22708795295552 torch/_dynamo/convert_frame.py:368]    function: 'forward' (/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py:1647)
+W0509 10:50:22.189000 22708795295552 torch/_dynamo/convert_frame.py:368]    last reason: ___check_obj_id(L['past_key_values'], 94340093429728)       
+W0509 10:50:22.189000 22708795295552 torch/_dynamo/convert_frame.py:368] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0509 10:50:22.189000 22708795295552 torch/_dynamo/convert_frame.py:368] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+W0509 10:51:25.874000 22708795295552 torch/_dynamo/convert_frame.py:368] torch._dynamo hit config.cache_size_limit (8)
+W0509 10:51:25.874000 22708795295552 torch/_dynamo/convert_frame.py:368]    function: 'forward' (/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py:978)
+W0509 10:51:25.874000 22708795295552 torch/_dynamo/convert_frame.py:368]    last reason: tensor 'L['input_ids']' stride mismatch at index 0. expected 9, actual 17
+W0509 10:51:25.874000 22708795295552 torch/_dynamo/convert_frame.py:368] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+W0509 10:51:25.874000 22708795295552 torch/_dynamo/convert_frame.py:368] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:14<00:00, 14.54s/it]running benchmark: 100%|██████████| 1/1 [00:14<00:00, 14.54s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 31.15it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.19it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.17it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 249.35it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 19.96it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:37, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [01:14, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+W0509 10:57:24.661000 22560261822272 torch/_dynamo/variables/tensor.py:696] [4/0] Graph break from `Tensor.item()`, consider setting:
+W0509 10:57:24.661000 22560261822272 torch/_dynamo/variables/tensor.py:696] [4/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 10:57:24.661000 22560261822272 torch/_dynamo/variables/tensor.py:696] [4/0] or:
+W0509 10:57:24.661000 22560261822272 torch/_dynamo/variables/tensor.py:696] [4/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 10:57:24.661000 22560261822272 torch/_dynamo/variables/tensor.py:696] [4/0] to include these operations in the captured graph.
+W0509 10:57:24.661000 22560261822272 torch/_dynamo/variables/tensor.py:696] [4/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 10:58:03.972000 22560261822272 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpiow1ez7u
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 447, in <module>
+    torchbench_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 439, in torchbench_main
+    main(TorchBenchmarkRunner(), original_dir)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 420, in forward_pass
+    return mod(*inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1595, in _call_impl
+    hook_result = hook(self, args, result)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 504, in f
+    outputs = _pytreeify_preserve_structure(self._create_post_module(name))(outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 358, in nf
+    out = f(*flat_args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 571, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 512, in forward
+    assert self.parents[-1] == name, f"{self.parents[-1]} is not {name}"
+AssertionError: Global is not Meta
+Run failed with return code:  1
+Output:  None
+Error:  None
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 187.62it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+W0509 10:58:27.906000 23126959580992 torch/_dynamo/variables/tensor.py:696] [0/0] Graph break from `Tensor.item()`, consider setting:
+W0509 10:58:27.906000 23126959580992 torch/_dynamo/variables/tensor.py:696] [0/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 10:58:27.906000 23126959580992 torch/_dynamo/variables/tensor.py:696] [0/0] or:
+W0509 10:58:27.906000 23126959580992 torch/_dynamo/variables/tensor.py:696] [0/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 10:58:27.906000 23126959580992 torch/_dynamo/variables/tensor.py:696] [0/0] to include these operations in the captured graph.
+W0509 10:58:27.906000 23126959580992 torch/_dynamo/variables/tensor.py:696] [0/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 21.77it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 18.60it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 18.41it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 15.71it/s]
+loading model: 0it [00:00, ?it/s][W509 11:00:45.552157052 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+loading model: 0it [00:02, ?it/s]
+[rank0]:W0509 11:00:47.503000 22687720441664 torch/_logging/_internal.py:1024] [0/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+[rank0]:W0509 11:00:50.409000 22687720441664 torch/_dynamo/backends/distributed.py:88] [1/0_1] Some buckets were extended beyond their requested parameter capacities in order to ensure each subgraph has an output node, required for fx graph partitioning. This can be the case when a subgraph would have only contained nodes performing inplace mutation, and returning no logical outputs. This should not be a problem, unless it results in too few graph partitions for optimal DDP performance.
+[rank0]:W0509 11:00:50.427000 22687720441664 torch/_dynamo/backends/distributed.py:105] [1/0_1] DDPOptimizer extended these buckets to ensure per-subgraph output nodes:
+[rank0]:W0509 11:00:50.427000 22687720441664 torch/_dynamo/backends/distributed.py:105] [1/0_1] ┌─────────┬─────────────┬────────────────────────┐
+[rank0]:W0509 11:00:50.427000 22687720441664 torch/_dynamo/backends/distributed.py:105] [1/0_1] │   Index │   Extra Ops │   Extra Param Size (b) │
+[rank0]:W0509 11:00:50.427000 22687720441664 torch/_dynamo/backends/distributed.py:105] [1/0_1] ├─────────┼─────────────┼────────────────────────┤
+[rank0]:W0509 11:00:50.427000 22687720441664 torch/_dynamo/backends/distributed.py:105] [1/0_1] │       0 │         160 │               94032128 │
+[rank0]:W0509 11:00:50.427000 22687720441664 torch/_dynamo/backends/distributed.py:105] [1/0_1] └─────────┴─────────────┴────────────────────────┘
+[rank0]:W0509 11:01:46.950000 22687720441664 torch/_inductor/utils.py:1103] [2/0_1] DeviceCopy in input program
+[rank0]:W0509 11:01:47.874000 22687720441664 torch/_dynamo/variables/tensor.py:696] [4/0] Graph break from `Tensor.item()`, consider setting:
+[rank0]:W0509 11:01:47.874000 22687720441664 torch/_dynamo/variables/tensor.py:696] [4/0]     torch._dynamo.config.capture_scalar_outputs = True
+[rank0]:W0509 11:01:47.874000 22687720441664 torch/_dynamo/variables/tensor.py:696] [4/0] or:
+[rank0]:W0509 11:01:47.874000 22687720441664 torch/_dynamo/variables/tensor.py:696] [4/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+[rank0]:W0509 11:01:47.874000 22687720441664 torch/_dynamo/variables/tensor.py:696] [4/0] to include these operations in the captured graph.
+[rank0]:W0509 11:01:47.874000 22687720441664 torch/_dynamo/variables/tensor.py:696] [4/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.39it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.39it/s]
+loading model: 0it [00:00, ?it/s]You are using a model of type moondream1 to instantiate a model of type phi. This is not supported for all configurations of models and can yield errors.
+loading model: 0it [00:16, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 19.43it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 23.67it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 37.41it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 15.82it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 41.49it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 40.29it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 15.46it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 25.04it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 25.93it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 20.73it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.34it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.33it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.88it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.87it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 45.23it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.09it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.09it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.60it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.60it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:10, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.02s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.02s/it]
+loading model: 0it [00:00, ?it/s]W0509 11:14:24.926000 23257468819264 torch/_inductor/utils.py:897] [0/0] Not enough SMs to use max_autotune_gemm mode
+AUTOTUNE addmm(4096x3840, 4096x1280, 1280x3840)
+  bias_addmm 0.5192 ms 100.0%
+  addmm 0.6001 ms 86.5%
+SingleProcess AUTOTUNE benchmarking takes 0.2425 seconds and 0.0000 seconds precompiling
+loading model: 0it [01:27, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:24<?, ?it/s]
+W0509 11:17:17.637000 23257468819264 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmp8j58ta1v
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 447, in <module>
+    torchbench_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 439, in torchbench_main
+    main(TorchBenchmarkRunner(), original_dir)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 420, in forward_pass
+    return mod(*inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/sam.py", line 98, in forward
+    image_embeddings = self.image_encoder(input_images)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 108, in forward
+    x = self.patch_embed(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 113, in torch_dynamo_resume_in_forward_at_108
+    x = blk(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 169, in forward
+    x = self.norm1(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 175, in torch_dynamo_resume_in_forward_at_169
+    x = self.attn(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 181, in torch_dynamo_resume_in_forward_at_175
+    x = x + self.mlp(self.norm2(x))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/image_encoder.py", line 181, in torch_dynamo_resume_in_forward_at_181
+    x = x + self.mlp(self.norm2(x))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/segment_anything_fast/modeling/common.py", line 26, in forward
+    return self.lin2(self.act(self.lin1(x)))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/convert_frame.py", line 979, in catch_errors
+    return callback(frame, cache_entry, hooks, frame_state, skip=1)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/convert_frame.py", line 820, in _convert_frame
+    result = inner_convert(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/convert_frame.py", line 377, in _convert_frame_assert
+    format_guard_failures(),
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/convert_frame.py", line 365, in format_guard_failures
+    assert recompile_reasons, "TODO(whc) any other recompile reasons?"
+AssertionError: TODO(whc) any other recompile reasons?
+Run failed with return code:  1
+Output:  None
+Error:  None
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 17.21it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 340.92it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.64it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.62it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 47.72it/s]
+loading model: 0it [00:00, ?it/s]
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][A
+Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:00, 12.78it/s][A
+Loading pipeline components...:  67%|██████▋   | 4/6 [00:00<00:00, 10.29it/s][A
+Loading pipeline components...: 100%|██████████| 6/6 [00:00<00:00,  9.79it/s][ALoading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 10.11it/s]
+loading model: 0it [00:11, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.09it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  9.07it/s]
+loading model: 0it [00:00, ?it/s]
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][A
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:00,  5.86it/s][A
+Loading pipeline components...:  83%|████████▎ | 5/6 [00:00<00:00, 14.54it/s][ALoading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 15.98it/s]
+loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.40it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.63it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.61it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.60it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.60it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 16.01it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 11.92it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:15, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 11.30it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.26it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.25it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 37.31it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 48.21it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+W0509 11:29:32.552000 22802820261696 torch/_dynamo/variables/tensor.py:696] [28/0] Graph break from `Tensor.item()`, consider setting:
+W0509 11:29:32.552000 22802820261696 torch/_dynamo/variables/tensor.py:696] [28/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 11:29:32.552000 22802820261696 torch/_dynamo/variables/tensor.py:696] [28/0] or:
+W0509 11:29:32.552000 22802820261696 torch/_dynamo/variables/tensor.py:696] [28/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 11:29:32.552000 22802820261696 torch/_dynamo/variables/tensor.py:696] [28/0] to include these operations in the captured graph.
+W0509 11:29:32.552000 22802820261696 torch/_dynamo/variables/tensor.py:696] [28/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.27it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.26it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.69it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.68it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.36it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.36it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.31it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.31it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.89it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.88it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:17, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.47it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.95it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.95it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.43it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.43it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.44it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.44it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.91it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.91it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.75it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.75it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.58it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.58it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.23it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.23it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.60it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.60it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.53it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.52it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.94it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.93it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.85it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.85it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.48it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.48it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.56it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.28it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.27it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.67it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.67it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.27it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.65it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.65it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.21it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.94it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.94it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.50it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.49it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.49it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 12.50it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.81it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.81it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.80it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.80it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.69it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.69it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.02it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.02it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.02it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.01it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.23it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.66it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.66it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.92it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.92it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.69it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.69it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.26it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.26it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.07it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.07it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.83it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.22it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.23it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.24it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.24it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.71it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.71it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.14it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.14it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.29it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.29it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.97it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.96it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.98it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.97it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.00it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.00it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.15it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.14it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.36it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.36it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.93it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.93it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.62it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.62it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.02it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.01it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.44it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.44it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.13it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.13it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.36it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.36it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.61it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.60it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.93it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.92it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:13, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.57it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.57it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:26, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:11, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]If you want to use `ElectraForCausalLM` as a standalone, add `is_decoder=True.`
+loading model: 0it [00:00, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]If you want to use `MegatronBertForCausalLM` as a standalone, add `is_decoder=True.`
+loading model: 0it [00:04, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:08, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]If you want to use `RobertaLMHeadModel` as a standalone, add `is_decoder=True.`
+loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:08, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/huggingface_hub-0.23.0-py3.8.egg/huggingface_hub/file_download.py:1132: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]

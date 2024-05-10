@@ -1,0 +1,1398 @@
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/fbgemm_gpu/fbgemm_gpu_py.so: undefined symbol: _ZNK5torch8autograd4Node4nameEv
+cuda train torchrec_dlrm                      
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 231, in load_model
+    module = importlib.import_module(c)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/canary_models/torchrec_dlrm/__init__.py", line 7, in <module>
+    from .data.dlrm_dataloader import get_dataloader
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/canary_models/torchrec_dlrm/data/dlrm_dataloader.py", line 13, in <module>
+    from torchrec.datasets.criteo import (
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/torchrec/__init__.py", line 10, in <module>
+    import torchrec.distributed  # noqa
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/torchrec/distributed/__init__.py", line 38, in <module>
+    from torchrec.distributed.model_parallel import DistributedModelParallel  # noqa
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/torchrec/distributed/model_parallel.py", line 26, in <module>
+    from torchrec.distributed.planner import EmbeddingShardingPlanner, Topology
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/torchrec/distributed/planner/__init__.py", line 24, in <module>
+    from torchrec.distributed.planner.planners import EmbeddingShardingPlanner  # noqa
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/torchrec/distributed/planner/planners.py", line 21, in <module>
+    from torchrec.distributed.planner.constants import BATCH_SIZE, MAX_SIZE
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/torchrec/distributed/planner/constants.py", line 12, in <module>
+    from torchrec.distributed.embedding_types import EmbeddingComputeKernel
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/torchrec/distributed/embedding_types.py", line 16, in <module>
+    from fbgemm_gpu.split_table_batched_embeddings_ops_training import EmbeddingLocation
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/fbgemm_gpu/__init__.py", line 22, in <module>
+    import fbgemm_gpu.docs  # noqa: F401, E402
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/fbgemm_gpu/docs/__init__.py", line 9, in <module>
+    from . import jagged_tensor_ops, table_batched_embedding_ops  # noqa: F401
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/fbgemm_gpu/docs/jagged_tensor_ops.py", line 14, in <module>
+    torch.ops.fbgemm.jagged_2d_to_dense,
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_ops.py", line 1125, in __getattr__
+    raise AttributeError(
+AttributeError: '_OpNamespace' 'fbgemm' object has no attribute 'jagged_2d_to_dense'
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train BERT_pytorch                       
+run_performance_test(): speedup_experiment == True
+0.396x
+Op: aten.addmm
+Op: aten.bmm
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train Background_Matting                 
+run_performance_test(): speedup_experiment == True
+0.838x
+Op: aten.convolution
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train DALLE2_pytorch                     
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 428, in forward_and_backward_pass
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train LearningToPaint                    
+run_performance_test(): speedup_experiment == True
+0.513x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train Super_SloMo                        
+run_performance_test(): speedup_experiment == True
+0.912x
+Op: aten.convolution
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train alexnet                            
+run_performance_test(): speedup_experiment == True
+0.896x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train basic_gnn_edgecnn                  
+run_performance_test(): speedup_experiment == True
+0.799x
+Op: aten.addmm
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train basic_gnn_gcn                      
+run_performance_test(): speedup_experiment == True
+0.773x
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train basic_gnn_gin                      
+run_performance_test(): speedup_experiment == True
+0.456x
+Op: aten.addmm
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train basic_gnn_sage                     
+run_performance_test(): speedup_experiment == True
+0.555x
+Op: aten.addmm
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train dcgan                              
+run_performance_test(): speedup_experiment == True
+0.315x
+Op: aten.convolution
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train demucs                             
+run_performance_test(): speedup_experiment == True
+0.826x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.convolution_backward
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train densenet121                        
+run_performance_test(): speedup_experiment == True
+0.192x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train detectron2_maskrcnn_r_50_c4        
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/detectron2/modeling/meta_arch/rcnn.py", line 161, in forward
+    proposals, proposal_losses = self.proposal_generator(images, features, gt_instances)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/detectron2/modeling/proposal_generator/rpn.py", line 472, in forward
+    losses = self.losses(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/detectron2/modeling/proposal_generator/rpn.py", line 401, in losses
+    storage = get_event_storage()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/detectron2/utils/events.py", line 34, in get_event_storage
+    assert len(
+AssertionError: get_event_storage() has to be called inside a 'with EventStorage(...)' context!
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train dlrm                               
+run_performance_test(): speedup_experiment == True
+0.041x
+Op: aten.addmm
+Op: aten.bmm
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train drq                                
+run_performance_test(): speedup_experiment == True
+0.349x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train fastNLP_Bert                       
+run_performance_test(): speedup_experiment == True
+0.632x
+Op: aten.addmm
+Op: aten.bmm
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train functorch_dp_cifar10               
+run_performance_test(): speedup_experiment == True
+0.331x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train functorch_maml_omniglot            
+run_performance_test(): speedup_experiment == True
+0.363x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_Albert                          
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/albert/modeling_albert.py", line 986, in forward
+    outputs = self.albert(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/albert/modeling_albert.py", line 705, in forward
+    input_shape = input_ids.size()
+AttributeError: 'str' object has no attribute 'size'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_Bart                            
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/bart/modeling_bart.py", line 1731, in forward
+    outputs = self.model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/bart/modeling_bart.py", line 1587, in forward
+    decoder_input_ids = shift_tokens_right(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/bart/modeling_bart.py", line 104, in shift_tokens_right
+    shifted_input_ids = input_ids.new_zeros(input_ids.shape)
+AttributeError: 'str' object has no attribute 'new_zeros'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_Bert                            
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/bert/modeling_bert.py", line 1360, in forward
+    outputs = self.bert(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/bert/modeling_bert.py", line 961, in forward
+    input_shape = input_ids.size()
+AttributeError: 'str' object has no attribute 'size'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_Bert_large                      
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/bert/modeling_bert.py", line 1360, in forward
+    outputs = self.bert(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/bert/modeling_bert.py", line 961, in forward
+    input_shape = input_ids.size()
+AttributeError: 'str' object has no attribute 'size'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_BigBird                         
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/big_bird/modeling_big_bird.py", line 2450, in forward
+    outputs = self.bert(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/big_bird/modeling_big_bird.py", line 2026, in forward
+    input_shape = input_ids.size()
+AttributeError: 'str' object has no attribute 'size'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_DistilBert                      
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/distilbert/modeling_distilbert.py", line 905, in forward
+    dlbrt_output = self.distilbert(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/distilbert/modeling_distilbert.py", line 803, in forward
+    input_shape = input_ids.size()
+AttributeError: 'str' object has no attribute 'size'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_GPT2                            
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1074, in forward
+    transformer_outputs = self.transformer(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 776, in forward
+    input_shape = input_ids.size()
+AttributeError: 'str' object has no attribute 'size'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_GPT2_large                      
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 1074, in forward
+    transformer_outputs = self.transformer(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/gpt2/modeling_gpt2.py", line 776, in forward
+    input_shape = input_ids.size()
+AttributeError: 'str' object has no attribute 'size'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_Reformer                        
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/reformer/modeling_reformer.py", line 2404, in forward
+    reformer_outputs = self.reformer(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/reformer/modeling_reformer.py", line 2034, in forward
+    self.warn_if_padding_and_no_attention_mask(input_ids, attention_mask)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/modeling_utils.py", line 4169, in warn_if_padding_and_no_attention_mask
+    if self.config.pad_token_id in input_ids[:, [-1, 0]]:
+TypeError: string indices must be integers
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_T5_base                         
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 1711, in forward
+    encoder_outputs = self.encoder(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 1010, in forward
+    input_shape = input_ids.size()
+AttributeError: 'str' object has no attribute 'size'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_T5_large                        
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 1711, in forward
+    encoder_outputs = self.encoder(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/transformers/models/t5/modeling_t5.py", line 1010, in forward
+    input_shape = input_ids.size()
+AttributeError: 'str' object has no attribute 'size'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_Whisper                         
+run_performance_test(): speedup_experiment == True
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train hf_distil_whisper                  
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 296, in load_model
+    benchmark = benchmark_cls(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/util/model.py", line 38, in __call__
+    obj = type.__call__(cls, *args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/models/hf_distil_whisper/__init__.py", line 12, in __init__
+    raise NotImplementedError("Training is not implemented.")
+NotImplementedError: Training is not implemented.
+
+model_fail_to_load
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train lennard_jones                      
+run_performance_test(): speedup_experiment == True
+0.349x
+Op: aten.addmm
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train llava                              
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 296, in load_model
+    benchmark = benchmark_cls(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/util/model.py", line 38, in __call__
+    obj = type.__call__(cls, *args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/models/llava/__init__.py", line 11, in __init__
+    super().__init__(name="llava", test=test, device=device, batch_size=batch_size, extra_args=extra_args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/util/framework/huggingface/model_factory.py", line 32, in __init__
+    super().__init__(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/util/model.py", line 144, in __init__
+    self._determine_batch_size(batch_size)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/util/model.py", line 261, in _determine_batch_size
+    raise NotImplementedError(
+NotImplementedError: Model's DEFAULT_TRAIN_BSIZE is not implemented.
+
+model_fail_to_load
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train maml_omniglot                      
+run_performance_test(): speedup_experiment == True
+0.365x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train microbench_unbacked_tolist_sum     
+run_performance_test(): speedup_experiment == True
+0.550x
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train mnasnet1_0                         
+run_performance_test(): speedup_experiment == True
+0.424x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train mobilenet_v2                       
+run_performance_test(): speedup_experiment == True
+0.722x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train mobilenet_v2_quantized_qat         
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/fx/graph_module.py", line 735, in call_wrapped
+    return self._wrapped_call(self, *args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/fx/graph_module.py", line 315, in __call__
+    raise e
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/fx/graph_module.py", line 302, in __call__
+    return super(self.cls, obj).__call__(*args, **kwargs)  # type: ignore[misc]
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<eval_with_key>.3", line 207, in forward
+    activation_post_process_101 = self.activation_post_process_101(classifier_1);  classifier_1 = None
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/ao/quantization/fake_quantize.py", line 342, in forward
+    return torch.fused_moving_avg_obs_fake_quant(
+RuntimeError: expected scalar type Float but found Half
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train mobilenet_v3_large                 
+run_performance_test(): speedup_experiment == True
+0.340x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train moco                               
+run_performance_test(): speedup_experiment == True
+0.295x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.bmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+number of parameters: 123.69M
+num decayed parameter tensors: 50, with 124,354,560 parameters
+num non-decayed parameter tensors: 98, with 121,344 parameters
+using fused AdamW: True
+cuda train nanogpt                            
+run_performance_test(): speedup_experiment == True
+0.382x
+Op: aten.addmm
+Op: aten._scaled_dot_product_flash_attention
+Op: aten.mm
+Op: aten._scaled_dot_product_flash_attention_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train nvidia_deeprecommender             
+run_performance_test(): speedup_experiment == True
+1.592x
+Op: aten.addmm
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train opacus_cifar10                     
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/opacus/grad_sample/grad_sample_module.py", line 149, in forward
+    return self._module(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchvision/torchvision/models/resnet.py", line 285, in forward
+    return self._forward_impl(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchvision/torchvision/models/resnet.py", line 268, in _forward_impl
+    x = self.conv1(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1595, in _call_impl
+    hook_result = hook(self, args, result)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/opacus/grad_sample/grad_sample_module.py", line 289, in capture_activations_hook
+    p._forward_counter += 1
+AttributeError: 'Parameter' object has no attribute '_forward_counter'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train phlippe_densenet                   
+run_performance_test(): speedup_experiment == True
+0.273x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train phlippe_resnet                     
+run_performance_test(): speedup_experiment == True
+0.264x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train pytorch_CycleGAN_and_pix2pix       
+run_performance_test(): speedup_experiment == True
+0.453x
+Op: aten.convolution
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train pytorch_stargan                    
+run_performance_test(): speedup_experiment == True
+0.738x
+Op: aten.convolution
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train pytorch_unet                       
+run_performance_test(): speedup_experiment == True
+0.811x
+Op: aten.convolution
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train resnet152                          
+run_performance_test(): speedup_experiment == True
+0.478x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train resnet18                           
+run_performance_test(): speedup_experiment == True
+0.331x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train resnet50                           
+run_performance_test(): speedup_experiment == True
+0.587x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train resnet50_quantized_qat             
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/fx/graph_module.py", line 735, in call_wrapped
+    return self._wrapped_call(self, *args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/fx/graph_module.py", line 315, in __call__
+    raise e
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/fx/graph_module.py", line 302, in __call__
+    return super(self.cls, obj).__call__(*args, **kwargs)  # type: ignore[misc]
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "<eval_with_key>.3", line 167, in forward
+    activation_post_process_73 = self.activation_post_process_73(fc);  fc = None
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/ao/quantization/fake_quantize.py", line 342, in forward
+    return torch.fused_moving_avg_obs_fake_quant(
+RuntimeError: expected scalar type Float but found Half
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train resnext50_32x4d                    
+run_performance_test(): speedup_experiment == True
+0.342x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train sam                                
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 296, in load_model
+    benchmark = benchmark_cls(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/util/model.py", line 38, in __call__
+    obj = type.__call__(cls, *args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/models/sam/__init__.py", line 19, in __init__
+    super().__init__(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/util/model.py", line 144, in __init__
+    self._determine_batch_size(batch_size)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchbenchmark/torchbenchmark/util/model.py", line 261, in _determine_batch_size
+    raise NotImplementedError(
+NotImplementedError: Model's DEFAULT_TRAIN_BSIZE is not implemented.
+
+model_fail_to_load
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train shufflenet_v2_x1_0                 
+run_performance_test(): speedup_experiment == True
+0.496x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train soft_actor_critic                  
+run_performance_test(): speedup_experiment == True
+0.456x
+Op: aten.addmm
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train speech_transformer                 
+run_performance_test(): speedup_experiment == True
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train squeezenet1_1                      
+run_performance_test(): speedup_experiment == True
+0.396x
+Op: aten.convolution
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train stable_diffusion_text_encoder      
+run_performance_test(): speedup_experiment == True
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train stable_diffusion_unet              
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train timm_efficientnet                  
+run_performance_test(): speedup_experiment == True
+0.405x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train timm_regnet                        
+run_performance_test(): speedup_experiment == True
+0.532x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train timm_resnest                       
+run_performance_test(): speedup_experiment == True
+0.740x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train timm_vision_transformer            
+run_performance_test(): speedup_experiment == True
+0.354x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten._scaled_dot_product_flash_attention
+Op: aten.mm
+Op: aten._scaled_dot_product_flash_attention_backward
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train timm_vision_transformer_large      
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/models/vision_transformer.py", line 652, in forward
+    x = self.forward_features(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/models/vision_transformer.py", line 640, in forward_features
+    x = self.blocks(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/models/vision_transformer.py", line 156, in forward
+    x = x + self.drop_path2(self.ls2(self.mlp(self.norm2(x))))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/layers/mlp.py", line 42, in forward
+    x = self.fc1(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/linear.py", line 116, in forward
+    return F.linear(input, self.weight, self.bias)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 98.00 MiB. GPU 0 has a total capacity of 19.50 GiB of which 25.94 MiB is free. Including non-PyTorch memory, this process has 19.43 GiB memory in use. Of the allocated memory 19.20 GiB is allocated by PyTorch, and 7.33 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train timm_vovnet                        
+run_performance_test(): speedup_experiment == True
+0.514x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train torch_multimodal_clip              
+run_performance_test(): speedup_experiment == True
+0.386x
+Op: aten.convolution
+Op: aten.mm
+Op: aten._scaled_dot_product_flash_attention
+Op: aten.addmm
+Op: aten._scaled_dot_product_flash_attention_backward
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train tts_angular                        
+run_performance_test(): speedup_experiment == True
+0.909x
+Op: aten.mm
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train vgg16                              
+run_performance_test(): speedup_experiment == True
+0.867x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train vision_maskrcnn                    
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2279, in validate_model
+    self.model_iter_fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in forward_and_backward_pass
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/torchvision/torchvision/models/detection/generalized_rcnn.py", line 62, in forward
+    torch._assert(False, "targets should not be none when in training mode")
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/__init__.py", line 1571, in _assert
+    assert condition, message
+AssertionError: targets should not be none when in training mode
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4071, in run
+    ) = runner.load_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 356, in load_model
+    self.validate_model(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2281, in validate_model
+    raise RuntimeError("Eager run failed") from e
+RuntimeError: Eager run failed
+
+eager_fail_to_run
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+cuda train yolov3                             
+run_performance_test(): speedup_experiment == True
+0.321x
+Op: aten.convolution
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/torchbench
+speedup             gmean=0.41x mean=0.417x
+abs_latency         gmean=165.77x mean=173.266x
+compilation_latency mean=85.332 seconds
+compression_ratio   mean=0.844x
+eager_peak_mem      gmean=1.58x mean=1.719x
+dynamo_peak_mem     gmean=1.98x mean=2.747x
+calls_captured      gmean=472.33x mean=522.000x
+unique_graphs       gmean=1.32x mean=1.500x
+graph_breaks        gmean=0.00x mean=2.000x
+unique_graph_breaks gmean=0.00x mean=1.500x
+autograd_captures   gmean=0.00x mean=0.000x
+autograd_compiles   gmean=0.00x mean=0.000x
+cudagraph_skips     gmean=0.00x mean=0.000x
+Finished torchbench-------------------
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train adv_inception_v3                   
+run_performance_test(): speedup_experiment == True
+0.789x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train beit_base_patch16_224              
+run_performance_test(): speedup_experiment == True
+0.781x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten._scaled_dot_product_efficient_attention
+Op: aten.mm
+Op: aten._scaled_dot_product_efficient_attention_backward
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train botnet26t_256                      
+run_performance_test(): speedup_experiment == True
+0.611x
+Op: aten.convolution
+Op: aten.bmm
+Op: aten.mm
+Op: aten.addmm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train cait_m36_384                       
+run_performance_test(): speedup_experiment == True
+0.828x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.bmm
+Op: aten.mm
+Op: aten._scaled_dot_product_flash_attention
+Op: aten._scaled_dot_product_flash_attention_backward
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train coat_lite_mini                     
+run_performance_test(): speedup_experiment == True
+0.758x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.bmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train convit_base                        
+run_performance_test(): speedup_experiment == True
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train convmixer_768_32                   
+run_performance_test(): speedup_experiment == True
+0.881x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train convnext_base                      
+run_performance_test(): speedup_experiment == True
+0.696x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train crossvit_9_240                     
+run_performance_test(): speedup_experiment == True
+0.713x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten._scaled_dot_product_flash_attention
+Op: aten.bmm
+Op: aten.mm
+Op: aten._scaled_dot_product_flash_attention_backward
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train cspdarknet53                       
+run_performance_test(): speedup_experiment == True
+0.693x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train deit_base_distilled_patch16_224    
+run_performance_test(): speedup_experiment == True
+0.743x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten._scaled_dot_product_flash_attention
+Op: aten.mm
+Op: aten._scaled_dot_product_flash_attention_backward
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train dla102                             
+run_performance_test(): speedup_experiment == True
+0.752x
+Op: aten.convolution
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train dm_nfnet_f0                        
+run_performance_test(): speedup_experiment == True
+0.856x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train dpn107                             
+run_performance_test(): speedup_experiment == True
+0.707x
+Op: aten.convolution
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train eca_botnext26ts_256                
+run_performance_test(): speedup_experiment == True
+0.629x
+Op: aten.convolution
+Op: aten.bmm
+Op: aten.mm
+Op: aten.addmm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train eca_halonext26ts                   
+run_performance_test(): speedup_experiment == True
+0.637x
+Op: aten.convolution
+Op: aten.bmm
+Op: aten.mm
+Op: aten.addmm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train ese_vovnet19b_dw                   
+run_performance_test(): speedup_experiment == True
+0.663x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train fbnetc_100                         
+run_performance_test(): speedup_experiment == True
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train fbnetv3_b                          
+run_performance_test(): speedup_experiment == True
+0.769x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train gernet_l                           
+run_performance_test(): speedup_experiment == True
+0.630x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train ghostnet_100                       
+run_performance_test(): speedup_experiment == True
+0.819x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train gluon_inception_v3                 
+run_performance_test(): speedup_experiment == True
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train gmixer_24_224                      
+run_performance_test(): speedup_experiment == True
+0.709x
+Op: aten.convolution
+Op: aten.mm
+Op: aten.addmm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train gmlp_s16_224                       
+run_performance_test(): speedup_experiment == True
+0.744x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train hrnet_w18                          
+run_performance_test(): speedup_experiment == True
+0.645x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train inception_v3                       
+run_performance_test(): speedup_experiment == True
+0.798x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train jx_nest_base                       
+run_performance_test(): speedup_experiment == True
+0.780x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.bmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train lcnet_050                          
+run_performance_test(): speedup_experiment == True
+0.787x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train levit_128                          
+run_performance_test(): speedup_experiment == True
+0.596x
+Op: aten.convolution
+Op: aten.mm
+Op: aten.bmm
+Op: aten.addmm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train mixer_b16_224                      
+run_performance_test(): speedup_experiment == True
+0.713x
+Op: aten.convolution
+Op: aten.mm
+Op: aten.addmm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train mixnet_l                           
+run_performance_test(): speedup_experiment == True
+0.843x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train mnasnet_100                        
+run_performance_test(): speedup_experiment == True
+0.716x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train mobilenetv2_100                    
+run_performance_test(): speedup_experiment == True
+0.711x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train mobilenetv3_large_100              
+run_performance_test(): speedup_experiment == True
+0.744x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train mobilevit_s                        
+run_performance_test(): speedup_experiment == True
+0.657x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten._scaled_dot_product_flash_attention
+Op: aten.mm
+Op: aten.convolution_backward
+Op: aten._scaled_dot_product_flash_attention_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train nfnet_l0                           
+run_performance_test(): speedup_experiment == True
+0.805x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten.mm
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train pit_b_224                          
+run_performance_test(): speedup_experiment == True
+0.753x
+Op: aten.convolution
+Op: aten.addmm
+Op: aten._scaled_dot_product_flash_attention
+Op: aten.mm
+Op: aten._scaled_dot_product_flash_attention_backward
+Op: aten.convolution_backward
+/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/train_models/timm
+cuda train pnasnet5large                      
