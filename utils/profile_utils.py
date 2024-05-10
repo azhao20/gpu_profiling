@@ -1,5 +1,10 @@
 import torch
+from torch.cuda import nvtx
+
+import traceback as tb
 import numpy as np
+import csv, os
+
 
 WARMUP_REPS = 10
 NREPS = 30
@@ -132,3 +137,28 @@ def time_conv2d(input, weight):
         times.append(time)
     return np.median(np.array(times))
 
+def save_row(kernel_params, time, out_file):
+    with open(out_file, mode='a', newline='') as file:
+        writer = csv.writer(file)
+
+        if os.path.getsize(out_file) == 0:
+            writer.writerow(['Kernel Name', 'Latency (ms)'])
+        writer.writerow([kernel_params, time])
+
+def profile_rep(fn, args):
+    res = [0] * (WARMUP_REPS + 1)
+    torch.cuda.empty_cache()
+    try:
+        with torch.no_grad():
+            for i in range(WARMUP_REPS):
+                res[i] = fn(*args)
+            
+            torch.cuda.cudart().cudaProfilerStart()
+            nvtx.range_push("profile_range")
+            res[-1] = fn(*args)
+            nvtx.range_pop()
+            torch.cuda.cudart().cudaProfilerStop()
+
+    except Exception as e:
+        print("profile_rep crashed!")
+        tb.print_exc()
