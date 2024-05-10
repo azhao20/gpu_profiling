@@ -1,0 +1,660 @@
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.43it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.42it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 10:15:19.334000 22587553859392 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.29it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.29it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:08, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 15.13it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 10:19:13.012000 23367602206528 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.15it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.15it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 10.96it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 10:20:59.830000 22605858867008 torch/_logging/_internal.py:1024] [23/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 19.89it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 10:21:33.828000 23238814885696 torch/_logging/_internal.py:1024] [17/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 49.80it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 10:21:58.140000 22394757007168 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 59.15it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 10:22:26.696000 22775152953152 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 69.60it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 97.01it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.75it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.75it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.16it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.15it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:12, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.56it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.56it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+W0509 10:29:35.229000 22497601525568 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 71.29it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 10:29:49.165000 22583970252608 torch/_dynamo/variables/tensor.py:696] [2/0] Graph break from `Tensor.item()`, consider setting:
+W0509 10:29:49.165000 22583970252608 torch/_dynamo/variables/tensor.py:696] [2/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 10:29:49.165000 22583970252608 torch/_dynamo/variables/tensor.py:696] [2/0] or:
+W0509 10:29:49.165000 22583970252608 torch/_dynamo/variables/tensor.py:696] [2/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 10:29:49.165000 22583970252608 torch/_dynamo/variables/tensor.py:696] [2/0] to include these operations in the captured graph.
+W0509 10:29:49.165000 22583970252608 torch/_dynamo/variables/tensor.py:696] [2/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.87it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.86it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 10:32:28.326000 22986351507264 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 21.82it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+W0509 10:33:24.216000 22904885446464 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 95.20it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:11, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:09, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 10:35:50.750000 22745532528448 torch/_logging/_internal.py:1024] [17/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 10:36:10.702000 22745532528448 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpmueg0hgp
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 447, in <module>
+    torchbench_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 439, in torchbench_main
+    main(TorchBenchmarkRunner(), original_dir)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 423, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 424, in torch_dynamo_resume_in_forward_and_backward_pass_at_423
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in torch_dynamo_resume_in_forward_and_backward_pass_at_424
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 428, in torch_dynamo_resume_in_forward_and_backward_pass_at_426
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+W0509 10:36:31.253000 23185105475392 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 122.78it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+W0509 10:37:17.303000 23081291962176 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 91.86it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+W0509 10:37:29.071000 23000872449856 torch/_dynamo/variables/tensor.py:696] [2/0] Graph break from `Tensor.item()`, consider setting:
+W0509 10:37:29.071000 23000872449856 torch/_dynamo/variables/tensor.py:696] [2/0]     torch._dynamo.config.capture_scalar_outputs = True
+W0509 10:37:29.071000 23000872449856 torch/_dynamo/variables/tensor.py:696] [2/0] or:
+W0509 10:37:29.071000 23000872449856 torch/_dynamo/variables/tensor.py:696] [2/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+W0509 10:37:29.071000 23000872449856 torch/_dynamo/variables/tensor.py:696] [2/0] to include these operations in the captured graph.
+W0509 10:37:29.071000 23000872449856 torch/_dynamo/variables/tensor.py:696] [2/0] 
+W0509 10:37:33.236000 23000872449856 torch/_logging/_internal.py:1024] [8/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 20.58it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 10:39:21.390000 22563569153856 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.96it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.95it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.15it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  4.15it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 10:44:43.865000 23103499745088 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.33it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.31it/s]
+loading model: 0it [00:00, ?it/s][W509 10:45:40.476234820 CUDAAllocatorConfig.h:28] Warning: expandable_segments not supported on this platform (function operator())
+loading model: 0it [00:03, ?it/s]
+[rank0]:W0509 10:45:44.163000 22841688622912 torch/_logging/_internal.py:1024] [2/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+[rank0]:W0509 10:45:47.153000 22841688622912 torch/_dynamo/backends/distributed.py:88] [3/0_1] Some buckets were extended beyond their requested parameter capacities in order to ensure each subgraph has an output node, required for fx graph partitioning. This can be the case when a subgraph would have only contained nodes performing inplace mutation, and returning no logical outputs. This should not be a problem, unless it results in too few graph partitions for optimal DDP performance.
+[rank0]:W0509 10:45:47.171000 22841688622912 torch/_dynamo/backends/distributed.py:105] [3/0_1] DDPOptimizer extended these buckets to ensure per-subgraph output nodes:
+[rank0]:W0509 10:45:47.171000 22841688622912 torch/_dynamo/backends/distributed.py:105] [3/0_1] ┌─────────┬─────────────┬────────────────────────┐
+[rank0]:W0509 10:45:47.171000 22841688622912 torch/_dynamo/backends/distributed.py:105] [3/0_1] │   Index │   Extra Ops │   Extra Param Size (b) │
+[rank0]:W0509 10:45:47.171000 22841688622912 torch/_dynamo/backends/distributed.py:105] [3/0_1] ├─────────┼─────────────┼────────────────────────┤
+[rank0]:W0509 10:45:47.171000 22841688622912 torch/_dynamo/backends/distributed.py:105] [3/0_1] │       0 │         161 │               94032128 │
+[rank0]:W0509 10:45:47.171000 22841688622912 torch/_dynamo/backends/distributed.py:105] [3/0_1] └─────────┴─────────────┴────────────────────────┘
+[rank0]:W0509 10:46:58.975000 22841688622912 torch/_inductor/utils.py:1103] [4/0_1] DeviceCopy in input program
+[rank0]:W0509 10:46:59.962000 22841688622912 torch/_dynamo/variables/tensor.py:696] [6/0] Graph break from `Tensor.item()`, consider setting:
+[rank0]:W0509 10:46:59.962000 22841688622912 torch/_dynamo/variables/tensor.py:696] [6/0]     torch._dynamo.config.capture_scalar_outputs = True
+[rank0]:W0509 10:46:59.962000 22841688622912 torch/_dynamo/variables/tensor.py:696] [6/0] or:
+[rank0]:W0509 10:46:59.962000 22841688622912 torch/_dynamo/variables/tensor.py:696] [6/0]     env TORCHDYNAMO_CAPTURE_SCALAR_OUTPUTS=1
+[rank0]:W0509 10:46:59.962000 22841688622912 torch/_dynamo/variables/tensor.py:696] [6/0] to include these operations in the captured graph.
+[rank0]:W0509 10:46:59.962000 22841688622912 torch/_dynamo/variables/tensor.py:696] [6/0] 
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.93it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.92it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 10:49:55.998000 23111444195136 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.43it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  7.41it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 10:51:03.222000 22496381167424 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.06it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.06it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.59it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.56it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 23.29it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 10:55:09.950000 22760219301696 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 12.09it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.67it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.66it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 10:57:26.455000 22960987793216 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.02it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.02it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+W0509 11:00:08.575000 22920523315008 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.71it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.71it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 23.97it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 11:04:39.763000 22840695211840 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.68it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.67it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 11:06:59.073000 22398641936192 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.79it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  8.77it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.04it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.02it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+W0509 11:10:13.461000 23350970378048 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 157.63it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 11:11:55.246000 22714917672768 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpbgxsyzsp
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 447, in <module>
+    torchbench_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 439, in torchbench_main
+    main(TorchBenchmarkRunner(), original_dir)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 423, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 424, in torch_dynamo_resume_in_forward_and_backward_pass_at_423
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 426, in torch_dynamo_resume_in_forward_and_backward_pass_at_424
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 427, in torch_dynamo_resume_in_forward_and_backward_pass_at_426
+    loss = self.compute_loss(pred)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 428, in torch_dynamo_resume_in_forward_and_backward_pass_at_427
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 20.53it/s]
+loading model: 0it [00:00, ?it/s]
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][A
+Loading pipeline components...:  33%|███▎      | 2/6 [00:00<00:01,  3.08it/s][A
+Loading pipeline components...:  67%|██████▋   | 4/6 [00:00<00:00,  5.14it/s][A
+Loading pipeline components...:  83%|████████▎ | 5/6 [00:02<00:00,  1.46it/s][A
+Loading pipeline components...: 100%|██████████| 6/6 [00:07<00:00,  1.89s/it][ALoading pipeline components...: 100%|██████████| 6/6 [00:07<00:00,  1.24s/it]
+loading model: 0it [00:34, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 11:14:49.222000 23059029968704 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpi_46u29c
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 447, in <module>
+    torchbench_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 439, in torchbench_main
+    main(TorchBenchmarkRunner(), original_dir)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 423, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 424, in torch_dynamo_resume_in_forward_and_backward_pass_at_423
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 428, in torch_dynamo_resume_in_forward_and_backward_pass_at_424
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+loading model: 0it [00:00, ?it/s]
+Loading pipeline components...:   0%|          | 0/6 [00:00<?, ?it/s][A
+Loading pipeline components...:  17%|█▋        | 1/6 [00:00<00:00,  5.92it/s][A
+Loading pipeline components...:  83%|████████▎ | 5/6 [00:00<00:00, 17.29it/s][ALoading pipeline components...: 100%|██████████| 6/6 [00:00<00:00, 16.25it/s]
+loading model: 0it [00:05, ?it/s]
+ERROR:common:Backend eager failed in warmup()
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2742, in warmup
+    fn(model, example_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/torchbench.py", line 429, in forward_and_backward_pass
+    self.optimizer_step()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2329, in optimizer_step
+    self.optimizer.step()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/optim/optimizer.py", line 438, in wrapper
+    out = func(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/optim/optimizer.py", line 87, in _use_grad
+    ret = func(self, *args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/optim/adam.py", line 222, in step
+    adam(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/optim/adam.py", line 383, in adam
+    func(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/optim/adam.py", line 649, in _multi_tensor_adam
+    exp_avg_sq_sqrt = torch._foreach_sqrt(device_exp_avg_sqs)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 58.00 MiB. GPU 0 has a total capacity of 19.50 GiB of which 25.94 MiB is free. Including non-PyTorch memory, this process has 19.43 GiB memory in use. Of the allocated memory 19.14 GiB is allocated by PyTorch, and 42.43 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Run failed with return code:  255
+Output:  None
+Error:  None
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:13, ?it/s]
+W0509 11:17:48.947000 22969059632960 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.17it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.16it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.72it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.72it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 11:22:45.071000 22573374416704 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.51it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.50it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.42it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  6.40it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:15, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.20it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  5.19it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 11:27:52.584000 23242505885504 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.49it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.48it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:00, ?it/s]
+W0509 11:29:12.970000 22949698643776 torch/_logging/_internal.py:1024] [9/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00, 17.87it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:05, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.52it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.52it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:12, ?it/s]
+W0509 11:32:42.907000 23000373122880 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.87it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.86it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.23it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.23it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 11:38:39.429000 22425322141504 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.71it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.71it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.51it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.51it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:07, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.08it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.08it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.68it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.68it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]
+W0509 11:48:36.917000 22959506532160 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpxhlytrdh
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 377, in <module>
+    timm_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 369, in timm_main
+    main(TimmRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 352, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 353, in torch_dynamo_resume_in_forward_and_backward_pass_at_352
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 359, in torch_dynamo_resume_in_forward_and_backward_pass_at_353
+    self.grad_scaler.scale(loss).backward()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_tensor.py", line 523, in backward
+    torch.autograd.backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/__init__.py", line 267, in backward
+    _engine_run_backward(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/graph.py", line 767, in _engine_run_backward
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 302, in apply
+    return user_fn(self, *args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 538, in backward
+    assert self.parents[-1] == name
+AssertionError
+Run failed with return code:  1
+Output:  None
+Error:  None
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.66s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.66s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 11:52:03.530000 22528461932352 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.42it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.42it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 11:55:38.190000 22779831658304 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.72it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.71it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 11:59:02.602000 23188508546880 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.08it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 12:01:05.295000 22578391246656 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.90it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.89it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 12:04:06.475000 22494558050112 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.13it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.13it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 12:07:44.021000 23364333479744 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.42it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.42it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.21s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.21s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 12:14:38.362000 22755501619008 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.34it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.34it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 12:17:48.029000 22943913785152 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.31it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.31it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 12:20:06.043000 22984893343552 torch/_logging/_internal.py:1024] [6/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.19it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.19it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 12:22:41.337000 23338379347776 torch/_logging/_internal.py:1024] [6/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:01<?, ?it/s]
+W0509 12:23:40.003000 23338379347776 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpdl1fo1pm
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 377, in <module>
+    timm_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 369, in timm_main
+    main(TimmRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 352, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 353, in torch_dynamo_resume_in_forward_and_backward_pass_at_352
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 355, in torch_dynamo_resume_in_forward_and_backward_pass_at_353
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/models/efficientnet.py", line 179, in forward
+    x = self.forward_features(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/models/efficientnet.py", line 167, in forward_features
+    x = self.blocks(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/models/_efficientnet_blocks.py", line 182, in forward
+    x = self.conv_dw(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1595, in _call_impl
+    hook_result = hook(self, args, result)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 504, in f
+    outputs = _pytreeify_preserve_structure(self._create_post_module(name))(outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 358, in nf
+    out = f(*flat_args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 571, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 514, in forward
+    args = tree_map(lambda x: x.clone() if isinstance(x, torch.Tensor) else x, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/_pytree.py", line 943, in tree_map
+    return treespec.unflatten(map(func, *flat_args))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/_pytree.py", line 782, in unflatten
+    leaves = list(leaves)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 514, in <lambda>
+    args = tree_map(lambda x: x.clone() if isinstance(x, torch.Tensor) else x, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 637, in __torch_dispatch__
+    out = func(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_ops.py", line 630, in __call__
+    return self_._op(*args, **kwargs)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 54.00 MiB. GPU 0 has a total capacity of 19.50 GiB of which 31.94 MiB is free. Including non-PyTorch memory, this process has 19.42 GiB memory in use. Of the allocated memory 19.10 GiB is allocated by PyTorch, and 66.53 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Run failed with return code:  1
+Output:  None
+Error:  None
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.04it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.04it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.15it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.15it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.39s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.39s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 12:35:43.747000 22968283658048 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark:   0%|          | 0/1 [00:03<?, ?it/s]
+W0509 12:37:11.508000 22968283658048 torch/_inductor/utils.py:702] on error, temporary cache dir kept at /tmp/tmpcvtq0v61
+Traceback (most recent call last):
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 377, in <module>
+    timm_main()
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 369, in timm_main
+    main(TimmRunner())
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3623, in main
+    process_entry(0, runner, original_dir, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 3580, in process_entry
+    return maybe_fresh_cache(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2014, in inner
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 4147, in run
+    runner.run_one_model(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2983, in run_one_model
+    status = self.run_performance_test(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 2898, in run_performance_test
+    results.append(experiment(model, example_inputs, **experiment_kwargs))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 719, in speedup_experiment
+    timings[rep, 1], actual_output = timed(
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/common.py", line 471, in timed
+    result = model_iter_fn(model, example_inputs, collect_outputs=collect_outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_dynamo/eval_frame.py", line 403, in _fn
+    return fn(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 352, in forward_and_backward_pass
+    cloned_inputs = clone_inputs(inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 353, in torch_dynamo_resume_in_forward_and_backward_pass_at_352
+    self.optimizer_zero_grad(mod)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/benchmarks/dynamo/timm_models.py", line 355, in torch_dynamo_resume_in_forward_and_backward_pass_at_353
+    pred = mod(*cloned_inputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/models/inception_v3.py", line 385, in forward
+    x = self.forward_features(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/models/inception_v3.py", line 371, in forward_features
+    x = self.forward_postaux(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/models/inception_v3.py", line 360, in forward_postaux
+    x = self.Mixed_7a(x)  # N x 1280 x 8 x 8
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/models/inception_v3.py", line 158, in forward
+    outputs = self._forward(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/models/inception_v3.py", line 145, in _forward
+    branch3x3 = self.branch3x3_1(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/layers/conv_bn_act.py", line 60, in forward
+    x = self.bn(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1582, in _call_impl
+    result = forward_call(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/env/lib/python3.10/site-packages/timm/layers/norm_act.py", line 129, in forward
+    x = self.drop(x)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/nn/modules/module.py", line 1595, in _call_impl
+    hook_result = hook(self, args, result)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 504, in f
+    outputs = _pytreeify_preserve_structure(self._create_post_module(name))(outputs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 358, in nf
+    out = f(*flat_args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/autograd/function.py", line 571, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 514, in forward
+    args = tree_map(lambda x: x.clone() if isinstance(x, torch.Tensor) else x, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/_pytree.py", line 943, in tree_map
+    return treespec.unflatten(map(func, *flat_args))
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/_pytree.py", line 782, in unflatten
+    leaves = list(leaves)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 514, in <lambda>
+    args = tree_map(lambda x: x.clone() if isinstance(x, torch.Tensor) else x, args)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/utils/flop_counter.py", line 637, in __torch_dispatch__
+    out = func(*args, **kwargs)
+  File "/n/holylabs/LABS/idreos_lab/Users/azhao/pytorch/torch/_ops.py", line 630, in __call__
+    return self_._op(*args, **kwargs)
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 28.00 MiB. GPU 0 has a total capacity of 19.50 GiB of which 1.94 MiB is free. Including non-PyTorch memory, this process has 19.45 GiB memory in use. Of the allocated memory 18.90 GiB is allocated by PyTorch, and 311.28 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Run failed with return code:  1
+Output:  None
+Error:  None
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.55it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.55it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+W0509 12:40:16.477000 22821944026944 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.29it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.29it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.25s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.25s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 12:49:47.118000 22658900092736 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.22it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.22it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:06, ?it/s]
+W0509 12:53:45.947000 23379181963072 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.10it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.10it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.88it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  3.88it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 12:59:19.277000 22872337745728 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.17s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.17s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 13:01:31.138000 22782076618560 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.09it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.09it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:02, ?it/s]
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.06s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.06s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 13:07:30.551000 23332519110464 torch/_logging/_internal.py:1024] [6/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.29s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.29s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 13:10:12.522000 22551996372800 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.41it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 13:13:32.839000 23332188518208 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.11s/it]running benchmark: 100%|██████████| 1/1 [00:01<00:00,  1.11s/it]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:01, ?it/s]
+W0509 13:17:37.538000 23384838096704 torch/_logging/_internal.py:1024] [6/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  2.24it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:03, ?it/s]
+W0509 13:20:22.021000 22755083900736 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.74it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.74it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+W0509 13:22:45.849000 22623289792320 torch/_logging/_internal.py:1024] [5/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+running benchmark:   0%|          | 0/1 [00:00<?, ?it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.97it/s]running benchmark: 100%|██████████| 1/1 [00:00<00:00,  1.97it/s]
+loading model: 0it [00:00, ?it/s]loading model: 0it [00:04, ?it/s]
+slurmstepd: error: *** JOB 31721802 ON holygpu7c26203 CANCELLED AT 2024-05-09T13:27:24 ***

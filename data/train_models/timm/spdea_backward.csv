@@ -1,0 +1,13 @@
+grad_out_shape,query_shape,key_shape,value_shape
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
+"torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])","torch.Size([64, 12, 197, 64])"
