@@ -2,9 +2,9 @@ import argparse
 
 import torch
 from torch.nn.functional import scaled_dot_product_attention
-# from torch.nn.attention import SDPBackend, sdpa_kernel
+from torch.nn.attention import SDPBackend, sdpa_kernel
 
-from utils.profile_utils import get_dtype, time_fn, save_row, profile_rep
+from utils.profile_utils import get_dtype, _time_fn
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -32,7 +32,6 @@ def main():
     """
 
     parser = argparse.ArgumentParser(description="Time scaled dot-product attention (SDPA).")
-    parser.add_argument("--mode", type=str, required=True, choices=["profile", "time"], help="Profile or time.")
     parser.add_argument("--dtype", type=str, required=True, choices=["32", "b16", "16"], help="Data type flag.")
     # parser.add_argument("--backend", type=str, required=True, choices=["flash", "efficient"], \
     #                     help="See https://pytorch.org/docs/stable/generated/torch.nn.attention.sdpa_kernel.html#torch.nn.attention.sdpa_kernel.")
@@ -46,7 +45,6 @@ def main():
 
     # parser.add_argument("--is_causal", action='store_true', required=True, help="Use causal attention.")
 
-    parser.add_argument("--out_file", type=str, required=True, help="Path to the output CSV file.")
     args = parser.parse_args()
 
     dtype = get_dtype(args.dtype)
@@ -61,19 +59,20 @@ def main():
     def sdpa(q, k, v):
         return scaled_dot_product_attention(q, k, v, is_causal=is_causal)
 
-    # if args.backend == "flash":
-        # context = sdpa_kernel(SDPBackend.FLASH_ATTENTION)
-        # backend = "f"
-    # else:
-        # context = sdpa_kernel([SDPBackend.MATH, SDPBackend.EFFICIENT_ATTENTION])
-        # backend = "e"
+    print("Eager times:")
+    print(_time_fn(scaled_dot_product_attention, query, key, value))
 
-    if args.mode == "time":
-        time = time_fn(sdpa, query, key, value)
-        kernel_params = f"{args.dtype}.{args.b}.{args.h}.{args.s_q}.{args.s_kv}.{args.d_qk}.{args.d_v}.csv"
-        save_row(kernel_params, time, args.out_file)
-    else:
-        profile_rep(sdpa, query, key, value)
+    # with sdpa_kernel(SDPBackend.FLASH_ATTENTION):
+    #     print(_time_fn(scaled_dot_product_attention, query, key, value))
+
+    with sdpa_kernel([SDPBackend.MATH, SDPBackend.EFFICIENT_ATTENTION]):
+        print(_time_fn(scaled_dot_product_attention, query, key, value))
+
+    print("Dynamo times")
+    print(_time_fn(sdpa, query, key, value))
+
+    with sdpa_kernel([SDPBackend.MATH, SDPBackend.EFFICIENT_ATTENTION]):
+        print(_time_fn(sdpa, query, key, value))
 
 if __name__ == "__main__":
     main()

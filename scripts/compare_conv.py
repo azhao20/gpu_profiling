@@ -3,7 +3,7 @@ import argparse
 import torch
 from torch.nn.functional import conv2d, conv_transpose2d
 
-from utils.profile_utils import get_dtype, time_fn, save_row, profile_rep
+from utils.profile_utils import get_dtype, _time_fn
 
 import warnings
 warnings.filterwarnings("ignore")
@@ -17,17 +17,12 @@ def main():
     TODO
     We assume that....
     kH == kW?
-    stride: the same/int?
-
-    padding: ignore?
-    dilation: ??
     transposed: we don't care about?
 
     Arguments adapted from https://pytorch.org/docs/stable/generated/torch.nn.functional.conv2d.html
     """
 
     parser = argparse.ArgumentParser(description="Time 2D convolution (conv2d).")
-    parser.add_argument("--mode", type=str, required=True, choices=["profile", "time"], help="Profile or time.")
     parser.add_argument("--dtype", type=str, required=True, choices=["32", "b16", "16"], help="Data type flag.")
 
     # input
@@ -48,10 +43,6 @@ def main():
     parser.add_argument("--padding", type=int, required=True, help="We only support a number for now.")
     parser.add_argument("--dilation", type=int, required=True, help="Dilation of the convolution.")
 
-    # transpose?
-    parser.add_argument("--transposed", type=int, required=True, choices=[0, 1], help="Use transposed convolution (1) or not (0).")
-
-    parser.add_argument("--out_file", type=str, required=True, help="Path to the output CSV file.")
     args = parser.parse_args()
 
     dtype = get_dtype(args.dtype)
@@ -59,21 +50,27 @@ def main():
     weight = torch.randn(args.out_channels, args.in_channels // args.groups, args.kH, args.kW, dtype=dtype, device=device)
     bias_tensor = None
 
-    if args.transposed:
-        @torch.compile(backend="inductor")
-        def fn(x, w):
-            return conv_transpose2d(x, w, bias=bias_tensor, stride=args.stride, padding=args.padding, dilation=args.dilation, groups=args.groups)
-    else:
-        @torch.compile(backend="inductor")
-        def fn(x, w):
-            return conv2d(x, w, bias=bias_tensor, stride=args.stride, padding=args.padding, dilation=args.dilation, groups=args.groups)
+    def fn_t(x, w):
+        return conv_transpose2d(x, w, bias=bias_tensor, stride=args.stride, padding=args.padding, dilation=args.dilation, groups=args.groups)
 
-    if args.mode == "time":
-        time = time_fn(fn, input, weight)
-        kernel_params = f"{args.dtype}.{args.b}.{args.in_channels}.{args.iH}.{args.iW}.{args.out_channels}.{args.groups}.{args.kH}.{args.kW}.{args.stride}.{args.padding}.{args.dilation}.{args.transposed}.csv"
-        save_row(kernel_params, time, args.out_file)
-    else:
-        profile_rep(fn, input, weight)
+    def fn(x, w):
+        return conv2d(x, w, bias=bias_tensor, stride=args.stride, padding=args.padding, dilation=args.dilation, groups=args.groups)
+
+    print("Eager times:")
+    print(_time_fn(fn, input, weight))
+    print(_time_fn(fn_t, input, weight))
+
+    @torch.compile(backend="inductor")
+    def fn_t(x, w):
+        return conv_transpose2d(x, w, bias=bias_tensor, stride=args.stride, padding=args.padding, dilation=args.dilation, groups=args.groups)
+
+    @torch.compile(backend="inductor")
+    def fn(x, w):
+        return conv2d(x, w, bias=bias_tensor, stride=args.stride, padding=args.padding, dilation=args.dilation, groups=args.groups)
+
+    print("Dynamo times")
+    print(_time_fn(fn, input, weight))
+    print(_time_fn(fn_t, input, weight))
 
 if __name__ == "__main__":
     main()
