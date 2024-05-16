@@ -38,22 +38,28 @@ def parse_sdpa_params(path):
         for row in reader:
             # query_shape == key_shape == value_shape.
             query_shape = eval(row["query_shape"])
+            value_shape = eval(row["value_shape"])
 
             # Extract batch size, sequence length, and number of heads
             batch_size = query_shape[0]
             num_heads = query_shape[1]
-            seq_len = query_shape[2]
-            d_embed = query_shape[3]
+            s_q = query_shape[2]
+            d_qk = query_shape[3]
 
-            row_key = (batch_size, num_heads, seq_len, d_embed)
+            s_kv = value_shape[2]
+            d_v = value_shape[2]
+
+            row_key = (batch_size, num_heads, s_q, d_qk, s_kv, d_v)
 
             if row_key not in unique_rows:
                 unique_rows.add(row_key)
                 data.append({
                     "batch_size": batch_size,
                     "num_heads": num_heads,
-                    "seq_len": seq_len,
-                    "d_embed": d_embed
+                    "s_q": s_q,
+                    "d_qk": d_qk,
+                    "s_kv": s_kv,
+                    "d_v": d_v
                 })
 
     # Convert list to pandas DataFrame
