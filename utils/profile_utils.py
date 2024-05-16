@@ -4,7 +4,10 @@ from torch.cuda import nvtx
 import traceback as tb
 import numpy as np
 import csv, os
-
+import math
+# This was hard-coded for nvidia a100s. Could also just try allocating
+# torch.zeros(1, device="cuda"), then checking difference in mem usage
+_PYTORCH_MIN_ALLOCATE = 512
 
 # Do all of the fusion heuristics before timing.
 # https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html#demonstrating-speedups.
@@ -39,8 +42,8 @@ def _time_fn(fn, *args):
     ends = [torch.cuda.Event(enable_timing=True) for _ in range(NREPS)]
     results = [0] * NREPS
 
+    torch.cuda.empty_cache()
     for i in range(NREPS):
-        torch.cuda.empty_cache()
         starts[i].record()
         results[i] = fn(*args)
         ends[i].record()
@@ -82,3 +85,20 @@ def profile_rep(fn, *args):
     except Exception as e:
         print("profile_rep crashed!")
         tb.print_exc()
+
+def check_size(dtype: torch.dtype, *tensor_sizes):
+    """
+    Only use up to 80% of available memory.
+
+    Computing element_size in this way is more robust than using a map.
+    """
+    required_memory = 0
+    element_size = torch.tensor([], dtype=dtype).element_size()
+
+    for tensor_size in tensor_sizes:
+        tensor_bytes = math.prod(tensor_size) * element_size
+        required_memory += math.ceil(tensor_bytes / _PYTORCH_MIN_ALLOCATE) * _PYTORCH_MIN_ALLOCATE
+
+    torch.cuda.empty_cache()
+    max_bytes = (torch.cuda.get_device_properties(0).total_memory - torch.cuda.memory_reserved(0)) * 0.8
+    return required_memory <= max_bytes
