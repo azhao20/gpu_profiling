@@ -1,12 +1,48 @@
 #!/bin/bash
+#SBATCH -c 8
+#SBATCH -t 7-00:00
+#SBATCH -p seas_gpu
+#SBATCH --mem=256000
+#SBATCH --gres=gpu:nvidia_a100-sxm4-80gb:1
+#SSBATCH -t 0-12:00
+#SSBATCH -p gpu_test
+#SSBATCH --gres=gpu:1
+#SBATCH --mail-type=BEGIN,END
+#SBATCH --mail-user=apzhao@college.harvard.edu
 
+HOME="/n/holylabs/LABS/idreos_lab/Users/azhao"
+source $HOME/gpu_profiling/sh/initconda.sh
 
-HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
-SCRIPT_DIR=$HOME_DIR/gpu_profiling/scripts
-FINAL_CSV=$HOME_DIR/gpu_profiling/data/mm.csv
+SCRIPT_DIR=$HOME/gpu_profiling/scripts
+FINAL_DIR=$HOME/gpu_profiling/data/final/mm
+FINAL_CSV=$FINAL_DIR/time.$1.csv
 
-$HOME_DIR/env/bin/python3 $SCRIPT_DIR/mm.py --mode "time" --dtype 16 --n 64 --m 224 --p 224 --out_file $FINAL_CSV
+# Up to 512: multiples of 16.
+# 512-2048: multiples of 128
+# 2048-4096: multiples of 512
+# 4096-2^15 = 32768: multiples of 1024
+sizes=($(seq 16 16 496) $(seq 512 128 1920) $(seq 2048 512 3584) $(seq 4096 1024 32768))
+dtypes=('16b' '16' '32')
 
-$HOME_DIR/env/bin/python3 $SCRIPT_DIR/bmm.py --mode "time" --dtype 16 --b 64 --n 64 --m 224 --p 224 --out_file $FINAL_CSV
+sizes=(1000)
+dtypes=('32')
 
-$HOME_DIR/env/bin/python3 $SCRIPT_DIR/sdpa.py --mode "time" --dtype 32 --b 64 --h 12 --s_q 64 --s_kv 64 --d_qk 32 --d_v 768 --out_file $FINAL_CSV
+# -p: ok if directory already exists.
+mkdir -p $FINAL_DIR
+
+# WARNING: this will delete the CSV if it already exists.
+rm $FINAL_CSV
+
+for dtype in "${dtypes[@]}"
+do
+    for m in "${sizes[@]}"
+    do
+        echo "$dtype, $m--------------" # For some sanity checking.
+        for p in "${sizes[@]}"
+        do
+            $HOME/env/bin/python3 \
+                $SCRIPT_DIR/mm.py --mode 'time' --dtype $dtype --n $1 --m $m --p $p --out_file $FINAL_CSV
+
+        done
+    done
+done
