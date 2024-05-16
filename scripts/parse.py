@@ -49,7 +49,7 @@ def parse_sdpa_params(path):
             s_kv = value_shape[2]
             d_v = value_shape[2]
 
-            row_key = (batch_size, num_heads, s_q, d_qk, s_kv, d_v)
+            row_key = (batch_size, num_heads, s_q, s_kv, d_qk, d_v)
 
             if row_key not in unique_rows:
                 unique_rows.add(row_key)
@@ -57,8 +57,8 @@ def parse_sdpa_params(path):
                     "batch_size": batch_size,
                     "num_heads": num_heads,
                     "s_q": s_q,
-                    "d_qk": d_qk,
                     "s_kv": s_kv,
+                    "d_qk": d_qk,
                     "d_v": d_v
                 })
 
