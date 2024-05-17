@@ -27,9 +27,9 @@ batch_sizes=$(seq 32 32 512)
 sizes=($(seq 16 16 496) $(seq 512 128 1920) $(seq 2048 512 3584) $(seq 4096 1024 32768))
 dtypes=('16b' '16' '32')
 
-batch_sizes=(64)
-sizes=(1000)
-dtypes=('32')
+# batch_sizes=(64)
+# sizes=(1000)
+# dtypes=('32')
 
 # -p: ok if directory already exists.
 mkdir -p $FINAL_DIR
@@ -53,5 +53,3 @@ do
         done
     done
 done
-
-# $HOME/env/bin/python3 $SCRIPT_DIR/bmm.py --mode "time" --dtype 16 --b 64 --n 64 --m 224 --p 224 --out_file $FINAL_CSV
