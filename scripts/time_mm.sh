@@ -24,8 +24,8 @@ FINAL_CSV=$FINAL_DIR/time.$1.csv
 sizes=($(seq 16 16 496) $(seq 512 128 1920) $(seq 2048 512 3584) $(seq 4096 1024 32768))
 dtypes=('16b' '16' '32')
 
-sizes=(1000)
-dtypes=('32')
+# sizes=(1000)
+# dtypes=('32')
 
 # -p: ok if directory already exists.
 mkdir -p $FINAL_DIR
