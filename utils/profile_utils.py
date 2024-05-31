@@ -40,12 +40,11 @@ def _time_fn(fn, *args):
     """
     starts = [torch.cuda.Event(enable_timing=True) for _ in range(NREPS)]
     ends = [torch.cuda.Event(enable_timing=True) for _ in range(NREPS)]
-    results = [0] * NREPS
 
     torch.cuda.empty_cache()
     for i in range(NREPS):
         starts[i].record()
-        results[i] = fn(*args)
+        result = fn(*args)
         ends[i].record()
     torch.cuda.synchronize()
 
@@ -69,16 +68,15 @@ def save_row(kernel_params, time, out_file):
         writer.writerow([kernel_params, time])
 
 def profile_rep(fn, *args):
-    res = [0] * (NCU_WARMUP_REPS + 1)
     torch.cuda.empty_cache()
     try:
         with torch.no_grad():
-            for i in range(NCU_WARMUP_REPS):
-                res[i] = fn(*args)
+            for _ in range(NCU_WARMUP_REPS):
+                res = fn(*args)
 
             torch.cuda.cudart().cudaProfilerStart()
             nvtx.range_push("profile_range")
-            res[-1] = fn(*args)
+            res = fn(*args)
             nvtx.range_pop()
             torch.cuda.cudart().cudaProfilerStop()
 
