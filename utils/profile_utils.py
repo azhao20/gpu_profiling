@@ -16,13 +16,19 @@ PROFILE_REPS = 10
 NREPS = WARMUP_REPS + PROFILE_REPS
 NCU_WARMUP_REPS = 5
 
+# (b)mm parameters.
+mm_sizes = [i for i in range(16, 512, 16)] + [i for i in range(512, 2048, 128)] + \
+           [i for i in range(2048, 4096, 512)] + [i for i in range(4096, 32768 + 1, 1024)]
+mm_batches=[i for i in range(32, 512+1, 32)]
+
+dtype_map = {
+    # 8: torch.float8_e5m2, # No support for float8 yet.
+    "b16": torch.bfloat16,
+    "16": torch.float16,
+    "32": torch.float32
+}
+
 def get_dtype(dtype_flag: str):
-    dtype_map = {
-        # 8: torch.float8_e5m2, # No support for float8 yet.
-        "b16": torch.bfloat16,
-        "16": torch.float16,
-        "32": torch.float32
-    }
     if dtype_flag not in dtype_map:
         print("dtype wasn't specified, defaulting to torch.float32")
 
