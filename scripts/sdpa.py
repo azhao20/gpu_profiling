@@ -51,8 +51,7 @@ def get_args():
     parser.add_argument("--s_kv", type=int, required=True, help="Source (key and value) sequence length.")
     parser.add_argument("--d_qk", type=int, required=True, help="Query and key embedding dimension.")
     parser.add_argument("--d_v", type=int, required=True, help="Value embedding dimension.")
-    # TODO: if uncommented, could be useful to use 0 or 1 instead of `store_true`` here.
-    # parser.add_argument("--is_causal", action='store_true', required=True, help="Use causal attention.")
+    parser.add_argument("--is_causal", type=int, required=True, choices=[0, 1], help="Use causal attention.")
 
     parser.add_argument("--out_file", type=str, required=True, help="Path to the output CSV file.")
     args = parser.parse_args()
@@ -64,7 +63,7 @@ def get_args():
 
 def main(args):
     dtype = get_dtype(args.dtype)
-    kernel_params = f"{args.dtype}.{args.backend}.{args.b}.{args.h}.{args.s_q}.{args.s_kv}.{args.d_qk}.{args.d_v}.{int(args.is_causal)}"
+    kernel_params = f"{args.dtype}.{args.backend}.{args.b}.{args.h}.{args.s_q}.{args.s_kv}.{args.d_qk}.{args.d_v}.{args.is_causal}"
 
     q_shape = torch.Size([args.b, args.h, args.s_q, args.d_qk])
     k_shape = torch.Size([args.b, args.h, args.s_kv, args.d_qk])
@@ -79,15 +78,15 @@ def main(args):
     value = torch.randn(v_shape, dtype=dtype, device=device)
 
     # Note: we don't use causal for now.
-    args.is_causal = False
+    is_causal = bool(args.is_causal)
 
     if args.use_inductor:
         @torch.compile(backend="inductor")
         def sdpa(q, k, v):
-            return scaled_dot_product_attention(q, k, v, is_causal=args.is_causal)
+            return scaled_dot_product_attention(q, k, v, is_causal=is_causal)
         fn = sdpa
     else:
-        fn = lambda q, k, v: scaled_dot_product_attention(q, k, v, is_causal=args.is_causal)
+        fn = lambda q, k, v: scaled_dot_product_attention(q, k, v, is_causal=is_causal)
 
     context = contexts[args.backend]
     with sdpa_kernel(context):
