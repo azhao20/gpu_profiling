@@ -1,66 +1,73 @@
-import argparse
+import os, csv
 import torch
-import numpy as np
 
-from utils.profile_utils import get_dtype, time_fn, save_row, profile_rep, check_size
+from utils.profile_utils import ProfileBase, get_args_mm, mm_sizes
 
 import warnings
 warnings.filterwarnings("ignore")
 
-# Assume this script runs on one device.
-device = "cuda:0" if torch.cuda.is_available() else "cpu"
-assert(device == "cuda:0")
+mm_batches=[i for i in range(32, 512+1, 32)]
 
-def get_args():
-    """
-    Note: we don't profile with bias for now.
-    """
-    parser = argparse.ArgumentParser(description="Batch matrix multiplication (bmm).")
-    parser.add_argument("--mode", type=str, required=True, choices=["profile", "time"], help="Profile or time.")
-    parser.add_argument("--use_inductor", action="store_true", help="Should lower the function using inductor.")
-    parser.add_argument("--dtype", type=str, required=True, choices=["32", "b16", "16"], help="Data type flag.")
-    parser.add_argument("--b", type=int, required=True, help="See https://pytorch.org/docs/stable/generated/torch.bmm.html.")
-    parser.add_argument("--n", type=int, required=True, help="See https://pytorch.org/docs/stable/generated/torch.bmm.html.")
-    parser.add_argument("--m", type=int, required=True, help="See https://pytorch.org/docs/stable/generated/torch.bmm.html.")
-    parser.add_argument("--p", type=int, required=True, help="See https://pytorch.org/docs/stable/generated/torch.bmm.html.")
-    parser.add_argument("--out_file", type=str, required=False, help="Path to the output CSV file.")
-    # parser.add_argument("--bias", type=int, required=True, choices=[0, 1], help="Use bias (1) or not (0).")
-    args = parser.parse_args()
+class ProfileBMM(ProfileBase):
+    def __init__(self, sizes = [], batches = []):
+        """
+        For now, we don't use the other hyperparameters.
+        """
+        super().__init__()
+        self.sizes = sizes
+        self.batches = batches
 
-    if args.mode == "time" and not args.out_file:
-        raise ValueError("Time requires an outfile")
+    def get_sizes(self, args) -> list:
+        A_size = torch.Size([args.b, args.n, args.m])
+        B_size = torch.Size([args.b, args.m, args.p])
+        return [A_size, B_size]
 
-    return args
+    def get_fn(self, use_inductor: bool):
+        """
+        TODO: if use_inductor == True, then we might be doing
+        redundant work in lowering the fn multiple times, since mm
+        doesn't depend on the hyperparameters.
+        """
+        if use_inductor:
+            raise ValueError("Not using Inductor for now.")
+            @torch.compile(backend="inductor")
+            def bmm(a, b):
+                return torch.bmm(a, b)
+            fn = bmm
+        else:
+            fn = torch.bmm
+        return fn
+    
+    def time(self, args):
+        """
+        Could consider a param generator.
+        """
+        with open(args.out_file, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            if os.path.getsize(args.out_file) == 0:
+                writer.writerow(self.time_header)
 
-def main(args):
-    dtype = get_dtype(args.dtype)
-    kernel_params=f"{args.dtype}.{args.b}.{args.n}.{args.m}.{args.p}"
+            for dname in self.dtype_map:
+                for b in self.batches:
+                    # print(f"{dname}, {b}---------------------------")
+                    for m in self.sizes:
+                        for p in self.sizes:
+                            args.b = b
+                            args.m = m
+                            args.p = p
+                            args.dtype = dname
+                            kernel_params=f"{dname}.{args.b}.{args.n}.{args.m}.{args.p}"
+                            writer.writerow([kernel_params, self.time_rep(args)])
+                    # Flush intermittently in case something crashes
+                    file.flush()
 
-    A_size = torch.Size([args.b, args.n, args.m])
-    B_size = torch.Size([args.b, args.m, args.p])
-
-    if not check_size(dtype, A_size, B_size):
-        # Flag as incomplete.
-        save_row(kernel_params, np.nan, args.out_file)
-        return
-
-    A = torch.randn(A_size, dtype=dtype, device=device)
-    B = torch.randn(B_size, dtype=dtype, device=device)
-
-    if args.use_inductor:
-        @torch.compile(backend="inductor")
-        def bmm(a, b):
-            return torch.bmm(a, b)
-        fn = bmm
-    else:
-        fn = torch.bmm
-
+def main():
+    args = get_args_mm()
     if args.mode == "time":
-        time = time_fn(fn, A, B)
-        save_row(kernel_params, time, args.out_file)
+        ProfileBMM(mm_sizes, mm_batches).time(args)
     else:
-        profile_rep(fn, A, B)
+        # Don't need mm_sizes if NCU runs once per program.
+        ProfileBMM().profile(args)
 
 if __name__ == "__main__":
-    args = get_args()
-    main(args)
+    main()
