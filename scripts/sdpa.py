@@ -94,11 +94,11 @@ class ProfileSDPA(ProfileBase):
             dv_sizes = [32, 64, 128, 256, 512, 1024, 2048]
 
         # Uncomment for testing
-        # batch_sizes=[32]
-        # sq_lengths=[32]
-        # skv_lengths=[32]
-        # dqk_sizes=[32]
-        # dv_sizes=[32]
+        batch_sizes=[32]
+        sq_lengths=[32]
+        skv_lengths=[32]
+        dqk_sizes=[32]
+        dv_sizes=[32]
 
         with open(args.out_file, mode='a', newline='') as file:
             writer = csv.writer(file)

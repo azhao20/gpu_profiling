@@ -7,6 +7,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 mm_batches=[i for i in range(32, 512+1, 32)]
+mm_batches=[22]
 
 class ProfileBMM(ProfileBase):
     def __init__(self, sizes = [], batches = []):

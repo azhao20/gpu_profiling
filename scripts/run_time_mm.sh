@@ -12,7 +12,7 @@ module load python/3.10.12-fasrc01
 sizes=($(seq 16 16 496) $(seq 512 128 1920) $(seq 2048 512 3584) $(seq 4096 1024 32768))
 
 # Uncomment for testing purposes
-# sizes=(16)
+sizes=(16)
 
 mkdir -p $OUTPUT_DIR
 
