@@ -6,6 +6,7 @@ OUTPUT_DIR="/n/holyscratch01/idreos_lab/Users/azhao/sdpa_times"
 module load python/3.10.12-fasrc01
 
 num_heads=(4 8 12 16)
+num_heads=(8)
 
 # Uncomment for testing purposes
 # num_heads=(8)

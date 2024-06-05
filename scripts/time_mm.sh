@@ -3,12 +3,12 @@
 #SBATCH --mem=256000
 #SBATCH --mail-type=BEGIN,END
 #SBATCH --mail-user=apzhao@college.harvard.edu
-#SBATCH -t 7-00:00
-#SBATCH -p seas_gpu
-#SBATCH --gres=gpu:nvidia_a100-sxm4-80gb:1
-#SSBATCH -t 0-12:00
-#SSBATCH -p gpu_test
-#SSBATCH --gres=gpu:1
+#SSBATCH -t 7-00:00
+#SSBATCH -p seas_gpu
+#SSBATCH --gres=gpu:nvidia_a100-sxm4-80gb:1
+#SBATCH -t 0-12:00
+#SBATCH -p gpu_test
+#SBATCH --gres=gpu:1
 
 HOME="/n/holylabs/LABS/idreos_lab/Users/azhao"
 source $HOME/gpu_profiling/sh/initconda.sh

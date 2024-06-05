@@ -15,7 +15,7 @@ import math
 mm_sizes = [i for i in range(16, 512, 16)] + [i for i in range(512, 2048, 128)] + \
            [i for i in range(2048, 4096, 512)] + [i for i in range(4096, 32768 + 1, 1024)]
 # mm_sizes = [10**9]
-# mm_sizes = [i for i in range(16, 128, 16)]
+mm_sizes = [i for i in range(16, 128, 16)]
 
 def get_args_mm():
     """
