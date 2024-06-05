@@ -19,13 +19,13 @@ class ProfileMM(ProfileBase):
         B_size = torch.Size([args.m, args.p])
         return [A_size, B_size]
 
-    def get_fn(self, use_inductor: bool):
+    def get_fn(self, args):
         """
         TODO: if use_inductor == True, then we might be doing
         redundant work in lowering the fn multiple times, since mm
         doesn't depend on the hyperparameters.
         """
-        if use_inductor:
+        if args.use_inductor:
             raise ValueError("Not using Inductor for now.")
             @torch.compile(backend="inductor")
             def mm(a, b):
@@ -51,7 +51,7 @@ class ProfileMM(ProfileBase):
                         args.m = m
                         args.p = p
                         args.dtype = dname
-                        kernel_params=f"{dname}.{args.n}.{args.m}.{args.p}"
+                        kernel_params=f"{args.dtype}.{args.n}.{args.m}.{args.p}"
                         writer.writerow([kernel_params, self.time_rep(args)])
                 # Flush intermittently in case something crashes
                 file.flush()

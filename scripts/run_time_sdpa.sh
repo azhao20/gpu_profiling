@@ -8,19 +8,18 @@ module load python/3.10.12-fasrc01
 num_heads=(4 8 12 16)
 
 # Uncomment for testing purposes
-num_heads=(8)
+# num_heads=(8)
 
 mkdir -p $OUTPUT_DIR
 
-dtypes=('16b' '16')
-# TODO: math is C++...?
-backends=('flash' 'efficient' 'math')
+dtypes=('b16' '16')
+backends=('flash' 'efficient')
 
 # Uncomment for testing purposes
-dtypes=('16')
-backends=('flash')
+# dtypes=('16')
+# backends=('flash')
 
-for dtype in "${half_dtypes[@]}"
+for dtype in "${dtypes[@]}"
 do
     for backend in "${backends[@]}"
     do
@@ -33,16 +32,20 @@ do
 done
 
 # fp32 only works with efficient and math.
-backends=('efficient' 'math')
-
-# Uncomment for testing purposes
+dtypes=('32')
 backends=('efficient')
 
-for backend in "${backends[@]}"
+# Uncomment for testing purposes
+# backends=('efficient')
+
+for dtype in "${dtypes[@]}"
 do
-    for h in "${num_heads[@]}"
+    for backend in "${backends[@]}"
     do
-        JOB_FILE=$OUTPUT_DIR/32.$backend.$h
-        sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err $SCRIPT_DIR/time_sdpa.sh '32' $backend $h
+        for h in "${num_heads[@]}"
+        do
+            JOB_FILE=$OUTPUT_DIR/$dtype.$backend.$h
+            sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err $SCRIPT_DIR/time_sdpa.sh $dtype $backend $h
+        done
     done
 done

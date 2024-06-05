@@ -1,26 +1,15 @@
+import os, csv
 import argparse
-import numpy as np
-
 import torch
 from torch.nn.functional import scaled_dot_product_attention
 from torch.nn.attention import SDPBackend, sdpa_kernel
 
-from utils.profile_utils import get_dtype, time_fn, save_row, profile_rep, check_size
+from utils.profile_utils import ProfileBase
 
 import warnings
 warnings.filterwarnings("ignore")
 
-# Assume this script runs on one device.
-device = "cuda:0" if torch.cuda.is_available() else "cpu"
-assert(device == "cuda:0")
-
-contexts = {
-    "math": SDPBackend.MATH,
-    "efficient": SDPBackend.EFFICIENT_ATTENTION,
-    "flash": SDPBackend.FLASH_ATTENTION
-}
-
-def get_args():
+def get_args_sdpa():
     """
     Parameter shapes:
     https://pytorch.org/docs/stable/generated/torch.nn.functional.scaled_dot_product_attention.html
@@ -31,27 +20,25 @@ def get_args():
     _b3, _h3, _s3, d_v = value_shape
 
     More on backends:
-    MATH backend is C++ implementation, but still runs on GPU.
-    "flash" only works with float16 and bfloat16 dtypes.
+    Math backend is C++ implementation, but still runs on GPU. We aren't using this for now.
+    flash only works with float16 and bfloat16 dtypes.
     https://pytorch.org/docs/stable/generated/torch.nn.attention.sdpa_kernel.html#torch.nn.attention.sdpa_kernel
     https://github.com/huggingface/transformers/issues/26557
-
-    We aren't using is_causal for now, since there are too many params.
     """
 
     parser = argparse.ArgumentParser(description="Scaled dot-product attention (SDPA).")
     parser.add_argument("--mode", type=str, required=True, choices=["profile", "time"], help="Profile or time.")
     parser.add_argument("--use_inductor", action="store_true", help="Should lower the function using inductor.")
     parser.add_argument("--dtype", type=str, required=True, choices=["32", "b16", "16"], help="Data type flag.")
-    parser.add_argument("--backend", type=str, required=True, choices=["math", "flash", "efficient"], \
+    parser.add_argument("--backend", type=str, required=True, choices=["flash", "efficient"], \
                         help="See https://pytorch.org/docs/stable/generated/torch.nn.attention.sdpa_kernel.html#torch.nn.attention.sdpa_kernel.")
-    parser.add_argument("--b", type=int, required=True, help="Batch size.")
+    parser.add_argument("--b", type=int, required=False, help="Batch size.")
     parser.add_argument("--h", type=int, required=True, help="Number of attention heads.")
-    parser.add_argument("--s_q", type=int, required=True, help="Target sequence length.")
-    parser.add_argument("--s_kv", type=int, required=True, help="Source (key and value) sequence length.")
-    parser.add_argument("--d_qk", type=int, required=True, help="Query and key embedding dimension.")
-    parser.add_argument("--d_v", type=int, required=True, help="Value embedding dimension.")
-    parser.add_argument("--is_causal", type=int, required=True, choices=[0, 1], help="Use causal attention.")
+    parser.add_argument("--s_q", type=int, required=False, help="Target sequence length.")
+    parser.add_argument("--s_kv", type=int, required=False, help="Source (key and value) sequence length.")
+    parser.add_argument("--d_qk", type=int, required=False, help="Query and key embedding dimension.")
+    parser.add_argument("--d_v", type=int, required=False, help="Value embedding dimension.")
+    parser.add_argument("--is_causal", type=int, required=False, choices=[0, 1], help="Use causal attention.")
 
     parser.add_argument("--out_file", type=str, required=True, help="Path to the output CSV file.")
     args = parser.parse_args()
@@ -61,41 +48,89 @@ def get_args():
 
     return args
 
-def main(args):
-    dtype = get_dtype(args.dtype)
-    kernel_params = f"{args.dtype}.{args.backend}.{args.b}.{args.h}.{args.s_q}.{args.s_kv}.{args.d_qk}.{args.d_v}.{args.is_causal}"
 
-    q_shape = torch.Size([args.b, args.h, args.s_q, args.d_qk])
-    k_shape = torch.Size([args.b, args.h, args.s_kv, args.d_qk])
-    v_shape = torch.Size([args.b, args.h, args.s_kv, args.d_v])
+class ProfileSDPA(ProfileBase):
+    def __init__(self):
+        super().__init__()
+        self.contexts = {
+            "efficient": SDPBackend.EFFICIENT_ATTENTION,
+            "flash": SDPBackend.FLASH_ATTENTION,
+            # "math": SDPBackend.MATH # We don't support for now.
+        }
 
-    if not check_size(dtype, q_shape, k_shape, v_shape):
-        save_row(kernel_params, np.nan, args.out_file)
-        return
+    def get_sizes(self, args) -> list:
+        q_shape = torch.Size([args.b, args.h, args.s_q, args.d_qk])
+        k_shape = torch.Size([args.b, args.h, args.s_kv, args.d_qk])
+        v_shape = torch.Size([args.b, args.h, args.s_kv, args.d_v])
+        return [q_shape, k_shape, v_shape]
 
-    query = torch.randn(q_shape, dtype=dtype, device=device)
-    key = torch.randn(k_shape, dtype=dtype, device=device)
-    value = torch.randn(v_shape, dtype=dtype, device=device)
-
-    # Note: we don't use causal for now.
-    is_causal = bool(args.is_causal)
-
-    if args.use_inductor:
-        @torch.compile(backend="inductor")
-        def sdpa(q, k, v):
-            return scaled_dot_product_attention(q, k, v, is_causal=is_causal)
-        fn = sdpa
-    else:
-        fn = lambda q, k, v: scaled_dot_product_attention(q, k, v, is_causal=is_causal)
-
-    context = contexts[args.backend]
-    with sdpa_kernel(context):
-        if args.mode == "time":
-            time = time_fn(fn, query, key, value)
-            save_row(kernel_params, time, args.out_file)
+    def get_fn(self, args):
+        is_causal = bool(args.is_causal)
+        if args.use_inductor:
+            raise ValueError("Not using Inductor for now.")
+            @torch.compile(backend="inductor")
+            def sdpa(q, k, v):
+                return scaled_dot_product_attention(q, k, v, is_causal=is_causal)
+            fn = sdpa
         else:
-            profile_rep(fn, query, key, value)
+            fn = lambda q, k, v: scaled_dot_product_attention(q, k, v, is_causal=is_causal)
+        return fn
+    
+    def time(self, args):
+        """
+        Could consider a param generator.
+        """
+        if args.backend == "efficient":
+            batch_sizes = [2, 4, 8, 16, 32, 64, 128]
+            sq_lengths = [32, 64, 128, 256]
+            skv_lengths = [32, 64, 128, 256]
+            dqk_sizes = [32, 64, 128]
+            dv_sizes = [32, 64, 128, 256]
+        elif args.backend == "flash":
+            batch_sizes = [2, 4, 8, 16, 32, 64]
+            sq_lengths = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096]
+            skv_lengths = [32, 64, 128, 256, 512, 1024, 2048]
+            dqk_sizes = [32, 64, 128]
+            dv_sizes = [32, 64, 128, 256, 512, 1024, 2048]
+
+        # Uncomment for testing
+        # batch_sizes=[32]
+        # sq_lengths=[32]
+        # skv_lengths=[32]
+        # dqk_sizes=[32]
+        # dv_sizes=[32]
+
+        with open(args.out_file, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            if os.path.getsize(args.out_file) == 0:
+                writer.writerow(self.time_header)
+
+            with sdpa_kernel(self.contexts[args.backend]):
+                for b in batch_sizes:
+                    for s_q in sq_lengths:
+                        for s_kv in skv_lengths:
+                            for d_qk in dqk_sizes:
+                                for d_v in dv_sizes:
+                                    for is_causal in [0, 1]:
+                                        args.b = b
+                                        args.s_q = s_q
+                                        args.s_kv = s_kv
+                                        args.d_qk = d_qk
+                                        args.d_v = d_v
+                                        args.is_causal = is_causal
+                                        kernel_params = f"{args.dtype}.{args.backend}.{args.b}.{args.h}.{args.s_q}.{args.s_kv}.{args.d_qk}.{args.d_v}.{args.is_causal}"
+                                        writer.writerow([kernel_params, self.time_rep(args)])
+                            # Flush intermittently in case something crashes
+                            file.flush()
+
+
+def main():
+    args = get_args_sdpa()
+    if args.mode == "time":
+        ProfileSDPA().time(args)
+    else:
+        # Don't need mm_sizes if NCU runs once per program.
+        ProfileSDPA().profile(args)
 
 if __name__ == "__main__":
-    args = get_args()
-    main(args)
+    main()
