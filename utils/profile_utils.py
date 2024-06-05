@@ -156,7 +156,7 @@ class ProfileBase:
             return np.nan
 
         inputs = self.get_inputs(dtype, sizes)
-        fn = self.get_fn(args.use_inductor)
+        fn = self.get_fn(args)
         time = self.time_fn(fn, *inputs)
         return time
 
@@ -193,7 +193,7 @@ class ProfileBase:
             return
 
         inputs = self.get_inputs(dtype, sizes)
-        fn = self.get_fn(args.use_inductor)
+        fn = self.get_fn(args)
         self.profile_rep(fn, *inputs)
 
     """
