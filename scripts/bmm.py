@@ -17,10 +17,13 @@ class ProfileBMM(ProfileBase):
         self.sizes = sizes
         self.batches = batches
 
-    def get_sizes(self, args) -> list:
+    def get_input_sizes(self, args) -> list:
         A_size = torch.Size([args.b, args.n, args.m])
         B_size = torch.Size([args.b, args.m, args.p])
         return [A_size, B_size]
+    
+    def get_output_size(self, args):
+        return torch.Size([args.b, args.n, args.p])
 
     def get_fn(self, args):
         """
