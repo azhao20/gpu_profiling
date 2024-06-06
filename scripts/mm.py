@@ -14,10 +14,13 @@ class ProfileMM(ProfileBase):
         super().__init__()
         self.sizes = sizes
 
-    def get_sizes(self, args) -> list:
+    def get_input_sizes(self, args) -> list:
         A_size = torch.Size([args.n, args.m])
         B_size = torch.Size([args.m, args.p])
         return [A_size, B_size]
+
+    def get_output_sizes(self, args):
+        return torch.Size([args.n, args.p])
 
     def get_fn(self, args):
         """

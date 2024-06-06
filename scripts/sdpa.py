@@ -58,11 +58,14 @@ class ProfileSDPA(ProfileBase):
             # "math": SDPBackend.MATH # We don't support for now.
         }
 
-    def get_sizes(self, args) -> list:
+    def get_input_sizes(self, args) -> list:
         q_shape = torch.Size([args.b, args.h, args.s_q, args.d_qk])
         k_shape = torch.Size([args.b, args.h, args.s_kv, args.d_qk])
         v_shape = torch.Size([args.b, args.h, args.s_kv, args.d_v])
         return [q_shape, k_shape, v_shape]
+
+    def get_output_size(self, args):
+        return torch.Size([args.b, args.h, args.s_q, args.d_v])
 
     def get_fn(self, args):
         is_causal = bool(args.is_causal)

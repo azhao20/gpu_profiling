@@ -75,7 +75,10 @@ class ProfileBase:
         self.NREPS = self.WARMUP_REPS + self.PROFILE_REPS
         self.NCU_WARMUP_REPS = ncu_warmup_reps
 
-    def get_sizes(self, args) -> list:
+    def get_input_sizes(self, args) -> list:
+        raise Exception("Not Implemented")
+
+    def get_output_size(self, args):
         raise Exception("Not Implemented")
 
     def get_fn(self, use_inductor: bool):
@@ -150,12 +153,15 @@ class ProfileBase:
         enough memory to store create the fn inputs, time = np.nan.
         """
         dtype = self.get_dtype(args.dtype)
-        sizes = self.get_sizes(args)
-        if not self.check_size(dtype, sizes):
+        input_sizes = self.get_input_sizes(args)
+        output_size = self.get_output_size(args)
+
+        # Need to get output size.
+        if not self.check_size(dtype, input_sizes + [output_size]):
             # Flag as incomplete.
             return np.nan
 
-        inputs = self.get_inputs(dtype, sizes)
+        inputs = self.get_inputs(dtype, input_sizes)
         fn = self.get_fn(args)
         time = self.time_fn(fn, *inputs)
         return time
@@ -183,12 +189,10 @@ class ProfileBase:
 
     def profile(self, args):
         """
-        get_sizes, get_inputs, and get_fn are operator-specific.
-        
         TODO: decide how to handle check_size failures.
         """
         dtype = self.get_dtype(args.dtype)
-        sizes = self.get_sizes(args)
+        sizes = self.get_input_sizes(args)
         if not self.check_size(dtype, sizes):
             return
 
