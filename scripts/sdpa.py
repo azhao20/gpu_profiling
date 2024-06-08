@@ -40,6 +40,7 @@ def get_args_sdpa():
     parser.add_argument("--d_v", type=int, required=False, help="Value embedding dimension.")
     parser.add_argument("--is_causal", type=int, required=False, choices=[0, 1], help="Use causal attention.")
 
+    parser.add_argument("--backward", type=int, required=True, choices=[0, 1], help="Profile the backward pass.")
     parser.add_argument("--out_file", type=str, required=True, help="Path to the output CSV file.")
     args = parser.parse_args()
 
@@ -50,8 +51,9 @@ def get_args_sdpa():
 
 
 class ProfileSDPA(ProfileBase):
-    def __init__(self):
+    def __init__(self, backward: bool):
         super().__init__()
+        self.backward = backward
         self.contexts = {
             "efficient": SDPBackend.EFFICIENT_ATTENTION,
             "flash": SDPBackend.FLASH_ATTENTION,
@@ -122,7 +124,8 @@ class ProfileSDPA(ProfileBase):
                                         args.d_v = d_v
                                         args.is_causal = is_causal
                                         kernel_params = f"{args.dtype}.{args.backend}.{args.b}.{args.h}.{args.s_q}.{args.s_kv}.{args.d_qk}.{args.d_v}.{args.is_causal}"
-                                        writer.writerow([kernel_params, self.time_rep(args)])
+                                        # Decide to profile backward or not.
+                                        writer.writerow([kernel_params, self.time_rep(args, self.backward)])
                             # Flush intermittently in case something crashes
                             file.flush()
 
@@ -130,10 +133,9 @@ class ProfileSDPA(ProfileBase):
 def main():
     args = get_args_sdpa()
     if args.mode == "time":
-        ProfileSDPA().time(args)
+        ProfileSDPA(bool(args.backward)).time(args)
     else:
-        # Don't need mm_sizes if NCU runs once per program.
-        ProfileSDPA().profile(args)
+        ProfileSDPA(bool(args.backward)).profile(args)
 
 if __name__ == "__main__":
     main()
