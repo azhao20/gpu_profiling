@@ -14,7 +14,16 @@ HOME="/n/holylabs/LABS/idreos_lab/Users/azhao"
 source $HOME/gpu_profiling/sh/initconda.sh
 
 SCRIPT_DIR=$HOME/gpu_profiling/scripts
-FINAL_DIR=$HOME/gpu_profiling/data/final/sdpa
+
+if [ "$4" = "1" ]; then
+    FINAL_DIR=$HOME/gpu_profiling/data/final/sdpa_backward
+elif [ "$4" = "0" ]; then
+    FINAL_DIR=$HOME/gpu_profiling/data/final/sdpa
+else
+    echo "Invalid input for $4. Expected '0' or '1'."
+    exit 1
+fi
+
 FINAL_CSV=$FINAL_DIR/time.$1.$2.$3.csv
 
 # -p: ok if directory already exists.
@@ -26,7 +35,7 @@ if [ -f "$FINAL_CSV" ]; then
     rm "$FINAL_CSV"
 fi
 
-$HOME/env/bin/python3 $SCRIPT_DIR/sdpa.py --mode 'time' --dtype $1 --backend $2 --h $3 --out_file $FINAL_CSV
+$HOME/env/bin/python3 $SCRIPT_DIR/sdpa.py --mode 'time' --dtype $1 --backend $2 --h $3 --backward $4 --out_file $FINAL_CSV
 
 # <backend>: number of times this script gets invoked * # of params.
 # efficient: 4 * (1 + 2) = 12 times

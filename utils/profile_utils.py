@@ -109,15 +109,15 @@ class ProfileBase:
         max_bytes = 0.8 * (torch.cuda.get_device_properties(0).total_memory - torch.cuda.memory_reserved(0))
         return required_memory <= max_bytes
 
-    def get_inputs(self, dtype, sizes):
+    def get_inputs(self, dtype, sizes, requires_grad = False):
         """
         Generate random tensors based on provided sizes.
 
         sizes: A list of of `torch.Size`s.
         """
-        return [torch.randn(size, dtype=dtype, device=self.device) for size in sizes]
+        return [torch.randn(size, dtype=dtype, device=self.device, requires_grad=requires_grad) for size in sizes]
 
-    def _time_fn(self, fn, *inputs):
+    def _time_fn(self, fn, inputs):
         """
         Based on:
         https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html#demonstrating-speedups
@@ -135,19 +135,39 @@ class ProfileBase:
             ends[i].record()
         torch.cuda.synchronize()
 
-        # Discard the warmup reps. It might be cleaner to select [self.WARMUP_REPS:] from times, but if
-        # WARMUP_REPS is large, avoids computing unnecessary start times.
-        start_ends = zip(starts[self.WARMUP_REPS:], ends[self.WARMUP_REPS:])
-        times = np.array([start.elapsed_time(end) for start, end in start_ends])
-        return times
+        # Discard the warmup reps.
+        return np.array([starts[i].elapsed_time(ends[i]) for i in range(self.WARMUP_REPS, self.NREPS)])
 
-    def time_fn(self, fn, *inputs):
+    def _time_fn_backward(self, fn, inputs):
+        """
+        Times the backward pass of the given fn.
+        Requires that inputs.requires_grad = True, which should be set in get_inputs.
+        """
+        starts = [torch.cuda.Event(enable_timing=True) for _ in range(self.NREPS)]
+        ends = [torch.cuda.Event(enable_timing=True) for _ in range(self.NREPS)]
+
+        torch.cuda.empty_cache()
+        for i in range(self.NREPS):
+            for input in inputs:
+                input.grad.zero_()
+
+            loss = fn(*inputs).sum()
+            starts[i].record()
+            loss.backward()
+            ends[i].record()
+        torch.cuda.synchronize()
+
+        # Discard the warmup reps.
+        return np.array([starts[i].elapsed_time(ends[i]) for i in range(self.WARMUP_REPS, self.NREPS)])
+
+    def time_fn(self, fn, inputs, backward = False):
         """
         Returns the median runtime in ms.
         """
-        return np.median(self._time_fn(fn, *inputs))
+        time = self._time_fn_backward(fn, inputs) if backward else self._time_fn(fn, inputs)
+        return np.median(time)
 
-    def time_rep(self, args):
+    def time_rep(self, args, backward = False):
         """
         Returns time the kernel took to run. If there isn't
         enough memory to store create the fn inputs, time = np.nan.
@@ -161,10 +181,10 @@ class ProfileBase:
             # Flag as incomplete.
             return np.nan
 
-        inputs = self.get_inputs(dtype, input_sizes)
+        inputs = self.get_inputs(dtype, input_sizes, requires_grad=backward)
         fn = self.get_fn(args)
-        time = self.time_fn(fn, *inputs)
-        return time
+        return self.time_fn(fn, inputs, backward=backward)
+
 
     # Hardware profiling functions
     def profile_rep(self, fn, *inputs):
@@ -190,6 +210,7 @@ class ProfileBase:
     def profile(self, args):
         """
         TODO: decide how to handle check_size failures.
+        TODO: figure out how to profile backward function...
         """
         dtype = self.get_dtype(args.dtype)
         sizes = self.get_input_sizes(args)

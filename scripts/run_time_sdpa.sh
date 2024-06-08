@@ -26,7 +26,7 @@ do
         for h in "${num_heads[@]}"
         do
             JOB_FILE=$OUTPUT_DIR/$dtype.$backend.$h
-            sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err $SCRIPT_DIR/time_sdpa.sh $dtype $backend $h
+            sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err $SCRIPT_DIR/time_sdpa.sh $dtype $backend $h $1
         done
     done
 done
@@ -45,7 +45,7 @@ do
         for h in "${num_heads[@]}"
         do
             JOB_FILE=$OUTPUT_DIR/$dtype.$backend.$h
-            sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err $SCRIPT_DIR/time_sdpa.sh $dtype $backend $h
+            sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err $SCRIPT_DIR/time_sdpa.sh $dtype $backend $h $1
         done
     done
 done
