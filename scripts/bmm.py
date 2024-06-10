@@ -6,16 +6,14 @@ from utils.profile_utils import ProfileBase, get_args_mm, mm_sizes
 import warnings
 warnings.filterwarnings("ignore")
 
-mm_batches=[i for i in range(32, 512+1, 32)]
-
 class ProfileBMM(ProfileBase):
-    def __init__(self, sizes = [], batches = []):
+    def __init__(self, sizes = []):
         """
         For now, we don't use the other hyperparameters.
         """
         super().__init__()
         self.sizes = sizes
-        self.batches = batches
+        self.batches = [i for i in range(32, 512+1, 32)]
 
     def get_input_sizes(self, args) -> list:
         A_size = torch.Size([args.b, args.n, args.m])
@@ -67,7 +65,7 @@ class ProfileBMM(ProfileBase):
 def main():
     args = get_args_mm()
     if args.mode == "time":
-        ProfileBMM(mm_sizes, mm_batches).time(args)
+        ProfileBMM(mm_sizes).time(args)
     else:
         # Don't need mm_sizes if NCU runs once per program.
         ProfileBMM().profile(args)

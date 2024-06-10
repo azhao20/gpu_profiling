@@ -19,7 +19,7 @@ class ProfileMM(ProfileBase):
         B_size = torch.Size([args.m, args.p])
         return [A_size, B_size]
 
-    def get_output_sizes(self, args):
+    def get_output_size(self, args):
         return torch.Size([args.n, args.p])
 
     def get_fn(self, args):
