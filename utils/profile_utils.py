@@ -133,6 +133,7 @@ class ProfileBase:
             starts[i].record()
             result = fn(*inputs)
             ends[i].record()
+            del result
         torch.cuda.synchronize()
 
         # Discard the warmup reps.
@@ -155,6 +156,7 @@ class ProfileBase:
             starts[i].record()
             loss.backward()
             ends[i].record()
+            del loss
         torch.cuda.synchronize()
 
         # Discard the warmup reps.
@@ -183,7 +185,12 @@ class ProfileBase:
 
         inputs = self.get_inputs(dtype, input_sizes, requires_grad=backward)
         fn = self.get_fn(args)
-        return self.time_fn(fn, inputs, backward=backward)
+
+        try:
+            time = self.time_fn(fn, inputs, backward=backward)
+        except Exception as e:
+            return np.nan
+        return time
 
 
     # Hardware profiling functions
