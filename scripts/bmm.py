@@ -14,6 +14,8 @@ class ProfileBMM(ProfileBase):
         super().__init__()
         self.sizes = sizes
         self.batches = [i for i in range(32, 512+1, 32)]
+        # self.sizes = [32, 224]
+        # self.batches = [32]
 
     def get_input_sizes(self, args) -> list:
         A_size = torch.Size([args.b, args.n, args.m])

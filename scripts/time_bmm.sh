@@ -1,4 +1,5 @@
 #!/bin/bash
+#SBATCH -J time_bmm
 #SBATCH -c 8
 #SBATCH --mem=256000
 #SBATCH --mail-type=BEGIN,END
@@ -10,15 +11,21 @@
 #SSBATCH -p gpu_test
 #SSBATCH --gres=gpu:1
 
-HOME="/n/holylabs/LABS/idreos_lab/Users/azhao"
-source $HOME/gpu_profiling/sh/initconda.sh
+HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
+SCRIPT_DIR="$HOME_DIR/gpu_profiling/scripts"
+FINAL_DIR=$HOME_DIR/gpu_profiling/data/final/bmm
 
-SCRIPT_DIR=$HOME/gpu_profiling/scripts
-FINAL_DIR=$HOME/gpu_profiling/data/final/bmm
-FINAL_CSV=$FINAL_DIR/time.$1.csv
+source $HOME_DIR/gpu_profiling/sh/initconda.sh
 
-# -p: ok if directory already exists.
-mkdir -p $FINAL_DIR
+# Up to 512: multiples of 16.
+# 512-2048: multiples of 128
+# 2048-4096: multiples of 512
+# 4096-2^15 = 32768: multiples of 1024
+sizes=($(seq 16 16 496) $(seq 512 128 1920) $(seq 2048 512 3584) $(seq 4096 1024 32768))
+n=${sizes[$SLURM_ARRAY_TASK_ID-1]}
+echo $n
+
+FINAL_CSV=$FINAL_DIR/time.$n.csv
 
 # WARNING: this will delete the CSV if it already exists.
 if [ -f "$FINAL_CSV" ]; then
@@ -26,37 +33,4 @@ if [ -f "$FINAL_CSV" ]; then
     rm "$FINAL_CSV"
 fi
 
-$HOME/env/bin/python3 $SCRIPT_DIR/bmm.py --mode 'time' --n $1 --out_file $FINAL_CSV
-
-## OLD WORK: MIGHT BE USEFUL FOR PROFILE
-
-# Multiples of 32 up to 512.
-# batch_sizes=$(seq 32 32 512)
-
-# Up to 512: multiples of 16.
-# 512-2048: multiples of 128
-# 2048-4096: multiples of 512
-# 4096-2^15 = 32768: multiples of 1024
-# sizes=($(seq 16 16 496) $(seq 512 128 1920) $(seq 2048 512 3584) $(seq 4096 1024 32768))
-# dtypes=('b16' '16' '32')
-
-# batch_sizes=(64)
-# sizes=(1000)
-# dtypes=('32')
-
-# for dtype in "${dtypes[@]}"
-# do
-#     for b in "${batch_sizes[@]}"
-#     do
-#         for m in "${sizes[@]}"
-#         do
-#             echo "$dtype, $m--------------" # For some sanity checking.
-#             for p in "${sizes[@]}"
-#             do
-#                 $HOME/env/bin/python3 \
-#                     $SCRIPT_DIR/bmm.py --mode 'time' --dtype $dtype --b $b --n $1 --m $m --p $p --out_file $FINAL_CSV
-
-#             done
-#         done
-#     done
-# done
+$HOME_DIR/env/bin/python3 $SCRIPT_DIR/bmm.py --mode 'time' --n $n --out_file $FINAL_CSV
