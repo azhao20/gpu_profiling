@@ -78,6 +78,13 @@ class ProfileBase:
     def get_input_sizes(self, args) -> list:
         raise Exception("Not Implemented")
 
+    def get_requires_grad(self) -> list[bool] | None:
+        """
+        Return a list of bools such that requires_grad_v[i] = True
+        iff inputs[i] requires gradients.
+        """
+        raise Exception("Must override `gets_requires_grad`.")
+
     def get_output_size(self, args):
         raise Exception("Not Implemented")
 
@@ -109,13 +116,17 @@ class ProfileBase:
         max_bytes = 0.8 * (torch.cuda.get_device_properties(0).total_memory - torch.cuda.memory_reserved(0))
         return required_memory <= max_bytes
 
-    def get_inputs(self, dtype, sizes, requires_grad = False):
+    def get_inputs(self, dtype, sizes, requires_grad_v: list | None):
         """
         Generate random tensors based on provided sizes.
 
         sizes: A list of of `torch.Size`s.
         """
-        return [torch.randn(size, dtype=dtype, device=self.device, requires_grad=requires_grad) for size in sizes]
+        if requires_grad_v is None:
+            return [torch.randn(size, dtype=dtype, device=self.device, requires_grad=False) for size in sizes]
+
+        return [torch.randn(size, dtype=dtype, device=self.device, requires_grad=requires_grad) \
+                for size, requires_grad in zip(sizes, requires_grad_v)]
 
     def _time_fn(self, fn, inputs):
         """
@@ -183,7 +194,8 @@ class ProfileBase:
             # Flag as incomplete.
             return np.nan
 
-        inputs = self.get_inputs(dtype, input_sizes, requires_grad=backward)
+        requires_grad_v: list | None = self.get_requires_grad() if backward else None
+        inputs = self.get_inputs(dtype, input_sizes, requires_grad_v)
         fn = self.get_fn(args)
 
         try:
