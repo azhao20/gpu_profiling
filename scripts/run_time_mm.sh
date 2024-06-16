@@ -1,23 +1,18 @@
 #!/bin/bash
 
-SCRIPT_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/scripts"
-OUTPUT_DIR="/n/holyscratch01/idreos_lab/Users/azhao/mm_times"
-
 module load python/3.10.12-fasrc01
 
-# Up to 512: multiples of 16.
-# 512-2048: multiples of 128
-# 2048-4096: multiples of 512
-# 4096-2^15 = 32768: multiples of 1024
-sizes=($(seq 16 16 496) $(seq 512 128 1920) $(seq 2048 512 3584) $(seq 4096 1024 32768))
+HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
+SCRIPT_DIR="$HOME_DIR/gpu_profiling/scripts"
+OUTPUT_DIR="/n/holyscratch01/idreos_lab/Users/azhao/mm_times"
+FINAL_DIR=$HOME_DIR/gpu_profiling/data/final/mm
 
-# Uncomment for testing purposes
-# sizes=(16)
-
+# -p: ok if directory already exists.
+mkdir -p $FINAL_DIR
 mkdir -p $OUTPUT_DIR
 
-for n in "${sizes[@]}"
-do
-    JOB_FILE=$OUTPUT_DIR/$n
-    sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err $SCRIPT_DIR/time_mm.sh $n
-done
+# Runs two sizes; uncomment for testing purposes
+# sbatch --array=1-2%30 --export=ALL -o $OUTPUT_DIR/%A_%a.out -e $OUTPUT_DIR/%A_%a.err $SCRIPT_DIR/time_mm.sh
+
+# The full script
+sbatch --array=1-76%30 -o $OUTPUT_DIR/%A_%a.out -e $OUTPUT_DIR/%A_%a.err $SCRIPT_DIR/time_mm.sh
