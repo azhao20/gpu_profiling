@@ -57,6 +57,10 @@ class ProfileConv2d(ProfileBase):
         weight_shape = torch.Size([args.out_channels, args.in_channels // args.groups, args.kH, args.kW])
         return [input_shape, weight_shape]
 
+    def get_requires_grad(self) -> list[bool] | None:
+        """Only want gradients for the kernel (`weight`)."""
+        return [False, True]
+
     def get_output_size(self, args):
         # Assume output padding is zero if not specified
         padding = getattr(args, 'padding', (0, 0))
@@ -70,7 +74,6 @@ class ProfileConv2d(ProfileBase):
             out_width = ((args.iW + 2 * padding[1] - args.dilation * (args.kW - 1) - 1) // args.stride) + 1
 
         return torch.Size([args.b, args.out_channels, out_height, out_width])
-
 
     def get_fn(self, args):
         transposed = bool(args.transposed)
