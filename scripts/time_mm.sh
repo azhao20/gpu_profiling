@@ -11,11 +11,11 @@
 #SSBATCH -p gpu_test
 #SSBATCH --gres=gpu:1
 
-HOME="/n/holylabs/LABS/idreos_lab/Users/azhao"
-SCRIPT_DIR=$HOME/gpu_profiling/scripts
-FINAL_DIR=$HOME/gpu_profiling/data/final/mm
+HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
+SCRIPT_DIR=$HOME_DIR/gpu_profiling/scripts
+FINAL_DIR=$HOME_DIR/gpu_profiling/data/final/mm
 
-source $HOME/gpu_profiling/sh/initconda.sh
+source $HOME_DIR/gpu_profiling/sh/initconda.sh
 
 # Up to 512: multiples of 16.
 # 512-2048: multiples of 128
@@ -33,4 +33,4 @@ if [ -f "$FINAL_CSV" ]; then
     rm "$FINAL_CSV"
 fi
 
-$HOME/env/bin/python3 $SCRIPT_DIR/mm.py --mode 'time' --n $n --out_file $FINAL_CSV
+$HOME_DIR/env/bin/python3 $SCRIPT_DIR/mm.py --mode 'time' --n $n --out_file $FINAL_CSV

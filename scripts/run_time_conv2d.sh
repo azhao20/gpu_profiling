@@ -1,19 +1,31 @@
 #!/bin/bash
 
-SCRIPT_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/scripts"
+module load python/3.10.12-fasrc01
+
+HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
+SCRIPT_DIR="$HOME_DIR/gpu_profiling/scripts"
 OUTPUT_DIR="/n/holyscratch01/idreos_lab/Users/azhao/conv2d_times"
 
-module load python/3.10.12-fasrc01
+if [ "$1" = "1" ]; then
+    FINAL_DIR=$HOME/gpu_profiling/data/final/conv2d_backward
+elif [ "$1" = "0" ]; then
+    FINAL_DIR=$HOME/gpu_profiling/data/final/conv2d
+else
+    echo "Invalid input for $1. Expected '0' or '1'."
+    exit 1
+fi
+
+# -p: ok if directory already exists.
+mkdir -p $FINAL_DIR
+mkdir -p $OUTPUT_DIR
 
 # Spin up 2 * 6^2 = 72 jobs.
 sizes=(2 8 32 128 512 1024) # 1024 for completeness.
 transposed=(0 1)
 
 # Uncomment for testing purposes
-sizes=(64)
-transposed=(0)
-
-mkdir -p $OUTPUT_DIR
+# sizes=(64)
+# transposed=(0)
 
 for iH in "${sizes[@]}"
 do
