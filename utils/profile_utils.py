@@ -161,7 +161,8 @@ class ProfileBase:
         torch.cuda.empty_cache()
         for i in range(self.NREPS):
             for input in inputs:
-                input.grad.zero_()
+                if input.requires_grad:
+                    input.grad = None
 
             loss = fn(*inputs).sum()
             starts[i].record()
@@ -201,6 +202,7 @@ class ProfileBase:
         try:
             time = self.time_fn(fn, inputs, backward=backward)
         except Exception as e:
+            print(e)
             return np.nan
         return time
 
