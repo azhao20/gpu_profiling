@@ -7,9 +7,9 @@ SCRIPT_DIR="$HOME_DIR/gpu_profiling/scripts"
 OUTPUT_DIR="/n/holyscratch01/idreos_lab/Users/azhao/conv2d_times"
 
 if [ "$1" = "1" ]; then
-    FINAL_DIR=$HOME/gpu_profiling/data/final/conv2d_backward
+    FINAL_DIR=$HOME_DIR/gpu_profiling/data/final/conv2d_backward
 elif [ "$1" = "0" ]; then
-    FINAL_DIR=$HOME/gpu_profiling/data/final/conv2d
+    FINAL_DIR=$HOME_DIR/gpu_profiling/data/final/conv2d
 else
     echo "Invalid input for $1. Expected '0' or '1'."
     exit 1
@@ -19,22 +19,8 @@ fi
 mkdir -p $FINAL_DIR
 mkdir -p $OUTPUT_DIR
 
-# Spin up 2 * 6^2 = 72 jobs.
-sizes=(2 8 32 128 512 1024) # 1024 for completeness.
-transposed=(0 1)
+# Runs two sizes; uncomment for testing purposes
+# sbatch --array=1-3%2 -o $OUTPUT_DIR/%A_%a.out -e $OUTPUT_DIR/%A_%a.err $SCRIPT_DIR/time_conv2d.sh $1
 
-# Uncomment for testing purposes
-# sizes=(64)
-# transposed=(0)
-
-for iH in "${sizes[@]}"
-do
-    for iW in "${sizes[@]}"
-    do
-        for transposed in "${transposed[@]}"
-        do
-            JOB_FILE=$OUTPUT_DIR/$iH.$iW
-            sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err $SCRIPT_DIR/time_conv2d.sh $iH $iW $transposed $1
-        done
-    done
-done
+# The full script
+sbatch --array=1-72%30 -o $OUTPUT_DIR/%A_%a.out -e $OUTPUT_DIR/%A_%a.err $SCRIPT_DIR/time_conv2d.sh $1
