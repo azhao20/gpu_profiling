@@ -110,37 +110,40 @@ class ProfileConv2d(ProfileBase):
         dilations = [1]
 
         # Uncomment for testing
+        # group_sizes = [1]
         # batch_sizes = [4]
         # channel_sizes = [32]
-        # kernel_sizes = [3]
 
         with open(args.out_file, mode='a', newline='') as file:
             writer = csv.writer(file)
             if os.path.getsize(args.out_file) == 0:
                 writer.writerow(self.time_header)
-                for dname in self.dtype_map:
-                    for b in batch_sizes:
-                        for in_channels in channel_sizes:
-                            for out_channels in channel_sizes:
-                                for groups in group_sizes:
-                                    if in_channels % groups or out_channels % groups:
-                                        continue
-                                    for kH in kernel_sizes:
-                                        for kW in kernel_sizes:
-                                            for stride in strides:
-                                                for dilation in dilations:
-                                                    args.b = b
-                                                    args.in_channels = in_channels
-                                                    args.out_channels = out_channels
-                                                    args.kH = kH
-                                                    args.kW = kW
-                                                    args.stride = stride
-                                                    args.dilation = dilation
-                                                    args.dtype = dname
-                                                    kernel_params = f"{args.dtype}.{args.b}.{args.in_channels}.{args.iH}.{args.iW}.{args.out_channels}.{args.groups}.{args.kH}.{args.kW}.{args.stride}.{args.dilation}.{args.transposed}"
-                                                    writer.writerow([kernel_params, self.time_rep(args, self.backward)])
-                            # Flush intermittently in case something crashes
-                            file.flush()
+            for dname in self.dtype_map:
+                for b in batch_sizes:
+                    for in_channels in channel_sizes:
+                        for out_channels in channel_sizes:
+                            for groups in group_sizes:
+                                if in_channels % groups or out_channels % groups:
+                                    continue
+                                for kH in kernel_sizes:
+                                    for kW in kernel_sizes:
+                                        if kH > args.iH or kW > args.iW:
+                                            continue
+                                        for stride in strides:
+                                            for dilation in dilations:
+                                                args.dtype = dname
+                                                args.b = b
+                                                args.in_channels = in_channels
+                                                args.out_channels = out_channels
+                                                args.groups = groups
+                                                args.kH = kH
+                                                args.kW = kW
+                                                args.stride = stride
+                                                args.dilation = dilation
+                                                kernel_params = f"{args.dtype}.{args.b}.{args.in_channels}.{args.iH}.{args.iW}.{args.out_channels}.{args.groups}.{args.kH}.{args.kW}.{args.stride}.{args.dilation}.{args.transposed}"
+                                                writer.writerow([kernel_params, self.time_rep(args, self.backward)])
+                        # Flush intermittently in case something crashes
+                        file.flush()
 
 def main():
     args = get_args_conv2d()
