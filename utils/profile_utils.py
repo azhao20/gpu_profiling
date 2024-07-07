@@ -191,19 +191,31 @@ class ProfileBase:
         output_size = self.get_output_size(args)
 
         # Need to get output size.
-        if not self.check_size(dtype, input_sizes + [output_size]):
-            # Flag as incomplete.
-            return np.nan
+        try:
+            if not self.check_size(dtype, input_sizes + [output_size]):
+                return np.nan
+        except Exception as e:
+            print(f"Error checking sizes: {e}")
+            return -1
 
         requires_grad_v: list | None = self.get_requires_grad() if backward else None
-        inputs = self.get_inputs(dtype, input_sizes, requires_grad_v)
-        fn = self.get_fn(args)
+        try:
+            inputs = self.get_inputs(dtype, input_sizes, requires_grad_v)
+        except Exception as e:
+            print(f"Error getting inputs: {e}")
+            return -2
+
+        try:
+            fn = self.get_fn(args)
+        except Exception as e:
+            print(f"Error getting fn: {e}")
+            return -3
 
         try:
             time = self.time_fn(fn, inputs, backward=backward)
         except Exception as e:
-            print(e)
-            return np.nan
+            print("Failed to time", e)
+            return -4
         return time
 
 
