@@ -47,7 +47,7 @@ def parse_sdpa_params(path):
             d_qk = query_shape[3]
 
             s_kv = value_shape[2]
-            d_v = value_shape[2]
+            d_v = value_shape[3]
 
             row_key = (batch_size, num_heads, s_q, s_kv, d_qk, d_v)
 
