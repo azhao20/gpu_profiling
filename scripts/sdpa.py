@@ -84,23 +84,13 @@ class ProfileSDPA(ProfileBase):
         else:
             fn = lambda q, k, v: scaled_dot_product_attention(q, k, v, is_causal=is_causal)
         return fn
-    
-    def time(self, args):
-        """
-        Could consider a param generator.
-        """
-        if args.backend == "efficient":
-            batch_sizes = [2, 4, 8, 16, 32, 64, 128]
-            sq_lengths = [32, 64, 128, 256]
-            skv_lengths = [32, 64, 128, 256]
-            dqk_sizes = [32, 64, 128]
-            dv_sizes = [32, 64, 128, 256]
-        elif args.backend == "flash":
-            batch_sizes = [2, 4, 8, 16, 32, 64]
-            sq_lengths = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096]
-            skv_lengths = [32, 64, 128, 256, 512, 1024, 2048]
-            dqk_sizes = [32, 64, 128]
-            dv_sizes = [32, 64, 128, 256, 512, 1024, 2048]
+
+    def time_efficient(self, args):
+        batch_sizes = [2, 4, 8, 16, 32, 64, 128]
+        sq_lengths = [32, 64, 128, 256, 512]
+        skv_lengths = [32, 64, 128, 256, 512]
+        dqk_sizes = [32, 64, 128, 256]
+        dv_sizes = [32, 64, 128, 256]
 
         # Uncomment for testing
         # batch_sizes=[32]
@@ -133,6 +123,78 @@ class ProfileSDPA(ProfileBase):
                             # Flush intermittently in case something crashes
                             file.flush()
 
+
+    def time_flash(self, args):
+        """
+        For the flash backend, there are constraints on the parameters.
+
+        d_qk == d_v <= 256.
+        For is_causal, s_q == s_kv
+        """
+        batch_sizes = [2, 4, 8, 16, 32, 64]
+        dqkv_sizes = [i for i in range(16, 256 + 1, 16)]
+
+        # For non-causal
+        sq_lengths = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096]
+        skv_lengths = [32, 64, 128, 256, 512, 1024, 2048]
+        # For causal
+        sqkv_lengths = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 1536, 2048, 3072, 4096]
+
+        # Uncomment for testing
+        # batch_sizes=[32]
+        # dqkv_sizes=[32]
+        # sq_lengths=[32]
+        # skv_lengths=[32]
+        # sqkv_lengths=[32]
+
+        with open(args.out_file, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            if os.path.getsize(args.out_file) == 0:
+                writer.writerow(self.time_header)
+
+            args.is_causal = 0
+            with sdpa_kernel(self.contexts[args.backend]):
+                for b in batch_sizes:
+                    for s_q in sq_lengths:
+                        for s_kv in skv_lengths:
+                            for d_qkv in dqkv_sizes:
+                                args.b = b
+                                args.s_q = s_q
+                                args.s_kv = s_kv
+                                args.d_qk = d_qkv
+                                args.d_v = d_qkv
+                                kernel_params = f"{args.dtype}.{args.backend}.{args.b}.{args.h}.{args.s_q}.{args.s_kv}.{args.d_qk}.{args.d_v}.{args.is_causal}"
+                                # Decide to profile backward or not.
+                                writer.writerow([kernel_params, self.time_rep(args, self.backward)])
+                        # Flush intermittently in case something crashes
+                        file.flush()
+
+            # For is_causal = 1, use sqkv_lengths.
+            args.is_causal = 1
+            with sdpa_kernel(self.contexts[args.backend]):
+                for b in batch_sizes:
+                    for s_qkv in sqkv_lengths:
+                        for d_qkv in dqkv_sizes:
+                            args.b = b
+                            args.s_q = s_qkv
+                            args.s_kv = s_qkv
+                            args.d_qk = d_qkv
+                            args.d_v = d_qkv
+                            kernel_params = f"{args.dtype}.{args.backend}.{args.b}.{args.h}.{args.s_q}.{args.s_kv}.{args.d_qk}.{args.d_v}.{args.is_causal}"
+                            # Decide to profile backward or not.
+                            writer.writerow([kernel_params, self.time_rep(args, self.backward)])
+                    # Flush intermittently in case something crashes
+                    file.flush()
+
+
+    def time(self, args):
+        """
+        Could consider a param generator.
+        """
+        if args.backend == "efficient":
+            self.time_efficient(args)
+        else:
+            self.time_flash(args)
 
 def main():
     args = get_args_sdpa()
