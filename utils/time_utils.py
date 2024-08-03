@@ -110,9 +110,9 @@ class TimeProcessorBMM(TimeProcessorBase):
         return dfs
 
 class TimeProcessorSDPA(TimeProcessorBase):
-    def __init__(self, base_dir):
+    def __init__(self, base_dir: str, is_forward: bool = True):
         super().__init__(base_dir)
-        self.kernel_type = "sdpa"
+        self.kernel_type = "sdpa" if is_forward else "sdpa_backward"
         self.num_heads = [4, 8, 12, 16]
         
     def split_params(self, row):
@@ -128,7 +128,7 @@ class TimeProcessorSDPA(TimeProcessorBase):
                 (row['b'], row['h'], row['s_q'], row['d_qk']),
                 (row['b'], row['h'], row['s_kv'], row['d_qk']),
                 (row['b'], row['h'], row['s_kv'], row['d_v'])
-            )[0],
+            ), # [0] if we use the other branch.
             axis=1
         )
         df['gflops'] = flops / (10 ** 9)
@@ -172,10 +172,10 @@ class TimeProcessorSDPA(TimeProcessorBase):
         return self.compute_flops(dfs)
 
 class TimeProcessorConv2d(TimeProcessorBase):
-    def __init__(self, base_dir):
+    def __init__(self, base_dir: str, is_forward: bool = True):
         super().__init__(base_dir)
-        self.kernel_type = "conv2d"
-        self.iH = [2, 8, 32, 128, 512, 1024]
+        self.kernel_type = "conv2d" if is_forward else "conv2d_backward"
+        self.iH = self.iW = [2, 8, 32, 128, 512, 1024]
         self.transposed = [0, 1]
         
     def split_params(self, row):
@@ -192,7 +192,7 @@ class TimeProcessorConv2d(TimeProcessorBase):
                 [row['out_channels'], row['in_channels'], row['kH'], row['kW']],
                 [row['b'], row['out_channels'], row['iH'], row['iW']],
                 transposed=bool(row['transposed'])
-            )[0],
+            ), #[0]
             axis=1
         )
         df['gflops'] = flops / (10 ** 9)
