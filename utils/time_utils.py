@@ -1,6 +1,7 @@
 from abc import abstractmethod
 import pandas as pd
 import os
+import math
 
 from torch.utils.flop_counter import sdpa_flop_count, conv_flop_count
 
@@ -185,14 +186,44 @@ class TimeProcessorConv2d(TimeProcessorBase):
             index=['kernel_params', 'dtype', 'b', 'in_channels', 'iH', 'iW', 'out_channels', 'groups', 'kH', 'kW', 'stride', 'dilation', 'transposed', 'time']
         )
         
-    def compute_flops(self, df):
+    def compute_out_shape(
+        self, 
+        x_shape: list[int],
+        w_shape: list[int],
+        stride: int,
+        padding: int = 0,
+        dilation: int = 1,
+        transposed: bool = False,
+        output_padding: int = 0
+    ) -> list[int]:
+        batch_size, _, iH, iW = x_shape
+        c_out, _, kH, kW = w_shape
+
+        if transposed:
+            oH = stride * (iH - 1) + dilation * (kH - 1) + output_padding - 2 * padding + 1
+            oW = stride * (iW - 1) + dilation * (kW - 1) + output_padding - 2 * padding + 1
+        else:
+            oH = math.floor((iH + 2 * padding - dilation * (kH - 1) - 1) / stride + 1)
+            oW = math.floor((iW + 2 * padding - dilation * (kW - 1) - 1) / stride + 1)
+
+        return [batch_size, c_out, oH, oW]
+        
+    def compute_flops(self, df: pd.DataFrame) -> pd.DataFrame:
         flops = df.apply(
             lambda row: conv_flop_count(
-                [row['b'], row['in_channels'], row['iH'], row['iW']],
-                [row['out_channels'], row['in_channels'], row['kH'], row['kW']],
-                [row['b'], row['out_channels'], row['iH'], row['iW']],
+                x_shape=[row['b'], row['in_channels'], row['iH'], row['iW']],
+                w_shape=[row['out_channels'], row['in_channels'], row['kH'], row['kW']],
+                out_shape=self.compute_out_shape(
+                    x_shape=[row['b'], row['in_channels'], row['iH'], row['iW']],
+                    w_shape=[row['out_channels'], row['in_channels'], row['kH'], row['kW']],
+                    stride=row['stride'],
+                    padding=0, # don't use padding.
+                    dilation=row['dilation'],
+                    transposed=bool(row['transposed']),
+                    output_padding=0  # Adjust if you have this info
+                ),
                 transposed=bool(row['transposed'])
-            ), #[0]
+            ), # [0] 
             axis=1
         )
         df['gflops'] = flops / (10 ** 9)
@@ -211,6 +242,10 @@ class TimeProcessorConv2d(TimeProcessorBase):
                     file_path = os.path.join(self.data_dir, f"time.{iH}.{iW}.{transposed}.csv")
                     df = pd.read_csv(file_path, header=0).sample(frac=sample_rate)
                     df.rename(columns={'Kernel Name': 'kernel_params', 'Latency (ms)' : 'time'}, inplace=True)
+
+                    if (df['time'] < 0).sum() > 0:
+                        print("< 0 found")
+                        continue
                     dfs.append(df.apply(self.split_params, axis=1))
 
         dfs = pd.concat(dfs, axis=0, ignore_index=True)
