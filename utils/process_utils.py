@@ -6,15 +6,35 @@ from utils.utils import LINEAR_SIZES
 
 # TODO: abstract out for convolution.
 # Function Cache Configuration: only one unique value: "CachePreferNone"
-NON_NUMERIC = {"Params", "Kernel Name", "Block Size", "Grid Size", "Function Cache Configuration"}
+NON_NUMERIC = {
+    "Params",
+    "Kernel Name",
+    "Block Size",
+    "Grid Size",
+    "Function Cache Configuration",
+}
 CATEGORICAL = {"Precision"}
-NO_PROCESS = {"Params", "Inputs", "Precision", "Bias", "Input Size", "Output Size",
-              "Context", "Device", "Stream", "CC", "Kernel Name", "Block Size", "Grid Size"}
+NO_PROCESS = {
+    "Params",
+    "Inputs",
+    "Precision",
+    "Bias",
+    "Input Size",
+    "Output Size",
+    "Context",
+    "Device",
+    "Stream",
+    "CC",
+    "Kernel Name",
+    "Block Size",
+    "Grid Size",
+}
+
 
 def combine_profile_csv(layer: str = "linear", sizes: list[int] = LINEAR_SIZES):
     """
     In order to use the relative pathing correctly, must call this script from this directory.
-    Join a bunch of NCU-returned datasets. Since there are so many data points and the 
+    Join a bunch of NCU-returned datasets. Since there are so many data points and the
     NA values are rare, we just drop them here for ease.
 
     TODO: separate process utils.
@@ -26,12 +46,13 @@ def combine_profile_csv(layer: str = "linear", sizes: list[int] = LINEAR_SIZES):
     dfs = [pd.read_csv(data_path + f"{layer}.{i}.csv") for i in sizes]
 
     combined_df = pd.concat(dfs, ignore_index=True)
-    
+
     to_drop = combined_df.isna().any(axis=1).sum()
     print(f"Dropping {to_drop} rows")
     combined_df.dropna(axis=0, inplace=True)
 
     combined_df.to_csv(final_csv, index=False)
+
 
 def get_units(val: str):
     """
@@ -41,10 +62,11 @@ def get_units(val: str):
     Used to get the units and create a dictionary mapping by manual inspection.
     Returns None if there are no units.
     """
-    parts = val.split('[[')
-    assert(len(parts) == 2)
+    parts = val.split("[[")
+    assert len(parts) == 2
     unit = parts[1][:-2]
     return unit if unit else None
+
 
 def get_unique_mapping():
     """
@@ -68,26 +90,28 @@ def get_unique_mapping():
         res[col] = df[col].apply(get_units).unique()
     return res
 
+
 def get_scaled_value(col: str, d, val_unit: str):
     """
     Extract units and scale value.
     For large units, rounds to avoid FLOP precision errors, since
     assumes ncu precision is two decimal places.
     """
-    parts = val_unit.split('[[')
-    assert(len(parts) == 2)
+    parts = val_unit.split("[[")
+    assert len(parts) == 2
     unit = parts[1][:-2]
-    val = parts[0].replace(',', '')
+    val = parts[0].replace(",", "")
     if col in NON_NUMERIC:
         return val
     else:
         res = float(val) * d[unit]
         return round(res) if d[unit] >= 10e3 else res
 
+
 def scale_data(path: str):
     print(path)
     df = pd.read_csv(path)
-    # For now, drop nan values. 
+    # For now, drop nan values.
     to_drop = df.isna().any(axis=1).sum()
     if to_drop > 0:
         print(f"Dropping {to_drop} rows")
@@ -97,19 +121,19 @@ def scale_data(path: str):
     # This scales values for columns with different units.
     # All other columns should only have one unit.
     unit_scale = defaultdict(lambda: defaultdict(lambda: 1))
-    unit_scale['DRAM Frequency']['cycle/nsecond'] = 1e3
-    unit_scale['DRAM Frequency']['cycle/usecond'] = 1
-    unit_scale['SM Frequency']['cycle/nsecond'] = 1e3
-    unit_scale['SM Frequency']['cycle/usecond'] = 1
+    unit_scale["DRAM Frequency"]["cycle/nsecond"] = 1e3
+    unit_scale["DRAM Frequency"]["cycle/usecond"] = 1
+    unit_scale["SM Frequency"]["cycle/nsecond"] = 1e3
+    unit_scale["SM Frequency"]["cycle/usecond"] = 1
 
-    unit_scale['Dynamic Shared Memory Per Block']['byte/block'] = 1
-    unit_scale['Dynamic Shared Memory Per Block']['Kbyte/block'] = 1e3
-    unit_scale['Static Shared Memory Per Block']['byte/block'] = 1
-    unit_scale['Static Shared Memory Per Block']['Kbyte/block'] = 1e3
+    unit_scale["Dynamic Shared Memory Per Block"]["byte/block"] = 1
+    unit_scale["Dynamic Shared Memory Per Block"]["Kbyte/block"] = 1e3
+    unit_scale["Static Shared Memory Per Block"]["byte/block"] = 1
+    unit_scale["Static Shared Memory Per Block"]["Kbyte/block"] = 1e3
     # Kbyte
-    unit_scale['Memory Throughput']['byte/second'] = 1e-3
-    unit_scale['Memory Throughput']['Mbyte/second'] = 1e3
-    unit_scale['Memory Throughput']['Gbyte/second'] = 1e6
+    unit_scale["Memory Throughput"]["byte/second"] = 1e-3
+    unit_scale["Memory Throughput"]["Mbyte/second"] = 1e3
+    unit_scale["Memory Throughput"]["Gbyte/second"] = 1e6
 
     # unit_scale = defaultdict(lambda: 1)
     # unit_scale['cycle/nsecond'] = 1e3
@@ -123,14 +147,14 @@ def scale_data(path: str):
 
     # If units are too large, choose different values as default.
     unit_map = {
-        'DRAM Frequency' : 'cycle/usecond',
-        'SM Frequency' : 'cycle/usecond',
-        'Dynamic Shared Memory Per Block' : 'byte/block',
-        'Static Shared Memory Per Block' : 'byte/block',
-        'Memory Throughput' : 'Kbyte/second'
+        "DRAM Frequency": "cycle/usecond",
+        "SM Frequency": "cycle/usecond",
+        "Dynamic Shared Memory Per Block": "byte/block",
+        "Static Shared Memory Per Block": "byte/block",
+        "Memory Throughput": "Kbyte/second",
     }
 
-    assert(df.shape[0] > 0)
+    assert df.shape[0] > 0
     columns = sorted(set(df.columns) - NO_PROCESS)
     # columns = ["Function Cache Configuration"]
     to_drop = []
@@ -156,13 +180,15 @@ def scale_data(path: str):
         elif col in CATEGORICAL:
             df[col] = df[col].astype(int).astype(str)
         else:
-            df[col] = pd.to_numeric(df[col]) # errors='coerce'
+            df[col] = pd.to_numeric(df[col])  # errors='coerce'
     return df
+
 
 def combine_csv(pdf: pd.DataFrame, time_file: str):
     tdf = pd.read_csv(time_file)
-    tdf.rename(columns={'Kernel Name': 'Params'}, inplace=True)
-    return pdf.merge(tdf, how='inner', on='Params')
+    tdf.rename(columns={"Kernel Name": "Params"}, inplace=True)
+    return pdf.merge(tdf, how="inner", on="Params")
+
 
 def scale_csv(save_dfs: bool = False):
     """
@@ -173,9 +199,13 @@ def scale_csv(save_dfs: bool = False):
     TIME_PATH = f"{base_dir}/time_data/"
 
     # TODO: consider using for loops to get tqdm.
-    profile_dfs = [scale_data(path=PROFILE_PATH + f"linear.{i}.csv") for i in LINEAR_SIZES]
-    combined_dfs = [combine_csv(profile_dfs[i], TIME_PATH + f"linear.time.{time}.csv") \
-                    for i, time in enumerate(LINEAR_SIZES)]
+    profile_dfs = [
+        scale_data(path=PROFILE_PATH + f"linear.{i}.csv") for i in LINEAR_SIZES
+    ]
+    combined_dfs = [
+        combine_csv(profile_dfs[i], TIME_PATH + f"linear.time.{time}.csv")
+        for i, time in enumerate(LINEAR_SIZES)
+    ]
     # profile_dfs = [scale_data(path=PROFILE_PATH + f"linear.function.csv")]
     # combined_dfs = [combine_csv(profile_dfs[0], TIME_PATH + f"linear.time.function.csv")]
 
@@ -198,15 +228,23 @@ def scale_csv(save_dfs: bool = False):
     path = f"{base_dir}/function.csv"
     combined_df.to_csv(path, index=False)
 
+
 # Function to calculate weighted average for a group
 def _weighted_avg(group, avg_columns, weight_column):
-    weighted_avgs = {col: np.average(group[col], weights=group[weight_column]) for col in avg_columns}
-    weighted_avgs[weight_column] = group[weight_column].sum()  # Sum 'Duration (usecond)'
-    weighted_avgs['Kernels Launched'] = group.shape[0]  # This counts the number of rows in the group
+    weighted_avgs = {
+        col: np.average(group[col], weights=group[weight_column]) for col in avg_columns
+    }
+    weighted_avgs[weight_column] = group[
+        weight_column
+    ].sum()  # Sum 'Duration (usecond)'
+    weighted_avgs["Kernels Launched"] = group.shape[
+        0
+    ]  # This counts the number of rows in the group
     # TODO: could consider adding asserts, since this assumes that there is only one precision value.
     # There should be only one value.
-    weighted_avgs['Precision'] = group['Precision'].iloc[0]
+    weighted_avgs["Precision"] = group["Precision"].iloc[0]
     return pd.Series(weighted_avgs)
+
 
 def merge_kernel_time(df: pd.DataFrame):
     """
@@ -220,10 +258,16 @@ def merge_kernel_time(df: pd.DataFrame):
     Note: assumes that numerical columns have already been converted.
     """
     # Exclude categorical columns and columns not involved in the weighted average
-    numerical_cols = df.select_dtypes(include=['number']).columns.drop(['Duration (usecond)', 'Precision'])
+    numerical_cols = df.select_dtypes(include=["number"]).columns.drop(
+        ["Duration (usecond)", "Precision"]
+    )
 
     # Compute weighted averages for each group
-    return df.groupby('Params').apply(_weighted_avg, numerical_cols, 'Duration (usecond)').reset_index()
+    return (
+        df.groupby("Params")
+        .apply(_weighted_avg, numerical_cols, "Duration (usecond)")
+        .reset_index()
+    )
 
 
 def optimized_merge_kernel_time(df: pd.DataFrame):
@@ -232,36 +276,45 @@ def optimized_merge_kernel_time(df: pd.DataFrame):
     """
     # Assuming 'Precision' and 'Params' are categorical with a limited number of unique values,
     # converting them to categorical if not already can save memory and speed up groupings
-    df['Params'] = df['Params'].astype('str')
-    
+    df["Params"] = df["Params"].astype("str")
+
     # Pre-select columns to avoid repeated computation inside the loop
-    numerical_cols = [col for col in df.select_dtypes(include=['number']).columns if col not in ['Duration (usecond)', 'Precision']]
-    weight_col = 'Duration (usecond)'
+    numerical_cols = [
+        col
+        for col in df.select_dtypes(include=["number"]).columns
+        if col not in ["Duration (usecond)", "Precision"]
+    ]
+    weight_col = "Duration (usecond)"
 
     # Pre-calculate the weights sum and count (Kernels Launched) to use later
-    df['TotalDuration'] = df.groupby('Params')[weight_col].transform('sum')
-    df['KernelsLaunched'] = df.groupby('Params')['Params'].transform('count')
+    df["TotalDuration"] = df.groupby("Params")[weight_col].transform("sum")
+    df["KernelsLaunched"] = df.groupby("Params")["Params"].transform("count")
 
     # Calculate weighted averages outside of the custom function for better performance
     for col in numerical_cols:
-        df[f'WeightedAvg_{col}'] = df[col] * df[weight_col] / df['TotalDuration']
+        df[f"WeightedAvg_{col}"] = df[col] * df[weight_col] / df["TotalDuration"]
 
     # Now, aggregate the pre-computed weighted averages and other necessary metrics
-    agg_funcs = {f'WeightedAvg_{col}': 'sum' for col in numerical_cols}
-    agg_funcs.update({
-        'TotalDuration': 'first',  # Since it's the same within each group
-        'KernelsLaunched': 'first',  # Ditto
-        'Precision': 'first'  # Assuming Precision is consistent within groups, as per your assumption
-    })
+    agg_funcs = {f"WeightedAvg_{col}": "sum" for col in numerical_cols}
+    agg_funcs.update(
+        {
+            "TotalDuration": "first",  # Since it's the same within each group
+            "KernelsLaunched": "first",  # Ditto
+            "Precision": "first",  # Assuming Precision is consistent within groups, as per your assumption
+        }
+    )
 
-    result_df = df.groupby('Params').agg(agg_funcs).reset_index()
+    result_df = df.groupby("Params").agg(agg_funcs).reset_index()
 
     # Cleanup and rename as needed
     # For example, drop the 'WeightedAvg_' prefix
-    result_df.columns = [col.replace('WeightedAvg_', '') if 'WeightedAvg_' in col else col for col in result_df.columns]
+    result_df.columns = [
+        col.replace("WeightedAvg_", "") if "WeightedAvg_" in col else col
+        for col in result_df.columns
+    ]
 
     return result_df
 
 
 def get_fc_flops(row):
-    return row['Inputs'] * (2 * row['Input Size'] + 1) * row['Output Size'] / (10**3)
+    return row["Inputs"] * (2 * row["Input Size"] + 1) * row["Output Size"] / (10**3)
