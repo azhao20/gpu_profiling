@@ -3,7 +3,7 @@
 # assumes relevant modules have been loaded, e.g., via initconda.sh
 export HOME="/n/holylabs/LABS/idreos_lab/Users/azhao"
 
-DATA_DIR=$HOME/gpu_profiling/data
+DATA_DIR=$HOME/gpu_profiling/data/
 TRAIN_DIR=$DATA_DIR/train_models
 EVAL_DIR=$DATA_DIR/eval_models
 FINAL_DIR=$DATA_DIR/final_models
