@@ -51,8 +51,8 @@ class TimeProcessorMM(TimeProcessorBase):
     def get_data(self, sample_rate: float = 0.5):
         dfs = []
         for n in tqdm(self.n_values):
-            file_path = os.path.join(self.data_dir, f"time.{n}.csv")
-            df = pd.read_csv(file_path, header=0).sample(frac=sample_rate)
+            file_path = os.path.join(self.data_dir, f"time.{n}.pkl")
+            df = pd.read_pickle(file_path).sample(frac=sample_rate)
             df.rename(
                 columns={"Kernel Name": "kernel_params", "Latency (ms)": "time"},
                 inplace=True,
@@ -89,8 +89,8 @@ class TimeProcessorBMM(TimeProcessorBase):
     def get_data(self, sample_rate: float = 0.5):
         dfs = []
         for n in tqdm(self.n_values):
-            file_path = os.path.join(self.data_dir, f"time.{n}.csv")
-            df = pd.read_csv(file_path, header=0).sample(frac=sample_rate)
+            file_path = os.path.join(self.data_dir, f"time.{n}.pkl")
+            df = pd.read_pickle(file_path).sample(frac=sample_rate)
             df.rename(
                 columns={"Kernel Name": "kernel_params", "Latency (ms)": "time"},
                 inplace=True,
@@ -150,8 +150,8 @@ class TimeProcessorSDPA(TimeProcessorBase):
         backends = ["flash", "efficient"]
 
         for dtype, backend, h in tqdm(product(dtypes, backends, self.num_heads)):
-            file_path = os.path.join(self.data_dir, f"time.{dtype}.{backend}.{h}.csv")
-            df = pd.read_csv(file_path, header=0).sample(frac=sample_rate)
+            file_path = os.path.join(self.data_dir, f"time.{dtype}.{backend}.{h}.pkl")
+            df = pd.read_pickle(file_path).sample(frac=sample_rate)
             df.rename(
                 columns={
                     "Kernel Name": "kernel_params",
@@ -164,8 +164,8 @@ class TimeProcessorSDPA(TimeProcessorBase):
         dtype = "32"
         backend = "efficient"
         for h in tqdm(self.num_heads):
-            file_path = os.path.join(self.data_dir, f"time.{dtype}.{backend}.{h}.csv")
-            df = pd.read_csv(file_path, header=0).sample(frac=sample_rate)
+            file_path = os.path.join(self.data_dir, f"time.{dtype}.{backend}.{h}.pkl")
+            df = pd.read_pickle(file_path).sample(frac=sample_rate)
             df.rename(
                 columns={"Kernel Name": "kernel_params", "Latency (ms)": "time"},
                 inplace=True,
@@ -278,9 +278,9 @@ class TimeProcessorConv2d(TimeProcessorBase):
         dfs = []
 
         for iH, iW, transposed in tqdm(product(self.iH, self.iW, self.transposed)):
-            file_name = f"time.{iH}.{iW}.{transposed}.csv"
+            file_name = f"time.{iH}.{iW}.{transposed}.pkl"
             file_path = os.path.join(self.data_dir, file_name)
-            df = pd.read_csv(file_path, header=0).sample(frac=sample_rate)
+            df = pd.read_pickle(file_path).sample(frac=sample_rate)
             df.rename(
                 columns={
                     "Kernel Name": "kernel_params",
