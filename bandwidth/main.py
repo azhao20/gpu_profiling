@@ -1,11 +1,12 @@
 import argparse
 import os
 import torch
-import tqdm
 
 import numpy as np
 import pandas as pd
 
+from itertools import product
+from tqdm import tqdm
 
 class ProfileBandwidth:
     """
@@ -18,9 +19,9 @@ class ProfileBandwidth:
     def __init__(
         self,
         gpu: str,
-        smallest_size: int = 15,
-        largest_size: int = 33,
-        granularity: int = 512,
+        smallest_size: int = 2**8,
+        largest_size: int = 2**17, # 2^34 = O(17e9), 2^36 = O(69e9). Remember: need to 4x.
+        granularity: int = 1024,
         warmup_reps: int = 2,
         profile_reps: int = 10,
     ):
@@ -29,27 +30,40 @@ class ProfileBandwidth:
 
         self.gpu = gpu
 
-        self.WARMUP_REPS = warmup_reps
-        self.PROFILE_REPS = profile_reps
-        self.NREPS = self.WARMUP_REPS + self.PROFILE_REPS
-
         self.smallest_size = smallest_size
         self.largest_size = largest_size
         self.granularity = granularity
 
-    def _time_fn(self, size) -> np.float32:
-        A = torch.randn(size, size, dtype=np.float32, device=self.device)
+        self.WARMUP_REPS = warmup_reps
+        self.PROFILE_REPS = profile_reps
+        self.NREPS = self.WARMUP_REPS + self.PROFILE_REPS
+        
+        self.dtype_map = {
+            # 8: torch.float8_e5m2, # No support for float8 yet.
+            "b16": torch.bfloat16,
+            "16": torch.float16,
+            "32": torch.float32,
+        }
+
+    def _time_fn(self, size: int, dtype: str) -> np.float32:
+        A = torch.randn(size, size, device=self.device, dtype=self.dtype_map[dtype])
 
         starts = [torch.cuda.Event(enable_timing=True) for _ in range(self.NREPS)]
         ends = [torch.cuda.Event(enable_timing=True) for _ in range(self.NREPS)]
 
+        with torch.no_grad():
+            for i in range(self.NREPS):
+                torch.cuda.synchronize()
+                starts[i].record()
+
+                _ = torch.relu(A)
+
+                ends[i].record()
+                torch.cuda.synchronize()
+
+                torch.cuda.empty_cache()
+        del A
         torch.cuda.empty_cache()
-        for i in range(self.NREPS):
-            starts[i].record()
-            result = torch.relu(A)
-            ends[i].record()
-            del result
-        torch.cuda.synchronize()
 
         return np.median(
             [
@@ -63,18 +77,18 @@ class ProfileBandwidth:
         Returns time in ms.
         """
         results = []
-        for size in tqdm(
-            range(self.smallest_size, self.largest_size + 1, self.granularity)
+        for size, dtype in tqdm(
+            product(range(self.smallest_size, self.largest_size + 1, self.granularity), self.dtype_map.keys())
         ):
             try:
-                time = self._time_fn(size)
-            except Exception as _:
-                time = -1
-            results.append([size**2, time])
-        df = pd.DataFrame(results, columns=["FLOPs", "Time"])
+                time = self._time_fn(size, dtype)
+            except Exception as e:
+                time = e
+            results.append([dtype, size, time])
+        df = pd.DataFrame(results, columns=["dtype", "Size", "Time"])
 
         out_file = os.path.join(out_dir, f"{self.gpu}.csv")
-        df.to_csv(out_file)
+        df.to_csv(out_file, index=False)
 
 
 def get_args():

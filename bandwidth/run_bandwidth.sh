@@ -19,4 +19,4 @@ mkdir -p $OUT_DIR
 
 source $HOME_DIR/gpu_profiling/sh/initconda.sh
 
-$HOME_DIR/env/bin/python3 $SCRIPT_DIR/main.py --gpu $1 --out_dir $OUT_DIR
+$HOME_DIR/env/bin/python3 $SCRIPT_DIR/main.py --gpu "a100" --out_dir $OUT_DIR
