@@ -2,11 +2,18 @@ from abc import abstractmethod
 import pandas as pd
 import os
 import math
+import torch
 
-from torch.utils.flop_counter import sdpa_flop_count, conv_flop_count
+from torch.utils.flop_counter import (
+    sdpa_flop_count,
+    conv_flop_count,
+    sdpa_backward_flop_count,
+    get_shape,
+)
 from tqdm import tqdm
 
 from itertools import product
+
 
 class TimeProcessorBase:
     kernel_type: str = "UNINITIALIZED"
@@ -111,6 +118,7 @@ class TimeProcessorSDPA(TimeProcessorBase):
         super().__init__(base_dir)
         self.kernel_type = "sdpa" if is_forward else "sdpa_backward"
         self.num_heads = [4, 8, 12, 16]
+        self.is_forward = is_forward
 
     def split_params(self, row) -> pd.Series:
         params = row["kernel_params"].split(".")
@@ -132,14 +140,25 @@ class TimeProcessorSDPA(TimeProcessorBase):
         )
 
     def compute_flops(self, df: pd.DataFrame) -> pd.DataFrame:
-        flops = df.apply(
-            lambda row: sdpa_flop_count(
-                (row["b"], row["h"], row["s_q"], row["d_qk"]),
-                (row["b"], row["h"], row["s_kv"], row["d_qk"]),
-                (row["b"], row["h"], row["s_kv"], row["d_v"]),
-            ),
-            axis=1,
-        )
+        if self.is_forward:
+            flops = df.apply(
+                lambda row: sdpa_flop_count(
+                    (row["b"], row["h"], row["s_q"], row["d_qk"]),
+                    (row["b"], row["h"], row["s_kv"], row["d_qk"]),
+                    (row["b"], row["h"], row["s_kv"], row["d_v"]),
+                ),
+                axis=1,
+            )
+        else:
+            flops = df.apply(
+                lambda row: sdpa_backward_flop_count(
+                    grad_out_shape=(row["b"], row["h"], row["s_q"], row["d_v"]),
+                    query_shape=(row["b"], row["h"], row["s_q"], row["d_qk"]),
+                    key_shape=(row["b"], row["h"], row["s_kv"], row["d_qk"]),
+                    value_shape=(row["b"], row["h"], row["s_kv"], row["d_v"]),
+                ),
+                axis=1,
+            )
         df["gflops"] = flops / (10**9)
         return df
 
@@ -188,6 +207,7 @@ class TimeProcessorConv2d(TimeProcessorBase):
         self.kernel_type = "conv2d" if is_forward else "conv2d_backward"
         self.iH = self.iW = [2, 8, 32, 128, 512, 1024]
         self.transposed = [0, 1]
+        self.is_forward = is_forward
 
     def split_params(self, row):
         params = row["kernel_params"].split(".")
@@ -211,64 +231,146 @@ class TimeProcessorConv2d(TimeProcessorBase):
             ],
         )
 
-    def compute_out_shape(
-        self,
-        x_shape: list[int],
-        w_shape: list[int],
-        stride: int,
-        padding: int = 0,
-        dilation: int = 1,
-        transposed: bool = False,
-        output_padding: int = 0,
-    ) -> list[int]:
-        batch_size, _, iH, iW = x_shape
-        c_out, _, kH, kW = w_shape
+    @staticmethod
+    def compute_out_shape(row: pd.Series) -> pd.Series:
+        transposed = row["transposed"]
+        iH = row["iH"]
+        iW = row["iW"]
+        stride = row["stride"]
+        dilation = row["dilation"]
+        kH = row["kH"]
+        kW = row["kW"]
+        padding = row.get("padding", 0)
+        output_padding = row.get("output_padding", 0)
 
         if transposed:
             oH = (
                 stride * (iH - 1)
+                - 2 * padding
                 + dilation * (kH - 1)
                 + output_padding
-                - 2 * padding
                 + 1
             )
             oW = (
                 stride * (iW - 1)
+                - 2 * padding
                 + dilation * (kW - 1)
                 + output_padding
-                - 2 * padding
                 + 1
             )
         else:
             oH = math.floor((iH + 2 * padding - dilation * (kH - 1) - 1) / stride + 1)
             oW = math.floor((iW + 2 * padding - dilation * (kW - 1) - 1) / stride + 1)
 
-        return [batch_size, c_out, oH, oW]
+        return pd.Series([oH, oW], index=["oH", "oW"])
+
+    def conv_backward_flop(
+        self,
+        grad_out_shape,
+        x_shape,
+        w_shape,
+        _bias,
+        _stride,
+        _padding,
+        _dilation,
+        transposed,
+        _output_padding,
+        _groups,
+        output_mask,
+        out_shape,
+    ) -> int:
+
+        def t(shape):
+            return [shape[1], shape[0]] + list(shape[2:])
+
+        flop_count = 0
+
+        # grad_inp as conv_transpose(grad_out, weight)
+        if output_mask[0]:
+            grad_input_shape = get_shape(out_shape[0])
+            flop_count += conv_flop_count(
+                grad_out_shape, w_shape, grad_input_shape, not transposed
+            )
+
+        if output_mask[1]:
+            grad_weight_shape = get_shape(out_shape[1])
+            if transposed:
+                # grad_weight of transposed conv as conv(grad_out, inp)
+                flop_count += conv_flop_count(
+                    t(grad_out_shape),
+                    t(x_shape),
+                    t(grad_weight_shape),
+                    transposed=False,
+                )
+            else:
+                # grad_weight as conv(inp, grad_out)
+                flop_count += conv_flop_count(
+                    t(x_shape),
+                    t(grad_out_shape),
+                    t(grad_weight_shape),
+                    transposed=False,
+                )
+
+        return flop_count
 
     def compute_flops(self, df: pd.DataFrame) -> pd.DataFrame:
-        flops = df.apply(
-            lambda row: conv_flop_count(
-                x_shape=[row["b"], row["in_channels"], row["iH"], row["iW"]],
-                w_shape=[row["out_channels"], row["in_channels"], row["kH"], row["kW"]],
-                out_shape=self.compute_out_shape(
+        df[["oH", "oW"]] = df.apply(TimeProcessorConv2d.compute_out_shape, axis=1)
+
+        if self.is_forward:
+            flops = df.apply(
+                lambda row: conv_flop_count(
                     x_shape=[row["b"], row["in_channels"], row["iH"], row["iW"]],
                     w_shape=[
                         row["out_channels"],
-                        row["in_channels"],
+                        row["in_channels"] // row["groups"],
                         row["kH"],
                         row["kW"],
                     ],
-                    stride=row["stride"],
-                    padding=0,
-                    dilation=row["dilation"],
+                    out_shape=[row["b"], row["out_channels"], row["oH"], row["oW"]],
                     transposed=bool(row["transposed"]),
-                    output_padding=0,
                 ),
-                transposed=bool(row["transposed"]),
-            ),
-            axis=1,
-        )
-        df["gflops"] = flops / (10**9)
+                axis=1,
+            )
+        else:
+            flops = df.apply(
+                lambda row: self.conv_backward_flop(
+                    grad_out_shape=[
+                        row["b"],
+                        row["out_channels"],
+                        row["oH"],
+                        row["oW"],
+                    ],
+                    x_shape=[row["b"], row["in_channels"], row["iH"], row["iW"]],
+                    w_shape=[
+                        row["out_channels"],
+                        row["in_channels"] // row["groups"],
+                        row["kH"],
+                        row["kW"],
+                    ],
+                    _bias=row.get("bias", False),
+                    _stride=row["stride"],
+                    _padding=0,
+                    _dilation=row["dilation"],
+                    transposed=bool(row["transposed"]),
+                    _output_padding=0,
+                    _groups=row["groups"],
+                    output_mask=[
+                        row.get("compute_grad_input", False),
+                        row.get("compute_grad_weight", True),
+                    ],
+                    out_shape=[
+                        [row["b"], row["in_channels"], row["oH"], row["oW"]],
+                        [
+                            row["out_channels"],
+                            row["in_channels"] // row["groups"],
+                            row["kH"],
+                            row["kW"],
+                        ],
+                    ],
+                ),
+                axis=1,
+            )
+        df["gflops"] = flops / (1e9)
         return df
 
     def get_data(self, sample_rate: float = 0.5) -> pd.DataFrame:
@@ -291,7 +393,7 @@ class TimeProcessorConv2d(TimeProcessorBase):
 
             if (df["time"] < 0).sum() > 0:
                 print(f"< 0 found in file {file_name}")
-                continue
+                # continue
             dfs.append(df.apply(self.split_params, axis=1))
 
         dfs = pd.concat(dfs, axis=0, ignore_index=True)
