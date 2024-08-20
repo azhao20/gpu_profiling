@@ -202,3 +202,23 @@ def plot_residuals(y_val, y_pred, bins=0, figsize=(10, 6)):
         plt.ylabel("Residuals")
         plt.axhline(y=0, color="r", linestyle="--")
         plt.show()
+
+
+def run_val_pipeline(model, X_train, X_val, y_train, y_val, bins=100):
+    """
+    
+    """
+    y_hat_train = model.predict(X_train)
+    y_hat_val = model.predict(X_val)
+
+    print("Train--------")
+    get_r2_score(y_train, y_hat_train)
+    plot_residuals(y_train, y_hat_train)
+    plot_residuals(y_train, y_hat_train, bins=bins)
+    plot_actual_vs_pred(y_train, y_hat_train)
+
+    print("Val--------")
+    get_r2_score(y_val, y_hat_val)
+    plot_residuals(y_val, y_hat_val)
+    plot_residuals(y_val, y_hat_val, bins=bins)
+    plot_actual_vs_pred(y_val, y_hat_val)
