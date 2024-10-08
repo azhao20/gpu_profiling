@@ -111,6 +111,7 @@ class ProfileSDPA(ProfileBase):
         self.contexts = {
             "efficient": SDPBackend.EFFICIENT_ATTENTION,
             "flash": SDPBackend.FLASH_ATTENTION,
+            "cudnn": SDPBackend.CUDNN_ATTENTION,
             # "math": SDPBackend.MATH # We don't support for now.
         }
 

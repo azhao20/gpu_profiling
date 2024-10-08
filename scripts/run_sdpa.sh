@@ -21,7 +21,7 @@ mkdir -p $OUTPUT_DIR
 
 num_heads=(4 8 12 16)
 dtypes=('b16' '16')
-backends=('flash' 'efficient')
+backends=('flash' 'efficient' 'cudnn')
 
 # Uncomment for testing purposes
 # num_heads=(8)
