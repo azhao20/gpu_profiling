@@ -65,21 +65,6 @@ def get_r2_score(y, y_hat):
     return mse, r2
 
 
-def plot_actual_vs_pred(y_val, y_pred, figsize=(10, 6)):
-    plt.figure(figsize=figsize)
-    sns.regplot(x=y_val, y=y_pred)
-
-    # Plot y = x
-    max_val = max(max(y_val), max(y_pred))
-    min_val = min(min(y_val), min(y_pred))
-    plt.plot([min_val, max_val], [min_val, max_val], "r--", label="y = x (Ideal)")
-
-    plt.title("Actual vs. Predicted")
-    plt.xlabel("Actual Values")
-    plt.ylabel("Predicted")
-    plt.show()
-
-
 def binned_scatterplot(
     df, x_col, y_col, bins=10, statistic="mean", figsize=(10, 6), with_error_bars=True
 ):
@@ -132,7 +117,7 @@ def binned_scatterplot(
     df.drop(columns=["x_binned"], inplace=True)
 
 
-def binned_scatterplot_cols(
+def binned_scatterplot_cols_with_return(
     x_col,
     y_col,
     x_label: str,
@@ -141,6 +126,7 @@ def binned_scatterplot_cols(
     statistic="mean",
     figsize=(10, 6),
     with_error_bars=True,
+    log_scale: str = "",
 ):
     x_binned = pd.cut(x_col, bins=bins)
 
@@ -169,7 +155,7 @@ def binned_scatterplot_cols(
     if with_error_bars:
         binned_stats["se"] = binned_stats["std"] / np.sqrt(binned_stats["count"])
 
-    plt.figure(figsize=figsize)
+    fig = plt.figure(figsize=figsize)
     plt.errorbar(
         x=binned_stats["x_mid"],
         y=binned_stats["mean"],
@@ -185,29 +171,100 @@ def binned_scatterplot_cols(
     plt.xlabel(f"Binned {x_label}")
     plt.ylabel(f"{statistic.capitalize()} of {y_label}")
 
+    if log_scale.find("x") != -1:
+        plt.xscale("log")
+    if log_scale.find("y") != -1:
+        plt.yscale("log")
+
     plt.tight_layout()
-    plt.show()
+    return fig
 
 
-def plot_residuals(y_val, y_pred, bins=0, figsize=(10, 6)):
+def binned_scatterplot_cols(
+    x_col,
+    y_col,
+    x_label: str,
+    y_label: str,
+    bins=10,
+    statistic="mean",
+    figsize=(10, 6),
+    with_error_bars=True,
+    log_scale: str = "",
+) -> None:
+    # Similar, except plot and return nothing
+    fig = binned_scatterplot_cols_with_return(
+        x_col,
+        y_col,
+        x_label,
+        y_label,
+        bins,
+        statistic,
+        figsize,
+        with_error_bars,
+        log_scale,
+    )
+    plt.show(fig)
+
+
+def plot_actual_vs_pred(y_val, y_pred, bins=0, log_scale: str = "", figsize=(10, 6)):
+    if bins > 0:
+        fig = binned_scatterplot_cols_with_return(
+            y_val,
+            y_pred,
+            "Actual",
+            "Predicted",
+            bins,
+            figsize=figsize,
+            log_scale=log_scale,
+        )
+    else:
+        fig = plt.figure(figsize=figsize)
+        sns.regplot(x=y_val, y=y_pred)
+        plt.title("Actual vs. Predicted")
+        plt.xlabel("Actual Values")
+        plt.ylabel("Predicted")
+        if log_scale.find("x") != -1:
+            plt.xscale("log")
+        if log_scale.find("y") != -1:
+            plt.yscale("log")
+
+    # Plot y = x
+    max_val = max(max(y_val), max(y_pred))
+    min_val = min(min(y_val), min(y_pred))
+    plt.plot([min_val, max_val], [min_val, max_val], "r--", label="y = x (Ideal)")
+
+    plt.show(fig)
+
+
+def plot_residuals(y_val, y_pred, bins=0, log_scale: str = "", figsize=(10, 6)):
     residuals = y_val - y_pred
 
     if bins > 0:
-        binned_scatterplot_cols(y_pred, residuals, "Predicted", "Residuals", bins)
+        fig = binned_scatterplot_cols_with_return(
+            y_pred,
+            residuals,
+            "Predicted",
+            "Residuals",
+            bins,
+            figsize=figsize,
+            log_scale=log_scale,
+        )
     else:
-        plt.figure(figsize=figsize)
+        fig = plt.figure(figsize=figsize)
         sns.scatterplot(x=y_pred, y=residuals)
         plt.title("Residual Plot")
         plt.xlabel("Predicted Values")
         plt.ylabel("Residuals")
-        plt.axhline(y=0, color="r", linestyle="--")
-        plt.show()
+        if log_scale.find("x") != -1:
+            plt.xscale("log")
+        if log_scale.find("y") != -1:
+            plt.yscale("log")
+    plt.axhline(y=0, color="r", linestyle="--")
+    plt.show(fig)
 
 
 def run_val_pipeline(model, X_train, X_val, y_train, y_val, bins=100):
-    """
-    
-    """
+    """ """
     y_hat_train = model.predict(X_train)
     y_hat_val = model.predict(X_val)
 
@@ -216,9 +273,11 @@ def run_val_pipeline(model, X_train, X_val, y_train, y_val, bins=100):
     plot_residuals(y_train, y_hat_train)
     plot_residuals(y_train, y_hat_train, bins=bins)
     plot_actual_vs_pred(y_train, y_hat_train)
+    plot_actual_vs_pred(y_train, y_hat_train, bins=bins)
 
     print("Val--------")
     get_r2_score(y_val, y_hat_val)
     plot_residuals(y_val, y_hat_val)
     plot_residuals(y_val, y_hat_val, bins=bins)
     plot_actual_vs_pred(y_val, y_hat_val)
+    plot_actual_vs_pred(y_val, y_hat_val, bins=bins)

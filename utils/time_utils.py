@@ -370,10 +370,12 @@ class TimeProcessorConv2d(TimeProcessorBase):
                 ),
                 axis=1,
             )
-        df["gflops"] = flops / (1e9)
+        df["gflops"] = flops * 1e-9
         return df
 
-    def get_data(self, sample_rate: float = 0.5) -> pd.DataFrame:
+    def get_data(
+        self, sample_rate: float = 0.5, ignore_invalid: bool = False
+    ) -> pd.DataFrame:
         """
         NOTE: for now, we ignore all csv's with -1 through -4, which denote errors.
         """
@@ -393,7 +395,8 @@ class TimeProcessorConv2d(TimeProcessorBase):
 
             if (df["time"] < 0).sum() > 0:
                 print(f"< 0 found in file {file_name}")
-                # continue
+                if ignore_invalid:
+                    continue
             dfs.append(df.apply(self.split_params, axis=1))
 
         dfs = pd.concat(dfs, axis=0, ignore_index=True)
