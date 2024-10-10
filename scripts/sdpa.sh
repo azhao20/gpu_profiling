@@ -4,7 +4,7 @@
 #SBATCH --mem=256000
 #SBATCH --mail-type=BEGIN,END
 #SBATCH --mail-user=apzhao@college.harvard.edu
-#SBATCH -t 7-00:00
+#SBATCH -t 3-00:00
 #SBATCH -p seas_gpu
 #SBATCH --gres=gpu:nvidia_a100-sxm4-80gb:1
 #SSBATCH -t 0-12:00

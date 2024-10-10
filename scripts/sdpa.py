@@ -56,7 +56,7 @@ def get_args_sdpa():
         "--backend",
         type=str,
         required=True,
-        choices=["flash", "efficient"],
+        choices=["flash", "efficient", "cudnn"],
         help="See https://pytorch.org/docs/stable/generated/torch.nn.attention.sdpa_kernel.html#torch.nn.attention.sdpa_kernel.",
     )
     parser.add_argument("--b", type=int, required=False, help="Batch size.")
@@ -144,7 +144,7 @@ class ProfileSDPA(ProfileBase):
             )
         return fn
 
-    def time_efficient(self, args) -> None:
+    def time_efficient_or_cudnn(self, args) -> None:
         batch_sizes = [2, 4, 8, 16, 32, 64, 128]
         sq_lengths = [32, 64, 128, 256, 512]
         skv_lengths = [32, 64, 128, 256, 512]
@@ -266,8 +266,8 @@ class ProfileSDPA(ProfileBase):
                 file.flush()
 
     def time(self, args):
-        if args.backend == "efficient":
-            self.time_efficient(args)
+        if args.backend == "efficient" or args.backend == "cudnn":
+            self.time_efficient_or_cudnn(args)
         elif args.backend == "flash":
             self.time_flash(args)
         else:
