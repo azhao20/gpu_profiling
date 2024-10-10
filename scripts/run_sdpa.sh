@@ -42,7 +42,7 @@ done
 
 # fp32 only works with efficient and math.
 dtypes=('32')
-backends=('efficient' 'cudnn')
+backends=('efficient')
 
 # Uncomment for testing purposes
 # backends=('efficient')
