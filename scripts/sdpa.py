@@ -144,10 +144,10 @@ class ProfileSDPA(ProfileBase):
             )
         return fn
 
-    def time_efficient_or_cudnn(self, args) -> None:
+    def time_efficient(self, args) -> None:
         batch_sizes = [2, 4, 8, 16, 32, 64, 128]
-        sq_lengths = [32, 64, 128, 256, 512]
-        skv_lengths = [32, 64, 128, 256, 512]
+        sq_lengths = [32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
+        skv_lengths = [32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
         dqk_sizes = [32, 64, 128, 256]
         dv_sizes = [32, 64, 128, 256]
 
@@ -194,7 +194,7 @@ class ProfileSDPA(ProfileBase):
                     )
                 file.flush()
 
-    def time_flash(self, args):
+    def time_flash_or_cudnn(self, args):
         """
         For the flash backend, there are constraints on the parameters.
 
@@ -205,8 +205,8 @@ class ProfileSDPA(ProfileBase):
         dqkv_sizes = [i for i in range(16, 256 + 1, 16)]
 
         # For non-causal
-        sq_lengths = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096]
-        skv_lengths = [32, 64, 128, 256, 512, 1024, 2048]
+        sq_lengths = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
+        skv_lengths = [32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
         # For causal, these lengths are the same.
         sqkv_lengths = [
             2,
@@ -223,6 +223,7 @@ class ProfileSDPA(ProfileBase):
             2048,
             3072,
             4096,
+            8192,
         ]
 
         # Uncomment for testing
@@ -267,9 +268,9 @@ class ProfileSDPA(ProfileBase):
 
     def time(self, args):
         if args.backend == "efficient" or args.backend == "cudnn":
-            self.time_efficient_or_cudnn(args)
+            self.time_efficient(args)
         elif args.backend == "flash":
-            self.time_flash(args)
+            self.time_flash_or_cudnn(args)
         else:
             raise ValueError(f"Backend {args.backend} not supported")
 
