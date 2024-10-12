@@ -1,9 +1,6 @@
 #!/bin/bash
 
-module load python/3.10.12-fasrc01
-
 HOME_DIR="/n/holylabs/LABS/idreos_lab/Users/azhao"
-SCRIPT_DIR="$HOME_DIR/gpu_profiling/scripts"
 OUTPUT_DIR="/n/holyscratch01/idreos_lab/Users/azhao/sdpa_times"
 
 if [ "$1" = "1" ]; then
@@ -35,7 +32,7 @@ do
         for h in "${num_heads[@]}"
         do
             JOB_FILE=$OUTPUT_DIR/$dtype.$backend.$h
-            sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err $SCRIPT_DIR/sdpa.sh $dtype $backend $h $1
+            sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err scripts/sdpa.sh $dtype $backend $h $1
         done
     done
 done
@@ -54,7 +51,7 @@ do
         for h in "${num_heads[@]}"
         do
             JOB_FILE=$OUTPUT_DIR/$dtype.$backend.$h
-            sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err $SCRIPT_DIR/sdpa.sh $dtype $backend $h $1
+            sbatch -o $JOB_FILE.%j.out -e $JOB_FILE.%j.err scripts/sdpa.sh $dtype $backend $h $1
         done
     done
 done
