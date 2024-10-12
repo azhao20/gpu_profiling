@@ -96,7 +96,7 @@ class ProfileBase:
         self,
         pytorch_min_allocate: int = 512,
         warmup_reps: int = 2,
-        profile_reps: int = 10,
+        profile_reps: int = 5,
         ncu_warmup_reps: int = 5,
     ):
         """
