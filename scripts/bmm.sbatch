@@ -7,12 +7,12 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --gres=gpu:1
 #SBATCH --time=3-00:00
-#SBATCH --array=1-76
+#SBATCH --array=2-76
 #SBATCH --mem=64gb
 #SBATCH --output=/n/holyscratch01/idreos_lab/Users/spurandare/gpu_profiling/experiments/job_logs/bmm/bmm_%x_%j.out
 #SBATCH --error=/n/holyscratch01/idreos_lab/Users/spurandare/gpu_profiling/experiments/job_logs/bmm/bmm_%x_%j.err
 #SBATCH --open-mode=append
-#SBATCH --chdir=/n/holyscratch01/idreos_lab/Users/spurandare/gpu_profiling/scripts
+#SBATCH --chdir=/n/holyscratch01/idreos_lab/Users/spurandare/gpu_profiling/
 
 DATA_DIR=/n/holyscratch01/idreos_lab/Users/spurandare/gpu_profiling/experiments/data/bmm
 
@@ -34,4 +34,4 @@ if [ -f "$FINAL_CSV" ]; then
     rm "$FINAL_CSV"
 fi
 
-python bmm.py --mode 'time' --n $n --out_file $FINAL_CSV
+python scripts/bmm.py --mode 'time' --n $n --out_file $FINAL_CSV

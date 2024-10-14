@@ -53,6 +53,7 @@ class ProfileBMM(ProfileBase):
 
             for dname in tqdm(self.dtype_map):
                 for b, m, p in product(self.batches, self.sizes, self.sizes):
+                    print(dname, b, m, p)
                     args.b = b
                     args.m = m
                     args.p = p
