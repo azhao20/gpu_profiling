@@ -21,3 +21,6 @@ data/linear/time_data/linear.time.function.csv
 
 # Sensitive data
 sh/.env
+
+# Job logs
+experiments/job_logs
