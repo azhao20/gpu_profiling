@@ -62,7 +62,7 @@ fi
 # Iterate over the remaining hyperparameters.
 kernel_sizes=(3 5 7)
 dtypes=("16" "32" "b16")
-strides=(1 2)
+strides=(1)
 dilations=(1)
 
 if [ "$TRANSPOSED" -eq 1 ]; then
