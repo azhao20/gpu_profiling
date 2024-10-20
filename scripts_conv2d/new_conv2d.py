@@ -33,15 +33,15 @@ def get_args_conv2d():
     parser.add_argument(
         "--dtype",
         type=str,
-        required=False,
+        required=True,
         choices=["32", "b16", "16"],
         help="Data type flag.",
     )
 
     # input
-    parser.add_argument("--b", type=int, required=False, help="Batch size.")
+    parser.add_argument("--b", type=int, required=True, help="Batch size.")
     parser.add_argument(
-        "--in_channels", type=int, required=False, help="Number of input channels."
+        "--in_channels", type=int, required=True, help="Number of input channels."
     )
     parser.add_argument(
         "--iH", type=int, required=True, help="Height of the input image."
@@ -52,19 +52,19 @@ def get_args_conv2d():
 
     # weight
     parser.add_argument(
-        "--out_channels", type=int, required=False, help="Number of output channels."
+        "--out_channels", type=int, required=True, help="Number of output channels."
     )
     parser.add_argument(
         "--groups",
         type=int,
-        required=False,
+        required=True,
         help="Number of groups for grouped convolution.",
     )
     parser.add_argument(
-        "--kH", type=int, required=False, help="Height of the convolution kernel."
+        "--kH", type=int, required=True, help="Height of the convolution kernel."
     )
     parser.add_argument(
-        "--kW", type=int, required=False, help="Width of the convolution kernel."
+        "--kW", type=int, required=True, help="Width of the convolution kernel."
     )
 
     # other params
@@ -72,12 +72,12 @@ def get_args_conv2d():
     parser.add_argument(
         "--stride",
         type=int,
-        required=False,
+        required=True,
         help="Stride of the convolution (only support number).",
     )
     # parser.add_argument("--padding", type=int, required=True, help="We only support a number for now.")
     parser.add_argument(
-        "--dilation", type=int, required=False, help="Dilation of the convolution."
+        "--dilation", type=int, required=True, help="Dilation of the convolution."
     )
     parser.add_argument(
         "--transposed",

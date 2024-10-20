@@ -34,8 +34,8 @@ def main():
     """
     Save csv's as pkl files.
     """
-    BASE_DIR = "/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data"
-    subdirectories = ["final", "linear"]
+    BASE_DIR = "/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/final"
+    subdirectories = ["sdpa", "sdpa_backward"]
 
     for subdir in subdirectories:
         path = os.path.join(BASE_DIR, subdir)
