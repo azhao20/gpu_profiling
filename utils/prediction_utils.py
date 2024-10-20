@@ -263,21 +263,29 @@ def plot_residuals(y_val, y_pred, bins=0, log_scale: str = "", figsize=(10, 6)):
     plt.show(fig)
 
 
-def run_val_pipeline(model, X_train, X_val, y_train, y_val, bins=100):
+def run_val_pipeline(model, X_train, X_val, y_train, y_val, bins=100, figsize=(6, 4)):
     """ """
     y_hat_train = model.predict(X_train)
     y_hat_val = model.predict(X_val)
 
     print("Train--------")
     get_r2_score(y_train, y_hat_train)
-    plot_residuals(y_train, y_hat_train)
-    plot_residuals(y_train, y_hat_train, bins=bins)
-    plot_actual_vs_pred(y_train, y_hat_train)
-    plot_actual_vs_pred(y_train, y_hat_train, bins=bins)
+    plot_residuals(y_train, y_hat_train, figsize=figsize)
+    plot_residuals(y_train, y_hat_train, bins=bins, figsize=figsize)
+    plot_actual_vs_pred(y_train, y_hat_train, figsize=figsize)
+    plot_actual_vs_pred(y_train, y_hat_train, bins=bins, figsize=figsize)
 
     print("Val--------")
     get_r2_score(y_val, y_hat_val)
-    plot_residuals(y_val, y_hat_val)
-    plot_residuals(y_val, y_hat_val, bins=bins)
-    plot_actual_vs_pred(y_val, y_hat_val)
-    plot_actual_vs_pred(y_val, y_hat_val, bins=bins)
+    plot_residuals(y_val, y_hat_val, figsize=figsize)
+    plot_residuals(y_val, y_hat_val, bins=bins, figsize=figsize)
+    plot_actual_vs_pred(y_val, y_hat_val, figsize=figsize)
+    plot_actual_vs_pred(y_val, y_hat_val, bins=bins, figsize=figsize)
+
+def get_feature_importance(features, model) -> pd.DataFrame:
+    feature_importances = model.feature_importances_
+    features_df = pd.DataFrame({
+        'Feature': features,
+        'Importance': feature_importances
+    })
+    return features_df.sort_values(by='Importance', ascending=False)
