@@ -16,15 +16,9 @@ from itertools import product
 
 
 class TimeProcessorBase:
-    kernel_type: str = "UNINITIALIZED"
-
-    def __init__(self, base_dir: str):
-        """base_dir points to the repository root."""
-        self.base_dir = base_dir
-
-    @property
-    def data_dir(self) -> str:
-        return os.path.join(self.base_dir, "data/final", self.kernel_type)
+    def __init__(self, base_dir: str, kernel_type: str):
+        """base_dir points to root root of the data directory."""
+        self.data_dir = os.path.join(base_dir, kernel_type)
 
     @abstractmethod
     def split_params(self, row) -> pd.Series:
@@ -39,8 +33,7 @@ class TimeProcessorBase:
 
 class TimeProcessorMM(TimeProcessorBase):
     def __init__(self, base_dir: str):
-        super().__init__(base_dir)
-        self.kernel_type = "mm"
+        super().__init__(base_dir, "mm")
         self.n_values = (
             list(range(16, 496, 16))
             + list(range(512, 1920, 128))
@@ -77,8 +70,7 @@ class TimeProcessorMM(TimeProcessorBase):
 
 class TimeProcessorBMM(TimeProcessorBase):
     def __init__(self, base_dir: str):
-        super().__init__(base_dir)
-        self.kernel_type = "bmm"
+        super().__init__(base_dir, "bmm")
         self.n_values = (
             list(range(16, 496, 16))
             + list(range(512, 1920, 128))
@@ -115,8 +107,8 @@ class TimeProcessorBMM(TimeProcessorBase):
 
 class TimeProcessorSDPA(TimeProcessorBase):
     def __init__(self, base_dir: str, is_forward: bool = True):
-        super().__init__(base_dir)
-        self.kernel_type = "sdpa" if is_forward else "sdpa_backward"
+        kernel_type = "sdpa" if is_forward else "sdpa_backward"
+        super().__init__(base_dir, kernel_type)
         self.num_heads = [4, 8, 12, 16]
         self.is_forward = is_forward
 
@@ -166,7 +158,7 @@ class TimeProcessorSDPA(TimeProcessorBase):
         dfs = []
 
         dtypes = ["b16", "16"]
-        backends = ["flash", "efficient"]
+        backends = ["flash", "efficient", "cudnn"]
 
         for dtype, backend, h in tqdm(product(dtypes, backends, self.num_heads)):
             file_path = os.path.join(self.data_dir, f"time.{dtype}.{backend}.{h}.pkl")
@@ -203,10 +195,12 @@ class TimeProcessorSDPA(TimeProcessorBase):
 
 class TimeProcessorConv2d(TimeProcessorBase):
     def __init__(self, base_dir: str, is_forward: bool = True):
-        super().__init__(base_dir)
-        self.kernel_type = "conv2d" if is_forward else "conv2d_backward"
-        self.iH = self.iW = [2, 8, 32, 128, 512, 1024]
+        kernel_type = "conv2d" if is_forward else "conv2d_backward"
+        super().__init__(base_dir, kernel_type)
+        self.iH = [32, 64, 128, 224, 336, 448, 512, 784, 1120]
         self.transposed = [0, 1]
+        self.group_sizes = [1, 16, 64, 128, 256, 512, 768, 1024]
+        self.batch_sizes = [2, 4, 8, 16, 32]
         self.is_forward = is_forward
 
     def split_params(self, row):
@@ -381,9 +375,15 @@ class TimeProcessorConv2d(TimeProcessorBase):
         """
         dfs = []
 
-        for iH, iW, transposed in tqdm(product(self.iH, self.iW, self.transposed)):
-            file_name = f"time.{iH}.{iW}.{transposed}.pkl"
+        missing_file_count = 0
+        for iH, transposed, group_size, batch_size in tqdm(
+            product(self.iH, self.transposed, self.group_sizes, self.batch_sizes)
+        ):
+            file_name = f"time.{iH}.{transposed}.{group_size}.{batch_size}.pkl"
             file_path = os.path.join(self.data_dir, file_name)
+            if not os.path.isfile(file_path):
+                missing_file_count += 1
+                continue
             df = pd.read_pickle(file_path).sample(frac=sample_rate)
             df.rename(
                 columns={
@@ -398,6 +398,9 @@ class TimeProcessorConv2d(TimeProcessorBase):
                 if ignore_invalid:
                     continue
             dfs.append(df.apply(self.split_params, axis=1))
+
+        if missing_file_count > 0:
+            print(f"Missing {missing_file_count} files")
 
         dfs = pd.concat(dfs, axis=0, ignore_index=True)
         dfs["dtype"] = dfs["dtype"].astype("category")
