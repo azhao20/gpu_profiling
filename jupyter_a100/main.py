@@ -37,6 +37,7 @@ def get_args():
 
 def main():
     args = get_args()
+    print(args)
     op_type = args.op_type
     if args.device == "a100":
         base_dir = "/n/holylabs/LABS/idreos_lab/Users/azhao/gpu_profiling/data/final/"
@@ -59,7 +60,7 @@ def main():
     tree_model = RandomForestRegressor(random_state=random_seed)
 
     param_dist = {
-        "max_depth": [50, 80, 100, 150, 200],
+        "max_depth": [10, 50, 80, 100, 150, 200],
         "min_samples_split": [2, 5, 10],
         "min_samples_leaf": [2, 5, 10],
         "max_features": [10, 20, 50, 100, 1.0, "sqrt"],
