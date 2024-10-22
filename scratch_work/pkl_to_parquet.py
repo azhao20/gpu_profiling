@@ -36,8 +36,8 @@ def main():
     """
     Convert CSV files to Parquet files in the specified root directory.
     """
-    BASE_DIR = "/Users/andrew/Desktop/Harvard/idreos-research/gpu_profiling/data/final"
-    subdirectories = ["sdpa", "sdpa_backward", "conv2d", "conv2d_backward", "mm", "bmm", "sdpa_backward_old", "sdpa_old"]
+    BASE_DIR = "/n/holyscratch01/idreos_lab/Users/azhao/conv2d_data/gpu_profiling/data/final"
+    subdirectories = ["conv2d"]
 
     for subdir in subdirectories:
         path = os.path.join(BASE_DIR, subdir)
