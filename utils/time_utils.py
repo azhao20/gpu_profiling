@@ -392,7 +392,7 @@ class TimeProcessorConv2d(TimeProcessorBase):
                 },
                 inplace=True,
             )
-
+            df['time'] = df['time'].astype(float)
             if (df["time"] < 0).sum() > 0:
                 print(f"< 0 found in file {file_name}")
                 if ignore_invalid:
