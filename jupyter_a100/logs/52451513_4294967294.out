@@ -1,0 +1,26 @@
+Namespace(op_type='bmm', device='h100', n_iter=10)
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 19961856 entries, 0 to 19961855
+Data columns (total 8 columns):
+ #   Column     Dtype  
+---  ------     -----  
+ 0   b          int64  
+ 1   n          int64  
+ 2   m          int64  
+ 3   p          int64  
+ 4   gflops     float64
+ 5   dtype_16   bool   
+ 6   dtype_32   bool   
+ 7   dtype_b16  bool   
+dtypes: bool(3), float64(1), int64(4)
+memory usage: 818.6 MB
+Best parameters found:  {'n_estimators': 50, 'min_samples_split': 10, 'min_samples_leaf': 2, 'max_features': 1.0, 'max_depth': 50}
+Best MSE found:  -6.44160926804467
+Train--------
+Mean Squared Error: 2.7547560206204005
+MAPE: 0.018096556875911295
+R-squared: 0.999322709511517
+Val--------
+Mean Squared Error: 5.647897474642416
+MAPE: 0.025934278068671383
+R-squared: 0.99861377894293

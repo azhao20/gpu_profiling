@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH -J run_search
 #SBATCH -c 16
-#SBATCH --mem=64000
+#SBATCH --mem=256000
 #SBATCH --mail-type=BEGIN,END
 #SBATCH --mail-user=apzhao@college.harvard.edu
 #SBATCH -t 1-00:00

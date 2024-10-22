@@ -203,7 +203,7 @@ def binned_scatterplot_cols(
         with_error_bars,
         log_scale,
     )
-    plt.show(fig)
+    plt.show()
 
 
 def plot_actual_vs_pred(y_val, y_pred, bins=0, log_scale: str = "", figsize=(10, 6)):
@@ -233,7 +233,7 @@ def plot_actual_vs_pred(y_val, y_pred, bins=0, log_scale: str = "", figsize=(10,
     min_val = min(min(y_val), min(y_pred))
     plt.plot([min_val, max_val], [min_val, max_val], "r--", label="y = x (Ideal)")
 
-    plt.show(fig)
+    plt.show()
 
 
 def plot_residuals(y_val, y_pred, bins=0, log_scale: str = "", figsize=(10, 6)):
@@ -260,7 +260,7 @@ def plot_residuals(y_val, y_pred, bins=0, log_scale: str = "", figsize=(10, 6)):
         if log_scale.find("y") != -1:
             plt.yscale("log")
     plt.axhline(y=0, color="r", linestyle="--")
-    plt.show(fig)
+    plt.show()
 
 
 def run_val_pipeline(model, X_train, X_val, y_train, y_val, bins=100, figsize=(6, 4)):
